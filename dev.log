@@ -11,3 +11,37 @@
  ✓ Starting...
  ✓ Ready in 5.7s
  ○ Compiling / ...
+ ✓ Compiled / in 70.5s
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.5verbaykn73'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.5verbaykn73'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 27.2s
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.1qubz53b15o'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.1qubz53b15o'
+}
+[Error: ENOENT: no such file or directory, open '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.5verbaykn73'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.5verbaykn73'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.xvvipt6rpwl'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.xvvipt6rpwl'
+}
+[Error: ENOENT: no such file or directory, open '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.42cohcyubij'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hm/Documents/AES-pan-african-project/my-app/.next/static/development/_buildManifest.js.tmp.42cohcyubij'
+}
+ ✓ Compiled in 8.6s
