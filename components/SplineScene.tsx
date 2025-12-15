@@ -1,15 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Spline from '@splinetool/react-spline/next';
 import { useState } from "react";
-
-const Spline = dynamic(
-  () => import("@splinetool/react-spline/dist/react-spline-next.js").then((mod) => mod.default),
-  {
-    ssr: false,
-    loading: () => null,
-  }
-);
 
 interface SplineSceneProps {
   scene?: string;

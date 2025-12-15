@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-// import { SplineScene } from "@/components/SplineScene";
+import { SplineScene } from "@/components/SplineScene";
 import { HeroText } from "@/components/HeroText";
 
 export function Hero() {
@@ -47,8 +47,7 @@ export function Hero() {
         </div>
 
         {/* Right Side - 3D Robot */}
-        {/* Temporarily disabled for production build compatibility */}
-        {/* <motion.div
+        <motion.div
           className="hidden lg:block absolute -right-20 xl:right-0 top-0 w-[50%] xl:w-[45%] h-full pointer-events-none"
           initial={{ opacity: 0, y: -100, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -61,7 +60,7 @@ export function Hero() {
           <SplineScene
             className="inset-0 w-full h-full z-0"
           />
-        </motion.div> */}
+        </motion.div>
       </div>
     </section>
   );
