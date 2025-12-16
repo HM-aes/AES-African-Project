@@ -48,7 +48,7 @@ export function AESVision() {
           }}
         >
           {/* Tooltip-style glassmorphic card with amber glow */}
-          <div className="relative bg-white/90 dark:bg-slate-800/60 backdrop-blur-2xl border border-amber-200/50 dark:border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgba(180,120,20,0.08)] dark:shadow-2xl hover:shadow-[0_20px_60px_rgba(180,120,20,0.15)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-shadow duration-300">
+          <div className="relative bg-white/90 dark:bg-gradient-to-br dark:from-neutral-900 dark:via-neutral-900/95 dark:to-amber-950/30 backdrop-blur-2xl border border-amber-200/50 dark:border-amber-900/50 rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgba(180,120,20,0.08)] dark:shadow-[0_8px_40px_rgba(120,53,15,0.2)] hover:shadow-[0_20px_60px_rgba(180,120,20,0.15)] dark:hover:shadow-[0_20px_60px_rgba(120,53,15,0.3)] transition-shadow duration-300">
 
             {/* Content */}
             <div className="relative z-10">
