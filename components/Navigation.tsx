@@ -149,7 +149,7 @@ export function Navigation() {
             >
               {/* CTA Button - Desktop */}
               <motion.button
-                className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-green-500/20 border border-amber-500/30 hover:border-amber-500/50 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 text-sm font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.2)]"
+                className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-green-500/20 border border-amber-500/30 hover:border-amber-500/60 text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 text-sm font-medium transition-all duration-300 shadow-[0_0_15px_rgba(180,120,20,0.15)] hover:shadow-[0_0_25px_rgba(180,120,20,0.35),0_0_50px_rgba(180,120,20,0.2)] dark:shadow-[0_0_15px_rgba(251,191,36,0.1)] dark:hover:shadow-[0_0_25px_rgba(251,191,36,0.25),0_0_50px_rgba(251,191,36,0.15)]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -200,7 +200,7 @@ export function Navigation() {
         className="md:hidden overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 pt-2">
-          <div className="bg-black/80 backdrop-blur-2xl border border-white/10 rounded-2xl p-4 space-y-2">
+          <div className="bg-white/95 dark:bg-black/80 backdrop-blur-2xl border border-amber-200/50 dark:border-white/10 rounded-2xl p-4 space-y-2 shadow-[0_8px_30px_rgba(180,120,20,0.1)] dark:shadow-none">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -213,7 +213,7 @@ export function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className="block px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200 font-medium"
+                  className="block px-4 py-3 rounded-xl text-stone-600 dark:text-white/70 hover:text-amber-700 dark:hover:text-white hover:bg-amber-50 dark:hover:bg-white/5 transition-all duration-200 font-medium"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   {link.label}
@@ -229,9 +229,9 @@ export function Navigation() {
                 y: isMobileOpen ? 0 : 10,
               }}
               transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
-              className="pt-2 border-t border-white/10 flex items-center justify-between"
+              className="pt-2 border-t border-amber-200/30 dark:border-white/10 flex items-center justify-between"
             >
-              <span className="text-sm text-white/40">Theme</span>
+              <span className="text-sm text-stone-500 dark:text-white/40">Theme</span>
               <ThemeToggle />
             </motion.div>
           </div>

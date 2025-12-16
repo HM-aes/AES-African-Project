@@ -33,18 +33,36 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         className
       )}
     >
-      {/* Outer glow border */}
-      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-amber-500/30 via-stone-400/40 dark:via-white/20 to-green-500/30 opacity-80" />
+      {/* Outer glow border - Rich amber/espresso gradient */}
+      <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-amber-700/60 via-amber-500/50 to-amber-700/60 dark:from-amber-500/30 dark:via-white/20 dark:to-green-500/30 opacity-100 dark:opacity-80" />
 
-      {/* Spotlight effect following cursor */}
+      {/* Secondary inner glow */}
+      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-amber-600/20 via-transparent to-green-600/20 dark:from-amber-500/10 dark:to-green-500/10" />
+
+      {/* Spotlight effect following cursor - RICH amber in light mode */}
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:hidden"
         style={{
           background: useMotionTemplate`
             radial-gradient(
               600px circle at ${mouseX}px ${mouseY}px,
-              rgba(251, 191, 36, 0.2),
-              rgba(34, 197, 94, 0.1) 40%,
+              rgba(139, 105, 20, 0.5),
+              rgba(107, 68, 35, 0.3) 30%,
+              rgba(196, 149, 106, 0.15) 50%,
+              transparent 70%
+            )
+          `,
+        }}
+      />
+      {/* Dark mode spotlight */}
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden dark:block"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              600px circle at ${mouseX}px ${mouseY}px,
+              rgba(251, 191, 36, 0.25),
+              rgba(34, 197, 94, 0.12) 40%,
               transparent 70%
             )
           `,
@@ -52,11 +70,11 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       />
 
       {/* Main card container */}
-      <div className="relative rounded-2xl overflow-hidden border border-stone-300 dark:border-white/[0.1] h-full">
-        {/* Background layers */}
-        <div className="absolute inset-0 bg-white/90 dark:bg-black/80 backdrop-blur-2xl" />
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-100/30 via-transparent to-green-100/20 dark:from-amber-900/10 dark:via-transparent dark:to-green-900/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-100/60 via-transparent to-transparent dark:from-black/60" />
+      <div className="relative rounded-2xl overflow-hidden border border-amber-300/50 dark:border-white/[0.1] h-full shadow-[0_8px_32px_rgba(107,68,35,0.15)] dark:shadow-none">
+        {/* Background layers - Richer cappuccino tones */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/95 via-white/90 to-stone-50/95 dark:from-black/80 dark:via-black/80 dark:to-black/80 backdrop-blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-200/40 via-amber-100/20 to-green-100/30 dark:from-amber-900/10 dark:via-transparent dark:to-green-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-amber-100/50 via-transparent to-transparent dark:from-black/60" />
 
         {/* Top edge highlight */}
         <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 dark:via-amber-400/50 to-transparent z-20" />
@@ -217,11 +235,11 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         </div>
 
         {/* Bottom ambient glow */}
-        <div className="absolute bottom-0 left-1/4 w-1/2 h-24 bg-gradient-to-t from-amber-500/15 via-green-500/10 to-transparent blur-2xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-1/2 h-24 bg-gradient-to-t from-amber-600/25 dark:from-amber-500/15 via-green-600/15 dark:via-green-500/10 to-transparent blur-2xl pointer-events-none" />
       </div>
 
-      {/* Outer ambient glow on hover */}
-      <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-amber-500/15 via-green-500/10 to-red-500/15 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 -z-10" />
+      {/* Outer ambient glow on hover - stronger for light mode */}
+      <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-amber-500/30 dark:from-amber-500/15 via-green-500/20 dark:via-green-500/10 to-red-500/25 dark:to-red-500/15 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 -z-10" />
     </motion.div>
   );
 }

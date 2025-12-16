@@ -7,7 +7,10 @@ export function AESVision() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative py-20 md:py-32 bg-background overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-gradient-to-b from-background via-secondary/20 to-background overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-amber-400/20 via-transparent to-transparent blur-3xl dark:opacity-0" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-green-400/15 via-transparent to-transparent blur-3xl dark:opacity-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
         {/* Section Header */}
@@ -18,12 +21,13 @@ export function AESVision() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-stone-800 dark:text-gray-200 mb-4">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground dark:text-gray-200 mb-4 drop-shadow-sm">
             AES Strategic Vision for Africa
           </h2>
-          <p className="text-lg text-stone-600 dark:text-gray-400 italic">
+          <p className="text-lg text-muted-foreground dark:text-gray-400 italic">
             Carrying Forward the Dreams of Pan-African Giants
           </p>
+          <div className="w-20 h-1 mx-auto bg-gradient-to-r from-amber-600 to-amber-500 rounded-full mt-4" />
         </motion.div>
 
         {/* Main Article Card */}
@@ -32,29 +36,19 @@ export function AESVision() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          onMouseMove={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            setIsHovered(true);
-            e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-          }}
-          onMouseLeave={(e) => {
-            setIsHovered(false);
-            e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-          }}
-          style={{
-            transition: 'transform 0.1s ease-out',
-          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           className="relative group"
+          style={{
+            transition: 'box-shadow 0.3s ease-out',
+            boxShadow: isHovered 
+              ? '0 25px 50px -12px rgba(139, 69, 19, 0.5), 0 12px 24px -8px rgba(120, 53, 15, 0.4)' 
+              : 'none',
+            borderRadius: '1rem',
+          }}
         >
-          {/* Tooltip-style glassmorphic card */}
-          <div className="relative bg-white/80 dark:bg-slate-800/60 backdrop-blur-2xl border border-stone-300 dark:border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-xl dark:shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-shadow duration-300">
+          {/* Tooltip-style glassmorphic card with amber glow */}
+          <div className="relative bg-white/90 dark:bg-slate-800/60 backdrop-blur-2xl border border-amber-200/50 dark:border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgba(180,120,20,0.08)] dark:shadow-2xl hover:shadow-[0_20px_60px_rgba(180,120,20,0.15)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-shadow duration-300">
 
             {/* Content */}
             <div className="relative z-10">
@@ -253,7 +247,7 @@ export function AESVision() {
                   href="/aes"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-stone-800 hover:bg-stone-700 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-semibold rounded-lg transition-all duration-300"
+                  className="px-8 py-3 bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 dark:from-slate-700 dark:to-slate-600 dark:hover:from-slate-600 dark:hover:to-slate-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-[0_4px_20px_rgba(180,120,20,0.25)] hover:shadow-[0_8px_30px_rgba(180,120,20,0.35)] dark:shadow-lg dark:hover:shadow-xl"
                 >
                   Learn More About AES
                 </motion.a>
