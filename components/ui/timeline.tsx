@@ -39,7 +39,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <div className="text-center max-w-4xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-amber-950 dark:text-gray-200">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground dark:text-gray-200">
             The Path to Sovereignty: AES Journey
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-stone-700 dark:text-gray-400 leading-relaxed">
