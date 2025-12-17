@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-28">
+    <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-40">
       {/* Dot Grid Pattern - Rich espresso dots */}
       <div
         className="absolute inset-0 opacity-20 dark:opacity-30"
