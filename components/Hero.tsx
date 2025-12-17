@@ -47,7 +47,7 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 flex items-center justify-center py-8">
         {/* Centered Text Content */}
         <motion.div 
-          className="w-full max-w-4xl"
+          className="w-full max-w-6xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
