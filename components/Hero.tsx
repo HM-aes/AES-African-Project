@@ -76,17 +76,60 @@ export function Hero() {
             {/* Top gradient overlay for text legibility if needed */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
             
-            {/* Bottom label */}
-            <div className="absolute bottom-0 left-0 right-0 z-20 p-4 md:p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs md:text-sm text-white/60 uppercase tracking-widest mb-1">The Visionary Leaders</p>
-                  <p className="text-sm md:text-base text-white/90 font-medium">Col. Goïta • Capt. Traoré • Gen. Tiani</p>
+            {/* Bottom label - Enhanced with 3D effects and hover animations */}
+            <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="group cursor-default">
+                  {/* The Visionary Leaders - 3D Header */}
+                  <p 
+                    className="text-sm md:text-base lg:text-lg text-amber-400 uppercase tracking-[0.25em] mb-2 font-bold
+                    drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]
+                    group-hover:drop-shadow-[0_4px_12px_rgba(251,191,36,0.5)]
+                    group-hover:text-amber-300
+                    transition-all duration-300"
+                    style={{
+                      textShadow: '0 2px 8px rgba(251, 191, 36, 0.4), 0 1px 0 rgba(0,0,0,0.8)',
+                    }}
+                  >
+                    The Visionary Leaders
+                  </p>
+                  
+                  {/* Leader Names - Premium 3D styling */}
+                  <p 
+                    className="text-lg md:text-xl lg:text-2xl font-bold
+                    bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent
+                    drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]
+                    group-hover:from-amber-200 group-hover:via-white group-hover:to-amber-200
+                    transition-all duration-500"
+                    style={{
+                      textShadow: '0 4px 16px rgba(0, 0, 0, 0.6)',
+                    }}
+                  >
+                    <span className="hover:text-amber-400 transition-colors duration-200">Col. Goïta</span>
+                    <span className="mx-3 text-amber-500/60">•</span>
+                    <span className="hover:text-green-400 transition-colors duration-200">Capt. Traoré</span>
+                    <span className="mx-3 text-amber-500/60">•</span>
+                    <span className="hover:text-red-400 transition-colors duration-200">Gen. Tiani</span>
+                  </p>
                 </div>
-                <div className="flex gap-2">
-                  <div className="w-6 h-4 rounded-sm bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" title="Mali" />
-                  <div className="w-6 h-4 rounded-sm bg-gradient-to-r from-green-500 via-white to-orange-500" title="Niger" />
-                  <div className="w-6 h-4 rounded-sm bg-gradient-to-b from-red-500 via-white to-green-600" title="Burkina Faso" />
+                
+                {/* Flag indicators with hover effects */}
+                <div className="flex gap-3">
+                  <div 
+                    className="w-8 h-5 rounded-sm bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 
+                    shadow-lg hover:shadow-amber-500/30 hover:scale-110 transition-all duration-300 cursor-pointer" 
+                    title="Mali" 
+                  />
+                  <div 
+                    className="w-8 h-5 rounded-sm bg-gradient-to-r from-orange-500 via-white to-green-500 
+                    shadow-lg hover:shadow-green-500/30 hover:scale-110 transition-all duration-300 cursor-pointer" 
+                    title="Niger" 
+                  />
+                  <div 
+                    className="w-8 h-5 rounded-sm bg-gradient-to-b from-red-500 via-white to-green-600 
+                    shadow-lg hover:shadow-red-500/30 hover:scale-110 transition-all duration-300 cursor-pointer" 
+                    title="Burkina Faso" 
+                  />
                 </div>
               </div>
             </div>
