@@ -43,8 +43,8 @@ export default function RootLayout({
           <HydrationFix />
           <ScrollToTop />
           <Navigation />
-          {/* News Ticker - Fixed below navbar with zero gap */}
-          <div className="fixed top-[68px] left-0 right-0 z-40">
+          {/* News Ticker - Fixed below navbar */}
+          <div className="fixed top-[72px] left-0 right-0 z-40">
             <NewsTicker />
           </div>
           {/* Main content */}

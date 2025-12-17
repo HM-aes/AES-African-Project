@@ -47,23 +47,29 @@ export function Navigation() {
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "py-2"
-          : "py-4"
+          ? "pt-0 pb-2"
+          : "pt-0 pb-4"
       }`}
     >
       {/* Navbar Container */}
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <motion.div
-          className={`relative rounded-2xl transition-all duration-500 ${
-            isScrolled
-              ? "bg-white/80 dark:bg-black/70 backdrop-blur-2xl border border-stone-200 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-              : "bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-stone-200/50 dark:border-white/5"
-          }`}
-        >
-          {/* Top highlight */}
-          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-stone-300 dark:via-white/20 to-transparent rounded-t-2xl" />
+        {/* Outer glow for visibility */}
+        <div className="relative">
+          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-amber-500/40 via-green-500/30 to-amber-500/40 opacity-60 blur-[1px]" />
+          
+          <motion.div
+            className={`relative rounded-2xl transition-all duration-500 ${
+              isScrolled
+                ? "bg-white/90 dark:bg-black/80 backdrop-blur-2xl border-2 border-amber-400/50 dark:border-amber-500/30 shadow-[0_8px_32px_rgba(180,120,20,0.15)] dark:shadow-[0_8px_32px_rgba(251,191,36,0.1)]"
+                : "bg-white/70 dark:bg-black/50 backdrop-blur-xl border-2 border-amber-300/40 dark:border-amber-500/20 shadow-[0_4px_20px_rgba(180,120,20,0.1)]"
+            }`}
+          >
+            {/* Top highlight - amber glow */}
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/60 to-transparent rounded-t-2xl" />
+            {/* Bottom highlight */}
+            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-500/40 to-transparent rounded-b-2xl" />
 
-          <div className="flex items-center justify-between h-16 px-6">
+            <div className="flex items-center justify-between h-16 px-6">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -187,6 +193,7 @@ export function Navigation() {
             </motion.div>
           </div>
         </motion.div>
+        </div>
       </div>
 
       {/* Mobile Menu */}
