@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { HeroText } from "@/components/HeroText";
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-start overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-28">
+    <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-28">
       {/* Dot Grid Pattern - Rich espresso dots */}
       <div
         className="absolute inset-0 opacity-20 dark:opacity-30"
@@ -55,6 +56,53 @@ export function Hero() {
           <HeroText />
         </motion.div>
       </div>
+
+      {/* Leaders Banner Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 mt-8 mb-12"
+      >
+        <div className="relative group">
+          {/* Glow effect behind image */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 via-green-500/20 to-red-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          
+          {/* Border glow */}
+          <div className="absolute -inset-[2px] bg-gradient-to-r from-amber-500/50 via-green-500/50 to-red-500/50 rounded-2xl opacity-60 dark:opacity-40" />
+          
+          {/* Image container */}
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            {/* Top gradient overlay for text legibility if needed */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
+            
+            {/* Bottom label */}
+            <div className="absolute bottom-0 left-0 right-0 z-20 p-4 md:p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs md:text-sm text-white/60 uppercase tracking-widest mb-1">The Visionary Leaders</p>
+                  <p className="text-sm md:text-base text-white/90 font-medium">Col. Goïta • Capt. Traoré • Gen. Tiani</p>
+                </div>
+                <div className="flex gap-2">
+                  <div className="w-6 h-4 rounded-sm bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" title="Mali" />
+                  <div className="w-6 h-4 rounded-sm bg-gradient-to-r from-green-500 via-white to-orange-500" title="Niger" />
+                  <div className="w-6 h-4 rounded-sm bg-gradient-to-b from-red-500 via-white to-green-600" title="Burkina Faso" />
+                </div>
+              </div>
+            </div>
+            
+            {/* The leaders image */}
+            <Image
+              src="/images/aes-leaders-banner.png"
+              alt="AES Leaders - Colonel Assimi Goïta of Mali, Captain Ibrahim Traoré of Burkina Faso, and General Abdourahamane Tiani of Niger"
+              width={1200}
+              height={400}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
