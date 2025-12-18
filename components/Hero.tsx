@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { HeroText } from "@/components/HeroText";
 import Image from "next/image";
+import { useTranslation } from "@/lib/i18n";
 
 export function Hero() {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-40">
       {/* Dot Grid Pattern - Rich espresso dots */}
@@ -69,11 +72,10 @@ export function Hero() {
           {/* The Visionary Leaders - 3D Header with hover effects */}
           <motion.h2 
             className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.2em] mb-4
-            bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent
+            text-amber-400 dark:text-amber-300
             cursor-default relative inline-block"
             style={{
-              textShadow: '0 4px 20px rgba(251, 191, 36, 0.5)',
-              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+              textShadow: '0 0 20px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.4), 0 4px 8px rgba(0,0,0,0.5)',
             }}
             whileHover={{ 
               scale: 1.05,
@@ -81,12 +83,12 @@ export function Hero() {
               transition: { duration: 0.3, ease: "easeOut" }
             }}
           >
-            <span className="relative z-10 drop-shadow-[0_4px_12px_rgba(251,191,36,0.6)]">
-              The Visionary Leaders
+            <span className="relative z-10">
+              {t("hero.visionaryLeaders")}
             </span>
             {/* Glow effect on hover */}
             <motion.span 
-              className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 blur-xl"
+              className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/30 to-amber-400/0 blur-2xl -z-10"
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
             />
@@ -112,7 +114,7 @@ export function Hero() {
                 transition: { duration: 0.3 }
               }}
             >
-              Col. Goïta
+              {t("hero.leaderGoita")}
             </motion.span>
             
             <span className="text-amber-500/60 text-3xl font-light">•</span>
@@ -132,7 +134,7 @@ export function Hero() {
                 transition: { duration: 0.3 }
               }}
             >
-              Capt. Traoré
+              {t("hero.leaderTraore")}
             </motion.span>
             
             <span className="text-amber-500/60 text-3xl font-light">•</span>
@@ -152,7 +154,7 @@ export function Hero() {
                 transition: { duration: 0.3 }
               }}
             >
-              Gen. Tiani
+              {t("hero.leaderTiani")}
             </motion.span>
           </div>
           

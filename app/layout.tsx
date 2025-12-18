@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { HydrationFix } from "@/components/HydrationFix";
 import { NewsTicker } from "@/components/NewsTicker";
+import { LanguageProvider } from "@/lib/i18n";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -40,18 +41,20 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="pan-african-theme"
         >
-          <HydrationFix />
-          <ScrollToTop />
-          <Navigation />
-          {/* News Ticker - Fixed below navbar */}
-          <div className="fixed top-[72px] left-0 right-0 z-40">
-            <NewsTicker />
-          </div>
-          {/* Main content */}
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
+          <LanguageProvider>
+            <HydrationFix />
+            <ScrollToTop />
+            <Navigation />
+            {/* News Ticker - Fixed below navbar */}
+            <div className="fixed top-[72px] left-0 right-0 z-40">
+              <NewsTicker />
+            </div>
+            {/* Main content */}
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

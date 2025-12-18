@@ -4,15 +4,18 @@ import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useTranslation } from "@/lib/i18n";
 import { Menu, X, Sparkles } from "lucide-react";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/aes", label: "AES" },
-  { href: "/russia", label: "Russia" },
-  { href: "/tech", label: "Tech" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
+// Navigation link keys for translation
+const navLinkKeys = [
+  { href: "/", key: "home" },
+  { href: "/aes", key: "aes" },
+  { href: "/russia", key: "russia" },
+  { href: "/tech", key: "tech" },
+  { href: "/blog", key: "blog" },
+  { href: "/about", key: "about" },
 ];
 
 export function Navigation() {
@@ -20,6 +23,7 @@ export function Navigation() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { scrollY } = useScroll();
+  const { t } = useTranslation();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
@@ -109,7 +113,7 @@ export function Navigation() {
 
             <div className="hidden md:flex items-center">
               <div className="flex items-center bg-stone-100 dark:bg-white/5 rounded-xl p-1">
-                {navLinks.map((link, index) => (
+                {navLinkKeys.map((link, index) => (
                   <motion.div
                     key={link.href}
                     initial={{ opacity: 0, y: -10 }}
@@ -138,7 +142,7 @@ export function Navigation() {
                           hoveredIndex === index ? "text-stone-900 dark:text-white" : "text-stone-600 dark:text-white/60"
                         }`}
                       >
-                        {link.label}
+                        {t(`nav.${link.key}`)}
                       </span>
                     </Link>
                   </motion.div>
@@ -167,6 +171,11 @@ export function Navigation() {
                   →
                 </motion.span>
               </motion.button>
+
+              {/* Language Toggle */}
+              <div className="hidden md:block">
+                <LanguageToggle />
+              </div>
 
               {/* Theme Toggle */}
               <div className="hidden md:block">
@@ -208,7 +217,7 @@ export function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 pt-2">
           <div className="bg-white/95 dark:bg-black/80 backdrop-blur-2xl border border-amber-200/50 dark:border-white/10 rounded-2xl p-4 space-y-2 shadow-[0_8px_30px_rgba(180,120,20,0.1)] dark:shadow-none">
-            {navLinks.map((link, index) => (
+            {navLinkKeys.map((link, index) => (
               <motion.div
                 key={link.href}
                 initial={{ opacity: 0, x: -20 }}
@@ -223,10 +232,24 @@ export function Navigation() {
                   className="block px-4 py-3 rounded-xl text-stone-600 dark:text-white/70 hover:text-amber-700 dark:hover:text-white hover:bg-amber-50 dark:hover:bg-white/5 transition-all duration-200 font-medium"
                   onClick={() => setIsMobileOpen(false)}
                 >
-                  {link.label}
+                  {t(`nav.${link.key}`)}
                 </Link>
               </motion.div>
             ))}
+
+            {/* Mobile Language Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{
+                opacity: isMobileOpen ? 1 : 0,
+                y: isMobileOpen ? 0 : 10,
+              }}
+              transition={{ duration: 0.3, delay: navLinkKeys.length * 0.05 }}
+              className="pt-2 border-t border-amber-200/30 dark:border-white/10 flex items-center justify-between"
+            >
+              <span className="text-sm text-stone-500 dark:text-white/40">Language</span>
+              <LanguageToggle />
+            </motion.div>
 
             {/* Mobile Theme Toggle */}
             <motion.div
@@ -235,7 +258,7 @@ export function Navigation() {
                 opacity: isMobileOpen ? 1 : 0,
                 y: isMobileOpen ? 0 : 10,
               }}
-              transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
+              transition={{ duration: 0.3, delay: (navLinkKeys.length + 1) * 0.05 }}
               className="pt-2 border-t border-amber-200/30 dark:border-white/10 flex items-center justify-between"
             >
               <span className="text-sm text-stone-500 dark:text-white/40">Theme</span>
