@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { HeroText } from "@/components/HeroText";
 import { StickyScrollReveal } from "@/components/ui/StickyScrollReveal";
+import { useTranslation } from "@/lib/i18n";
 
 export function Hero() {
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-40">
@@ -58,14 +60,116 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Leaders Section - Everything inside the card */}
+      {/* Leaders Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-8 mt-8 mb-16"
       >
-        {/* Sticky Scroll Reveal - Contains everything */}
+        {/* Sticky Header - The Visionary Leaders */}
+        <div className="text-center mb-8 sticky top-20 z-20 py-4 bg-gradient-to-b from-background via-background/95 to-transparent dark:from-[#0a0a0a] dark:via-[#0a0a0a]/95">
+          {/* The Visionary Leaders Header */}
+          <motion.h2
+            className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.15em] mb-4
+            text-stone-900 dark:text-white
+            cursor-default relative inline-block"
+            style={{
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0,0,0,0.1)',
+            }}
+            whileHover={{
+              scale: 1.03,
+              transition: { duration: 0.3, ease: "easeOut" }
+            }}
+          >
+            {t("hero.visionaryLeaders")}
+          </motion.h2>
+
+          {/* Leader Names */}
+          <div
+            className="text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center flex-wrap gap-2"
+            style={{ perspective: '1000px' }}
+          >
+            <motion.span
+              className="text-amber-500 hover:text-amber-400 cursor-default px-3 py-1 rounded-lg
+              bg-gradient-to-br from-amber-500/10 to-transparent
+              border border-amber-500/30"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              {t("hero.leaderGoita")}
+            </motion.span>
+
+            <span className="text-amber-500/50 text-2xl">•</span>
+
+            <motion.span
+              className="text-green-500 hover:text-green-400 cursor-default px-3 py-1 rounded-lg
+              bg-gradient-to-br from-green-500/10 to-transparent
+              border border-green-500/30"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              {t("hero.leaderTraore")}
+            </motion.span>
+
+            <span className="text-amber-500/50 text-2xl">•</span>
+
+            <motion.span
+              className="text-red-500 hover:text-red-400 cursor-default px-3 py-1 rounded-lg
+              bg-gradient-to-br from-red-500/10 to-transparent
+              border border-red-500/30"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
+              {t("hero.leaderTiani")}
+            </motion.span>
+          </div>
+
+          {/* Flags */}
+          <div className="flex justify-center gap-4 mt-5">
+            {/* Mali Flag */}
+            <motion.div
+              className="relative w-10 h-7 md:w-12 md:h-8 rounded-md overflow-hidden cursor-pointer shadow-md"
+              whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+              title="Mali"
+            >
+              <div className="absolute inset-0 flex">
+                <div className="w-1/3 h-full bg-green-500" />
+                <div className="w-1/3 h-full bg-yellow-400" />
+                <div className="w-1/3 h-full bg-red-500" />
+              </div>
+            </motion.div>
+
+            {/* Burkina Faso Flag */}
+            <motion.div
+              className="relative w-10 h-7 md:w-12 md:h-8 rounded-md overflow-hidden cursor-pointer shadow-md"
+              whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+              title="Burkina Faso"
+            >
+              <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/2 w-full bg-red-500" />
+                <div className="h-1/2 w-full bg-green-600" />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-yellow-400 text-xs">★</span>
+              </div>
+            </motion.div>
+
+            {/* Niger Flag */}
+            <motion.div
+              className="relative w-10 h-7 md:w-12 md:h-8 rounded-md overflow-hidden cursor-pointer shadow-md"
+              whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+              title="Niger"
+            >
+              <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/3 w-full bg-orange-500" />
+                <div className="h-1/3 w-full bg-white flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-orange-500" />
+                </div>
+                <div className="h-1/3 w-full bg-green-500" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Sticky Scroll Reveal with Glass Effect */}
         <StickyScrollReveal className="mx-auto" />
       </motion.div>
     </section>
