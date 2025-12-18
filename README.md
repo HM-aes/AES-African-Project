@@ -21,7 +21,7 @@ A modern Next.js web application showcasing the Alliance of Sahel States (AES) -
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
-   cd my-app
+   cd aes-portal
    ```
 
 2. **Install dependencies**
@@ -121,7 +121,7 @@ Before pushing to GitHub:
 ## 📚 Project Structure
 
 ```
-my-app/
+aes-portal/
 ├── app/              # Next.js app directory
 ├── components/       # React components
 ├── data/            # Static data files

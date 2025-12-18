@@ -64,6 +64,193 @@ export function Hero() {
         transition={{ duration: 1, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 mt-8 mb-12"
       >
+        {/* Header ABOVE the image - Premium 3D Design */}
+        <div className="text-center mb-8">
+          {/* The Visionary Leaders - 3D Header with hover effects */}
+          <motion.h2 
+            className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.2em] mb-4
+            bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent
+            cursor-default relative inline-block"
+            style={{
+              textShadow: '0 4px 20px rgba(251, 191, 36, 0.5)',
+              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              rotateX: 5,
+              transition: { duration: 0.3, ease: "easeOut" }
+            }}
+          >
+            <span className="relative z-10 drop-shadow-[0_4px_12px_rgba(251,191,36,0.6)]">
+              The Visionary Leaders
+            </span>
+            {/* Glow effect on hover */}
+            <motion.span 
+              className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 blur-xl"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+            />
+          </motion.h2>
+          
+          {/* Leader Names - Premium 3D styling with individual hover effects */}
+          <div 
+            className="text-xl md:text-2xl lg:text-3xl font-bold flex items-center justify-center flex-wrap gap-2"
+            style={{ perspective: '1000px' }}
+          >
+            <motion.span 
+              className="text-amber-400 hover:text-amber-300 cursor-default px-3 py-1 rounded-lg
+              bg-gradient-to-br from-amber-500/10 to-transparent
+              border border-amber-500/20 hover:border-amber-400/40
+              shadow-[0_4px_20px_rgba(251,191,36,0.2)] hover:shadow-[0_8px_30px_rgba(251,191,36,0.4)]"
+              style={{
+                textShadow: '0 2px 10px rgba(251, 191, 36, 0.5), 0 0 40px rgba(251, 191, 36, 0.3)',
+              }}
+              whileHover={{ 
+                scale: 1.1, 
+                rotateY: -10,
+                z: 50,
+                transition: { duration: 0.3 }
+              }}
+            >
+              Col. Goïta
+            </motion.span>
+            
+            <span className="text-amber-500/60 text-3xl font-light">•</span>
+            
+            <motion.span 
+              className="text-green-400 hover:text-green-300 cursor-default px-3 py-1 rounded-lg
+              bg-gradient-to-br from-green-500/10 to-transparent
+              border border-green-500/20 hover:border-green-400/40
+              shadow-[0_4px_20px_rgba(34,197,94,0.2)] hover:shadow-[0_8px_30px_rgba(34,197,94,0.4)]"
+              style={{
+                textShadow: '0 2px 10px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)',
+              }}
+              whileHover={{ 
+                scale: 1.1, 
+                rotateY: 0,
+                z: 50,
+                transition: { duration: 0.3 }
+              }}
+            >
+              Capt. Traoré
+            </motion.span>
+            
+            <span className="text-amber-500/60 text-3xl font-light">•</span>
+            
+            <motion.span 
+              className="text-red-400 hover:text-red-300 cursor-default px-3 py-1 rounded-lg
+              bg-gradient-to-br from-red-500/10 to-transparent
+              border border-red-500/20 hover:border-red-400/40
+              shadow-[0_4px_20px_rgba(239,68,68,0.2)] hover:shadow-[0_8px_30px_rgba(239,68,68,0.4)]"
+              style={{
+                textShadow: '0 2px 10px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)',
+              }}
+              whileHover={{ 
+                scale: 1.1, 
+                rotateY: 10,
+                z: 50,
+                transition: { duration: 0.3 }
+              }}
+            >
+              Gen. Tiani
+            </motion.span>
+          </div>
+          
+          {/* Flags with amazing 3D hover effects */}
+          <div className="flex justify-center gap-6 mt-6" style={{ perspective: '1000px' }}>
+            {/* Mali Flag */}
+            <motion.div 
+              className="relative w-12 h-8 md:w-16 md:h-10 rounded-md overflow-hidden cursor-pointer
+              shadow-[0_4px_15px_rgba(0,0,0,0.3),0_0_30px_rgba(251,191,36,0.2)]"
+              whileHover={{ 
+                scale: 1.3, 
+                rotateY: 15,
+                rotateX: 10,
+                z: 100,
+                boxShadow: '0 20px 40px rgba(251,191,36,0.4), 0 0 60px rgba(251,191,36,0.3)',
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+              whileTap={{ scale: 0.95 }}
+              title="Mali 🇲🇱"
+            >
+              <div className="absolute inset-0 flex">
+                <div className="w-1/3 h-full bg-green-500" />
+                <div className="w-1/3 h-full bg-yellow-400" />
+                <div className="w-1/3 h-full bg-red-500" />
+              </div>
+              {/* Shine effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0"
+                initial={{ x: '-100%', opacity: 0 }}
+                whileHover={{ x: '100%', opacity: 1, transition: { duration: 0.5 } }}
+              />
+              {/* Border glow */}
+              <div className="absolute inset-0 rounded-md ring-2 ring-amber-400/0 hover:ring-amber-400/50 transition-all duration-300" />
+            </motion.div>
+            
+            {/* Niger Flag */}
+            <motion.div 
+              className="relative w-12 h-8 md:w-16 md:h-10 rounded-md overflow-hidden cursor-pointer
+              shadow-[0_4px_15px_rgba(0,0,0,0.3),0_0_30px_rgba(249,115,22,0.2)]"
+              whileHover={{ 
+                scale: 1.3, 
+                rotateY: 0,
+                rotateX: 15,
+                z: 100,
+                boxShadow: '0 20px 40px rgba(249,115,22,0.4), 0 0 60px rgba(249,115,22,0.3)',
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+              whileTap={{ scale: 0.95 }}
+              title="Niger 🇳🇪"
+            >
+              <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/3 w-full bg-orange-500" />
+                <div className="h-1/3 w-full bg-white flex items-center justify-center">
+                  <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-orange-500" />
+                </div>
+                <div className="h-1/3 w-full bg-green-500" />
+              </div>
+              {/* Shine effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0"
+                initial={{ x: '-100%', opacity: 0 }}
+                whileHover={{ x: '100%', opacity: 1, transition: { duration: 0.5 } }}
+              />
+            </motion.div>
+            
+            {/* Burkina Faso Flag */}
+            <motion.div 
+              className="relative w-12 h-8 md:w-16 md:h-10 rounded-md overflow-hidden cursor-pointer
+              shadow-[0_4px_15px_rgba(0,0,0,0.3),0_0_30px_rgba(239,68,68,0.2)]"
+              whileHover={{ 
+                scale: 1.3, 
+                rotateY: -15,
+                rotateX: 10,
+                z: 100,
+                boxShadow: '0 20px 40px rgba(239,68,68,0.4), 0 0 60px rgba(22,163,74,0.3)',
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+              whileTap={{ scale: 0.95 }}
+              title="Burkina Faso 🇧🇫"
+            >
+              <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/2 w-full bg-red-500" />
+                <div className="h-1/2 w-full bg-green-600" />
+              </div>
+              {/* Center star */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-yellow-400 text-sm md:text-base" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>★</span>
+              </div>
+              {/* Shine effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0"
+                initial={{ x: '-100%', opacity: 0 }}
+                whileHover={{ x: '100%', opacity: 1, transition: { duration: 0.5 } }}
+              />
+            </motion.div>
+          </div>
+        </div>
+        
         <div className="relative group">
           {/* Glow effect behind image */}
           <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 via-green-500/20 to-red-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -73,66 +260,8 @@ export function Hero() {
           
           {/* Image container */}
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            {/* Top gradient overlay for text legibility if needed */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
-            
-            {/* Bottom label - Enhanced with 3D effects and hover animations */}
-            <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div className="group cursor-default">
-                  {/* The Visionary Leaders - 3D Header */}
-                  <p 
-                    className="text-sm md:text-base lg:text-lg text-amber-400 uppercase tracking-[0.25em] mb-2 font-bold
-                    drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]
-                    group-hover:drop-shadow-[0_4px_12px_rgba(251,191,36,0.5)]
-                    group-hover:text-amber-300
-                    transition-all duration-300"
-                    style={{
-                      textShadow: '0 2px 8px rgba(251, 191, 36, 0.4), 0 1px 0 rgba(0,0,0,0.8)',
-                    }}
-                  >
-                    The Visionary Leaders
-                  </p>
-                  
-                  {/* Leader Names - Premium 3D styling */}
-                  <p 
-                    className="text-lg md:text-xl lg:text-2xl font-bold
-                    bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent
-                    drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]
-                    group-hover:from-amber-200 group-hover:via-white group-hover:to-amber-200
-                    transition-all duration-500"
-                    style={{
-                      textShadow: '0 4px 16px rgba(0, 0, 0, 0.6)',
-                    }}
-                  >
-                    <span className="hover:text-amber-400 transition-colors duration-200">Col. Goïta</span>
-                    <span className="mx-3 text-amber-500/60">•</span>
-                    <span className="hover:text-green-400 transition-colors duration-200">Capt. Traoré</span>
-                    <span className="mx-3 text-amber-500/60">•</span>
-                    <span className="hover:text-red-400 transition-colors duration-200">Gen. Tiani</span>
-                  </p>
-                </div>
-                
-                {/* Flag indicators with hover effects */}
-                <div className="flex gap-3">
-                  <div 
-                    className="w-8 h-5 rounded-sm bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 
-                    shadow-lg hover:shadow-amber-500/30 hover:scale-110 transition-all duration-300 cursor-pointer" 
-                    title="Mali" 
-                  />
-                  <div 
-                    className="w-8 h-5 rounded-sm bg-gradient-to-r from-orange-500 via-white to-green-500 
-                    shadow-lg hover:shadow-green-500/30 hover:scale-110 transition-all duration-300 cursor-pointer" 
-                    title="Niger" 
-                  />
-                  <div 
-                    className="w-8 h-5 rounded-sm bg-gradient-to-b from-red-500 via-white to-green-600 
-                    shadow-lg hover:shadow-red-500/30 hover:scale-110 transition-all duration-300 cursor-pointer" 
-                    title="Burkina Faso" 
-                  />
-                </div>
-              </div>
-            </div>
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 z-10 pointer-events-none" />
             
             {/* The leaders image */}
             <Image
