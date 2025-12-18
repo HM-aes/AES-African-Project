@@ -78,13 +78,13 @@ const gdpGrowthData = [
   { country: "Mali", growth: "4.8%", rank: "Top 20 Africa", flag: "🇲🇱" },
 ];
 
-const colorClasses: Record<string, { bg: string; border: string; text: string; glow: string }> = {
-  amber: { bg: "bg-amber-500/20", border: "border-amber-500/40", text: "text-amber-500", glow: "from-amber-500/30" },
-  yellow: { bg: "bg-yellow-500/20", border: "border-yellow-500/40", text: "text-yellow-500", glow: "from-yellow-500/30" },
-  green: { bg: "bg-green-500/20", border: "border-green-500/40", text: "text-green-500", glow: "from-green-500/30" },
-  orange: { bg: "bg-orange-500/20", border: "border-orange-500/40", text: "text-orange-500", glow: "from-orange-500/30" },
-  blue: { bg: "bg-blue-500/20", border: "border-blue-500/40", text: "text-blue-500", glow: "from-blue-500/30" },
-  purple: { bg: "bg-purple-500/20", border: "border-purple-500/40", text: "text-purple-500", glow: "from-purple-500/30" },
+const colorClasses: Record<string, { bg: string; border: string; text: string; glow: string; headerBg: string; headerBorder: string }> = {
+  amber: { bg: "bg-amber-500/20", border: "border-amber-500/40", text: "text-amber-500", glow: "from-amber-500/30", headerBg: "bg-amber-500/10", headerBorder: "border-amber-500/30" },
+  yellow: { bg: "bg-yellow-500/20", border: "border-yellow-500/40", text: "text-yellow-500", glow: "from-yellow-500/30", headerBg: "bg-yellow-500/10", headerBorder: "border-yellow-500/30" },
+  green: { bg: "bg-green-500/20", border: "border-green-500/40", text: "text-green-500", glow: "from-green-500/30", headerBg: "bg-green-500/10", headerBorder: "border-green-500/30" },
+  orange: { bg: "bg-orange-500/20", border: "border-orange-500/40", text: "text-orange-500", glow: "from-orange-500/30", headerBg: "bg-orange-500/10", headerBorder: "border-orange-500/30" },
+  blue: { bg: "bg-blue-500/20", border: "border-blue-500/40", text: "text-blue-500", glow: "from-blue-500/30", headerBg: "bg-blue-500/10", headerBorder: "border-blue-500/30" },
+  purple: { bg: "bg-purple-500/20", border: "border-purple-500/40", text: "text-purple-500", glow: "from-purple-500/30", headerBg: "bg-purple-500/10", headerBorder: "border-purple-500/30" },
 };
 
 export function EconomicTransformation() {
@@ -214,56 +214,60 @@ export function EconomicTransformation() {
                   {/* Glow effect */}
                   <div className={`absolute inset-0 bg-gradient-radial ${colors.glow} to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                  <div className={`relative bg-white dark:bg-neutral-900 backdrop-blur-sm border-2 border-neutral-800 dark:border-neutral-600 rounded-2xl p-6 h-full hover:border-${metric.color}-500 transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)]`}>
-                    {/* Header */}
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className={`p-2 rounded-lg ${colors.bg}`}>
-                        <metric.icon className={`w-5 h-5 ${colors.text}`} />
+                  <div className="relative bg-white dark:bg-neutral-900 backdrop-blur-sm border-2 border-neutral-200 dark:border-neutral-700 rounded-3xl overflow-hidden h-full hover:border-neutral-300 dark:hover:border-neutral-600 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                    {/* Header with colored background */}
+                    <div className={`${colors.headerBg} border-b ${colors.headerBorder} px-5 py-4`}>
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2.5 rounded-xl ${colors.bg} border ${colors.border}`}>
+                          <metric.icon className={`w-5 h-5 ${colors.text}`} />
+                        </div>
+                        <h4 className={`font-semibold ${colors.text} text-sm tracking-wide`}>
+                          {metric.category}
+                        </h4>
                       </div>
-                      <h4 className="font-bold text-foreground dark:text-white text-sm">
-                        {metric.category}
-                      </h4>
                     </div>
 
-                    {/* Before/After */}
-                    <div className="flex items-center justify-between gap-4">
-                      {/* Before */}
-                      <div className="flex-1 text-center">
-                        <p className="text-xs text-muted-foreground dark:text-gray-500 uppercase tracking-wider mb-1">
-                          {metric.before.year}
-                        </p>
-                        <p className="text-2xl font-bold text-red-400 dark:text-red-400 mb-1">
-                          {metric.before.value}
-                        </p>
-                        <p className="text-xs text-muted-foreground dark:text-gray-500">
-                          {metric.before.label}
-                        </p>
-                      </div>
+                    {/* Before/After Content */}
+                    <div className="p-5">
+                      <div className="flex items-center justify-between gap-3">
+                        {/* Before */}
+                        <div className="flex-1 text-center p-3 rounded-2xl bg-red-500/5 border border-red-500/20">
+                          <p className="text-[10px] text-red-500/70 uppercase tracking-wider font-semibold mb-1">
+                            {metric.before.year}
+                          </p>
+                          <p className="text-xl md:text-2xl font-bold text-red-500 mb-1">
+                            {metric.before.value}
+                          </p>
+                          <p className="text-[10px] text-muted-foreground dark:text-gray-500 leading-tight">
+                            {metric.before.label}
+                          </p>
+                        </div>
 
-                      {/* Arrow */}
-                      <div className="flex flex-col items-center">
-                        <motion.div
-                          animate={hoveredIndex === index ? { x: [0, 5, 0] } : {}}
-                          transition={{ duration: 0.5, repeat: hoveredIndex === index ? Infinity : 0 }}
-                        >
-                          <ArrowRight className={`w-6 h-6 ${colors.text}`} />
-                        </motion.div>
-                        <span className={`text-xs font-bold ${colors.text} mt-1`}>
-                          {metric.improvement}
-                        </span>
-                      </div>
+                        {/* Arrow */}
+                        <div className="flex flex-col items-center px-1">
+                          <motion.div
+                            animate={hoveredIndex === index ? { x: [0, 5, 0] } : {}}
+                            transition={{ duration: 0.5, repeat: hoveredIndex === index ? Infinity : 0 }}
+                          >
+                            <ArrowRight className={`w-5 h-5 ${colors.text}`} />
+                          </motion.div>
+                          <span className={`text-[10px] font-bold ${colors.text} mt-1 px-2 py-0.5 rounded-full ${colors.bg}`}>
+                            {metric.improvement}
+                          </span>
+                        </div>
 
-                      {/* After */}
-                      <div className="flex-1 text-center">
-                        <p className="text-xs text-muted-foreground dark:text-gray-500 uppercase tracking-wider mb-1">
-                          {metric.after.year}
-                        </p>
-                        <p className={`text-2xl font-bold ${colors.text} mb-1`}>
-                          {metric.after.value}
-                        </p>
-                        <p className="text-xs text-muted-foreground dark:text-gray-500">
-                          {metric.after.label}
-                        </p>
+                        {/* After */}
+                        <div className={`flex-1 text-center p-3 rounded-2xl ${colors.bg} border ${colors.border}`}>
+                          <p className={`text-[10px] ${colors.text} opacity-70 uppercase tracking-wider font-semibold mb-1`}>
+                            {metric.after.year}
+                          </p>
+                          <p className={`text-xl md:text-2xl font-bold ${colors.text} mb-1`}>
+                            {metric.after.value}
+                          </p>
+                          <p className="text-[10px] text-muted-foreground dark:text-gray-500 leading-tight">
+                            {metric.after.label}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
