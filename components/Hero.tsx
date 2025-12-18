@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import { HeroText } from "@/components/HeroText";
-import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
+import { StickyScrollReveal } from "@/components/ui/StickyScrollReveal";
 
 export function Hero() {
   const { t } = useTranslation();
-  
+
   return (
     <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-gradient-to-br from-secondary via-background to-accent dark:from-[#0a0a0a] dark:via-[#0a0a0a] dark:to-[#0a0a0a] pt-40">
       {/* Dot Grid Pattern - Rich espresso dots */}
@@ -67,7 +67,7 @@ export function Hero() {
         transition={{ duration: 1, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 mt-8 mb-12"
       >
-        {/* Header ABOVE the image - Premium 3D Design */}
+        {/* Header ABOVE the card - Premium 3D Design */}
         <div className="text-center mb-8">
           {/* The Visionary Leaders - 3D Header with hover effects */}
           <motion.h2
@@ -77,7 +77,7 @@ export function Hero() {
             style={{
               textShadow: '0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0,0,0,0.1)',
             }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               rotateX: 5,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -93,13 +93,13 @@ export function Hero() {
               whileHover={{ opacity: 1 }}
             />
           </motion.h2>
-          
+
           {/* Leader Names - Premium 3D styling with individual hover effects */}
-          <div 
+          <div
             className="text-xl md:text-2xl lg:text-3xl font-bold flex items-center justify-center flex-wrap gap-2"
             style={{ perspective: '1000px' }}
           >
-            <motion.span 
+            <motion.span
               className="text-amber-400 hover:text-amber-300 cursor-default px-3 py-1 rounded-lg
               bg-gradient-to-br from-amber-500/10 to-transparent
               border border-amber-500/20 hover:border-amber-400/40
@@ -107,8 +107,8 @@ export function Hero() {
               style={{
                 textShadow: '0 2px 10px rgba(251, 191, 36, 0.5), 0 0 40px rgba(251, 191, 36, 0.3)',
               }}
-              whileHover={{ 
-                scale: 1.1, 
+              whileHover={{
+                scale: 1.1,
                 rotateY: -10,
                 z: 50,
                 transition: { duration: 0.3 }
@@ -116,10 +116,10 @@ export function Hero() {
             >
               {t("hero.leaderGoita")}
             </motion.span>
-            
+
             <span className="text-amber-500/60 text-3xl font-light">•</span>
-            
-            <motion.span 
+
+            <motion.span
               className="text-green-400 hover:text-green-300 cursor-default px-3 py-1 rounded-lg
               bg-gradient-to-br from-green-500/10 to-transparent
               border border-green-500/20 hover:border-green-400/40
@@ -127,8 +127,8 @@ export function Hero() {
               style={{
                 textShadow: '0 2px 10px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)',
               }}
-              whileHover={{ 
-                scale: 1.1, 
+              whileHover={{
+                scale: 1.1,
                 rotateY: 0,
                 z: 50,
                 transition: { duration: 0.3 }
@@ -136,10 +136,10 @@ export function Hero() {
             >
               {t("hero.leaderTraore")}
             </motion.span>
-            
+
             <span className="text-amber-500/60 text-3xl font-light">•</span>
-            
-            <motion.span 
+
+            <motion.span
               className="text-red-400 hover:text-red-300 cursor-default px-3 py-1 rounded-lg
               bg-gradient-to-br from-red-500/10 to-transparent
               border border-red-500/20 hover:border-red-400/40
@@ -147,8 +147,8 @@ export function Hero() {
               style={{
                 textShadow: '0 2px 10px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)',
               }}
-              whileHover={{ 
-                scale: 1.1, 
+              whileHover={{
+                scale: 1.1,
                 rotateY: 10,
                 z: 50,
                 transition: { duration: 0.3 }
@@ -157,15 +157,15 @@ export function Hero() {
               {t("hero.leaderTiani")}
             </motion.span>
           </div>
-          
+
           {/* Flags with amazing 3D hover effects */}
           <div className="flex justify-center gap-6 mt-6" style={{ perspective: '1000px' }}>
             {/* Mali Flag */}
-            <motion.div 
+            <motion.div
               className="relative w-12 h-8 md:w-16 md:h-10 rounded-md overflow-hidden cursor-pointer
               shadow-[0_4px_15px_rgba(0,0,0,0.3),0_0_30px_rgba(251,191,36,0.2)]"
-              whileHover={{ 
-                scale: 1.3, 
+              whileHover={{
+                scale: 1.3,
                 rotateY: 15,
                 rotateX: 10,
                 z: 100,
@@ -173,7 +173,7 @@ export function Hero() {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
               whileTap={{ scale: 0.95 }}
-              title="Mali 🇲🇱"
+              title="Mali"
             >
               <div className="absolute inset-0 flex">
                 <div className="w-1/3 h-full bg-green-500" />
@@ -181,21 +181,19 @@ export function Hero() {
                 <div className="w-1/3 h-full bg-red-500" />
               </div>
               {/* Shine effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0"
                 initial={{ x: '-100%', opacity: 0 }}
                 whileHover={{ x: '100%', opacity: 1, transition: { duration: 0.5 } }}
               />
-              {/* Border glow */}
-              <div className="absolute inset-0 rounded-md ring-2 ring-amber-400/0 hover:ring-amber-400/50 transition-all duration-300" />
             </motion.div>
-            
+
             {/* Niger Flag */}
-            <motion.div 
+            <motion.div
               className="relative w-12 h-8 md:w-16 md:h-10 rounded-md overflow-hidden cursor-pointer
               shadow-[0_4px_15px_rgba(0,0,0,0.3),0_0_30px_rgba(249,115,22,0.2)]"
-              whileHover={{ 
-                scale: 1.3, 
+              whileHover={{
+                scale: 1.3,
                 rotateY: 0,
                 rotateX: 15,
                 z: 100,
@@ -203,7 +201,7 @@ export function Hero() {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
               whileTap={{ scale: 0.95 }}
-              title="Niger 🇳🇪"
+              title="Niger"
             >
               <div className="absolute inset-0 flex flex-col">
                 <div className="h-1/3 w-full bg-orange-500" />
@@ -213,19 +211,19 @@ export function Hero() {
                 <div className="h-1/3 w-full bg-green-500" />
               </div>
               {/* Shine effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0"
                 initial={{ x: '-100%', opacity: 0 }}
                 whileHover={{ x: '100%', opacity: 1, transition: { duration: 0.5 } }}
               />
             </motion.div>
-            
+
             {/* Burkina Faso Flag */}
-            <motion.div 
+            <motion.div
               className="relative w-12 h-8 md:w-16 md:h-10 rounded-md overflow-hidden cursor-pointer
               shadow-[0_4px_15px_rgba(0,0,0,0.3),0_0_30px_rgba(239,68,68,0.2)]"
-              whileHover={{ 
-                scale: 1.3, 
+              whileHover={{
+                scale: 1.3,
                 rotateY: -15,
                 rotateX: 10,
                 z: 100,
@@ -233,7 +231,7 @@ export function Hero() {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
               whileTap={{ scale: 0.95 }}
-              title="Burkina Faso 🇧🇫"
+              title="Burkina Faso"
             >
               <div className="absolute inset-0 flex flex-col">
                 <div className="h-1/2 w-full bg-red-500" />
@@ -244,7 +242,7 @@ export function Hero() {
                 <span className="text-yellow-400 text-sm md:text-base" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>★</span>
               </div>
               {/* Shine effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0"
                 initial={{ x: '-100%', opacity: 0 }}
                 whileHover={{ x: '100%', opacity: 1, transition: { duration: 0.5 } }}
@@ -252,30 +250,9 @@ export function Hero() {
             </motion.div>
           </div>
         </div>
-        
-        <div className="relative group">
-          {/* Glow effect behind image */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 via-green-500/20 to-red-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          
-          {/* Border glow */}
-          <div className="absolute -inset-[2px] bg-gradient-to-r from-amber-500/50 via-green-500/50 to-red-500/50 rounded-2xl opacity-60 dark:opacity-40" />
-          
-          {/* Image container */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 z-10 pointer-events-none" />
-            
-            {/* The leaders image */}
-            <Image
-              src="/images/aes-leaders-banner.png"
-              alt="AES Leaders - Colonel Assimi Goïta of Mali, Captain Ibrahim Traoré of Burkina Faso, and General Abdourahamane Tiani of Niger"
-              width={1200}
-              height={400}
-              className="w-full h-auto object-cover"
-              priority
-            />
-          </div>
-        </div>
+
+        {/* Sticky Scroll Reveal with Distorted Glass & AES Content */}
+        <StickyScrollReveal className="mx-auto" />
       </motion.div>
     </section>
   );
