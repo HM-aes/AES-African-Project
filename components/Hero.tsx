@@ -50,8 +50,8 @@ export function Hero() {
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 flex items-center justify-center py-8">
         {/* Centered Text Content */}
-        <motion.div 
-          className="w-full max-w-6xl"
+        <motion.div
+          className="w-full max-w-7xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -70,12 +70,12 @@ export function Hero() {
         {/* Header ABOVE the image - Premium 3D Design */}
         <div className="text-center mb-8">
           {/* The Visionary Leaders - 3D Header with hover effects */}
-          <motion.h2 
+          <motion.h2
             className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.2em] mb-4
-            text-amber-400 dark:text-amber-300
+            text-stone-900 dark:text-white
             cursor-default relative inline-block"
             style={{
-              textShadow: '0 0 20px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.4), 0 4px 8px rgba(0,0,0,0.5)',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0,0,0,0.1)',
             }}
             whileHover={{ 
               scale: 1.05,
@@ -87,8 +87,8 @@ export function Hero() {
               {t("hero.visionaryLeaders")}
             </span>
             {/* Glow effect on hover */}
-            <motion.span 
-              className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/30 to-amber-400/0 blur-2xl -z-10"
+            <motion.span
+              className="absolute inset-0 bg-gradient-to-r from-stone-400/0 via-stone-400/20 to-stone-400/0 dark:from-white/0 dark:via-white/20 dark:to-white/0 blur-2xl -z-10"
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
             />

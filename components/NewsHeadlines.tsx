@@ -97,7 +97,7 @@ export function NewsHeadlines() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className={`group relative rounded-2xl overflow-hidden bg-gradient-to-br ${headline.color} backdrop-blur-sm border ${headline.borderColor} cursor-pointer`}
+              className={`group relative rounded-2xl overflow-hidden bg-white dark:bg-neutral-900 backdrop-blur-sm border-2 border-neutral-800 dark:border-neutral-600 cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:border-amber-500 dark:hover:border-amber-500 transition-colors`}
             >
               {/* Hover glow effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
@@ -160,7 +160,7 @@ export function NewsHeadlines() {
             href="/news"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 dark:bg-white/5 border border-amber-500/30 hover:border-amber-500/60 text-foreground dark:text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-neutral-900 border-2 border-neutral-800 dark:border-neutral-600 hover:border-amber-500 text-foreground dark:text-white font-medium transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
           >
             <Newspaper className="w-5 h-5 text-amber-500" />
             <span>View All News</span>
