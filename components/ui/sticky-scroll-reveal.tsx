@@ -52,7 +52,7 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      className="h-[28rem] overflow-y-auto flex justify-between relative gap-4 rounded-2xl p-0 custom-scrollbar-card border border-amber-200/60 dark:border-border bg-gradient-to-br from-card via-card to-secondary/30 dark:from-neutral-900 dark:to-neutral-900 shadow-[0_8px_30px_rgba(107,68,35,0.12)] dark:shadow-xl"
+      className="h-[28rem] overflow-y-auto flex justify-between relative gap-4 rounded-2xl p-0 custom-scrollbar-card border border-stone-300/80 dark:border-neutral-700 bg-gradient-to-br from-card via-card to-secondary/30 dark:from-neutral-900 dark:to-neutral-900 shadow-[0_8px_30px_rgba(0,0,0,0.15)] dark:shadow-xl"
       ref={ref}
     >
       <div className="div relative flex items-start pl-6 pr-2 py-6">
@@ -88,7 +88,7 @@ export const StickyScroll = ({
       </div>
       <div
         className={cn(
-          "hidden lg:block h-full w-[40rem] rounded-r-2xl bg-gradient-to-br from-amber-100/50 to-secondary dark:from-neutral-900 dark:to-neutral-900 sticky top-0 overflow-hidden border-l border-amber-200/40 dark:border-border shadow-[inset_0_0_30px_rgba(107,68,35,0.1)] dark:shadow-2xl flex-shrink-0",
+          "hidden lg:block h-full w-[40rem] rounded-r-2xl bg-gradient-to-br from-stone-100/50 to-secondary dark:from-neutral-900 dark:to-neutral-900 sticky top-0 overflow-hidden border-l border-stone-300/60 dark:border-neutral-700 shadow-[inset_0_0_30px_rgba(0,0,0,0.08)] dark:shadow-2xl flex-shrink-0",
           contentClassName
         )}
       >

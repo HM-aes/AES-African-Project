@@ -27,6 +27,7 @@ npm run clean        # Clear .next and node_modules/.cache
 - **UI Components:** shadcn/ui (new-york style, stone base) with registries: @aceternity, @tailark, @magicui, @react-bits
 - **3D Graphics:** Three.js, React Three Fiber, @react-three/drei, Cobe, three-globe
 - **Theme:** next-themes (defaults to dark mode)
+- **i18n:** Custom context-based solution (English/French)
 - **Icons:** lucide-react
 
 ## Architecture
@@ -58,9 +59,11 @@ app/
 - `ProfileCard.tsx` - AES leader cards (Framer Motion)
 - `BlogCard.tsx` - Blog post cards
 - `Navigation.tsx`, `Footer.tsx` - Site layout
+- `NewsTicker.tsx` - Fixed news ticker below navbar
 - `AESSpotlight.tsx`, `AESAchievements.tsx` - AES content sections
 - `theme-provider.tsx` - Theme context wrapper
 - `HydrationFix.tsx` - Client/server hydration handling
+- `LanguageToggle.tsx` - EN/FR language switcher
 
 **UI Components** (`components/ui/`):
 - shadcn/ui base components plus animated components from extended registries
@@ -117,6 +120,24 @@ import { Canvas } from '@react-three/fiber'
 
 **SSR Note:** Three.js libraries (`three`, `three-globe`) are in `serverExternalPackages` in next.config.ts to avoid SSR issues.
 
+### Internationalization (i18n)
+
+Custom React Context solution in `lib/i18n/`:
+- `LanguageProvider` wraps app in `layout.tsx`
+- `useTranslation()` hook returns `{ locale, setLocale, t }`
+- Translation files: `lib/i18n/locales/en.json`, `lib/i18n/locales/fr.json`
+- Dot notation for nested keys: `t("nav.home")`, `t("hero.visionaryLeaders")`
+- Locale persisted to localStorage, updates `document.documentElement.lang`
+
+```tsx
+import { useTranslation } from "@/lib/i18n";
+
+function Component() {
+  const { t, locale, setLocale } = useTranslation();
+  return <h1>{t("hero.visionaryLeaders")}</h1>;
+}
+```
+
 ### Data Structure
 
 **Hero Profiles:** Defined inline in page files as arrays of objects with `name`, `role`, `country`, `description`, `imageUrl`.
@@ -166,5 +187,6 @@ npx shadcn@latest add @react-bits/[component-name]  # React Bits
 
 - **Theme:** Defaults to dark mode, uses `suppressHydrationWarning` on html/body
 - **Turbopack:** Uses `empty-module.js` canvas polyfill for Three.js compatibility
+- **Layout:** Fixed navbar (72px height) with news ticker positioned directly below at `top-[72px]`
 - **Content:** Maintain factual accuracy - educational focus on Pan-Africanism
 - **Featured Heroes:** Thomas Sankara, Patrice Lumumba, Kwame Nkrumah, Modibo Keïta (historical); Ibrahim Traoré, Assimi Goïta, Abdourahamane Tchiani (contemporary)
