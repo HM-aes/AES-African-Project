@@ -63,7 +63,7 @@ const countries = [
 
 export function AESIntroduction() {
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-b from-background via-amber-950/5 to-background dark:from-neutral-950 dark:via-amber-950/10 dark:to-neutral-950 overflow-hidden">
+    <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-20 left-0 w-72 h-72 bg-gradient-radial from-amber-500/10 via-transparent to-transparent blur-3xl" />
       <div className="absolute bottom-20 right-0 w-72 h-72 bg-gradient-radial from-green-500/10 via-transparent to-transparent blur-3xl" />

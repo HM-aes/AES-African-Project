@@ -91,7 +91,7 @@ export function EconomicTransformation() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-b from-background via-green-950/5 to-background dark:from-neutral-950 dark:via-green-950/10 dark:to-neutral-950 overflow-hidden">
+    <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-40 left-0 w-96 h-96 bg-gradient-radial from-green-500/10 via-transparent to-transparent blur-3xl" />
       <div className="absolute bottom-40 right-0 w-96 h-96 bg-gradient-radial from-amber-500/10 via-transparent to-transparent blur-3xl" />

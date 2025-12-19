@@ -7,7 +7,7 @@ export function AESVision() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-b from-background via-secondary/20 to-background overflow-hidden">
+    <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-amber-400/20 via-transparent to-transparent blur-3xl dark:opacity-0" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-green-400/15 via-transparent to-transparent blur-3xl dark:opacity-0" />

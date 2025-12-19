@@ -63,7 +63,7 @@ const headlines = [
 
 export function NewsHeadlines() {
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-b from-background via-secondary/10 to-background dark:from-neutral-950 dark:via-neutral-900/50 dark:to-neutral-950 overflow-hidden">
+    <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-amber-500/10 via-transparent to-transparent blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-green-500/10 via-transparent to-transparent blur-3xl" />

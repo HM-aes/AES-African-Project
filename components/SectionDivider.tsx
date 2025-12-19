@@ -3,11 +3,32 @@
 import { motion } from "framer-motion";
 
 interface SectionDividerProps {
-  variant?: "amber" | "green" | "gradient" | "gold" | "red" | "subtle";
+  variant?: "amber" | "green" | "gradient" | "gold" | "red" | "subtle" | "end";
   className?: string;
 }
 
 export function SectionDivider({ variant = "gradient", className = "" }: SectionDividerProps) {
+  // End-of-section variant - more prominent
+  if (variant === "end") {
+    return (
+      <div className={`relative py-4 md:py-6 ${className}`}>
+        {/* Full width gradient line */}
+        <div className="relative w-full h-[1px] bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent" />
+
+        {/* Center diamond decoration */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            initial={{ scale: 0, rotate: 45 }}
+            whileInView={{ scale: 1, rotate: 45 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="w-2 h-2 bg-gradient-to-br from-amber-500 via-green-500 to-red-500 shadow-lg"
+          />
+        </div>
+      </div>
+    );
+  }
+
   const variants = {
     amber: {
       line: "from-transparent via-amber-500/60 to-transparent",
@@ -148,6 +169,28 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
           className={`w-1 h-1 rounded-full ${style.dot}`}
         />
       </div>
+    </div>
+  );
+}
+
+// Section End Line - Clear separator between sections
+export function SectionEndLine({ color = "gradient" }: { color?: "amber" | "green" | "red" | "gradient" }) {
+  const colors = {
+    amber: "from-transparent via-amber-500 to-transparent",
+    green: "from-transparent via-green-500 to-transparent",
+    red: "from-transparent via-red-500 to-transparent",
+    gradient: "from-amber-500 via-green-500 to-red-500",
+  };
+
+  return (
+    <div className="w-full py-1">
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className={`w-full h-[3px] bg-gradient-to-r ${colors[color]} origin-center`}
+      />
     </div>
   );
 }

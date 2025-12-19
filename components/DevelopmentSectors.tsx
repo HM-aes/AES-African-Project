@@ -174,7 +174,7 @@ export function DevelopmentSectors() {
   const [expandedSector, setExpandedSector] = useState<string | null>(null);
 
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-b from-background via-secondary/10 to-background dark:from-neutral-950 dark:via-neutral-900/30 dark:to-neutral-950 overflow-hidden">
+    <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-20 right-0 w-80 h-80 bg-gradient-radial from-amber-500/10 via-transparent to-transparent blur-3xl" />
       <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-radial from-green-500/10 via-transparent to-transparent blur-3xl" />
