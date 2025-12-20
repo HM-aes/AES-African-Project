@@ -12,6 +12,7 @@ import { Menu, X, Sparkles } from "lucide-react";
 const navLinkKeys = [
   { href: "/", key: "home" },
   { href: "/aes", key: "aes" },
+  { href: "/agent-ai", key: "agentAi" },
   { href: "/russia", key: "russia" },
   { href: "/tech", key: "tech" },
   { href: "/blog", key: "blog" },
@@ -138,9 +139,14 @@ export function Navigation() {
                         />
                       )}
                       <span
-                        className={`relative z-10 transition-colors duration-200 ${
-                          hoveredIndex === index ? "text-stone-900 dark:text-white" : "text-stone-600 dark:text-white/60"
+                        className={`relative z-10 transition-all duration-200 font-semibold ${
+                          hoveredIndex === index 
+                            ? "text-amber-600 dark:text-amber-400" 
+                            : "text-slate-500 dark:text-slate-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]"
                         }`}
+                        style={{
+                          textShadow: hoveredIndex === index ? 'none' : '0 1px 2px rgba(255,255,255,0.1)'
+                        }}
                       >
                         {t(`nav.${link.key}`)}
                       </span>
