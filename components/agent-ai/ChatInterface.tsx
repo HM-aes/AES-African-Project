@@ -92,11 +92,11 @@ export function ChatInterface({ selectedLeader, onClearLeader }: ChatInterfacePr
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl border-b border-amber-200/50 dark:border-stone-700 px-4 py-3"
+          className="bg-slate-200/90 dark:bg-stone-900/80 backdrop-blur-xl border-b border-slate-300 dark:border-stone-700 px-4 py-3"
         >
           <div className="max-w-4xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-amber-500">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-slate-500 dark:border-amber-500">
                 <Image
                   src={selectedLeader.imageUrl}
                   alt={selectedLeader.name}
@@ -105,17 +105,17 @@ export function ChatInterface({ selectedLeader, onClearLeader }: ChatInterfacePr
                 />
               </div>
               <div>
-                <p className="font-semibold text-stone-800 dark:text-white">
+                <p className="font-medium text-slate-700 dark:text-white">
                   {selectedLeader.name} {selectedLeader.countryFlag}
                 </p>
-                <p className="text-xs text-stone-500 dark:text-stone-400">
+                <p className="text-xs text-slate-500 dark:text-stone-400">
                   {selectedLeader.role} • {selectedLeader.era}
                 </p>
               </div>
             </div>
             <button
               onClick={onClearLeader}
-              className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-400 hover:text-stone-600 transition-colors"
+              className="p-2 rounded-lg hover:bg-slate-300 dark:hover:bg-stone-800 text-slate-400 hover:text-slate-600 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -138,16 +138,16 @@ export function ChatInterface({ selectedLeader, onClearLeader }: ChatInterfacePr
                 <motion.div
                   initial={{ scale: 0.9 }}
                   animate={{ scale: 1 }}
-                  className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-500 via-green-500 to-red-500 p-[3px] mx-auto"
+                  className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-slate-500 via-slate-600 to-zinc-600 dark:from-amber-500 dark:via-green-500 dark:to-red-500 p-[3px] mx-auto"
                 >
-                  <div className="w-full h-full rounded-[13px] bg-white dark:bg-stone-900 flex items-center justify-center">
-                    <Bot className="w-10 h-10 text-amber-500" />
+                  <div className="w-full h-full rounded-[13px] bg-slate-100 dark:bg-stone-900 flex items-center justify-center">
+                    <Bot className="w-10 h-10 text-slate-600 dark:text-amber-500" />
                   </div>
                 </motion.div>
-                <h1 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-white">
+                <h1 className="text-3xl md:text-4xl font-semibold text-slate-700 dark:text-white">
                   Learn Pan-African History
                 </h1>
-                <p className="text-lg text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
+                <p className="text-lg text-slate-600 dark:text-stone-400 max-w-2xl mx-auto leading-relaxed">
                   Explore the stories, ideas, and legacies of Africa&apos;s greatest revolutionary leaders.
                   Select a leader from the sidebar or ask me anything about Pan-African history.
                 </p>
