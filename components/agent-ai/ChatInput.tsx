@@ -27,13 +27,13 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <div className="border-t border-slate-300 dark:border-stone-700 bg-slate-200/90 dark:bg-stone-900/80 backdrop-blur-xl px-4 py-4">
+    <div className="border-t-2 border-slate-400 dark:border-stone-600 bg-slate-200/95 dark:bg-stone-900/90 backdrop-blur-xl px-4 py-5">
       <div className="max-w-4xl mx-auto">
         <div className="relative flex items-end gap-3">
           {/* Input Container */}
           <div className="flex-1 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-400/20 via-zinc-400/20 to-slate-400/20 dark:from-amber-500/20 dark:via-green-500/20 dark:to-amber-500/20 rounded-2xl blur-xl opacity-50" />
-            <div className="relative bg-slate-100 dark:bg-stone-800 rounded-2xl border border-slate-300 dark:border-stone-700 focus-within:border-slate-500 dark:focus-within:border-amber-500 transition-colors">
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-500/30 via-zinc-500/30 to-slate-500/30 dark:from-amber-500/20 dark:via-green-500/20 dark:to-amber-500/20 rounded-2xl blur-xl opacity-60" />
+            <div className="relative bg-white dark:bg-stone-800 rounded-2xl border-2 border-slate-400 dark:border-stone-600 shadow-[0_0_0_3px_rgba(100,116,139,0.1)] dark:shadow-[0_0_0_3px_rgba(251,191,36,0.1)] focus-within:border-slate-600 dark:focus-within:border-amber-500 focus-within:shadow-[0_0_0_4px_rgba(100,116,139,0.2)] dark:focus-within:shadow-[0_0_0_4px_rgba(251,191,36,0.2)] transition-all duration-200">
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
