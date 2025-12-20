@@ -54,12 +54,53 @@ export function Hero() {
         </motion.div>
       </div>
 
+      {/* Animated Section Divider */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 my-8 md:my-12"
+      >
+        <div className="relative flex items-center justify-center">
+          {/* Left gradient line */}
+          <motion.div 
+            className="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/60 to-amber-500"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          />
+          
+          {/* Center decorative element */}
+          <motion.div 
+            className="mx-4 md:mx-6 flex items-center gap-2"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1.0 }}
+          >
+            <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+            <div className="w-3 h-3 rounded-full bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-lg shadow-amber-500/50" />
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+          </motion.div>
+          
+          {/* Right gradient line */}
+          <motion.div 
+            className="flex-1 h-[2px] bg-gradient-to-l from-transparent via-red-500/60 to-red-500"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          />
+        </div>
+        
+        {/* Glow effect under the line */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-8 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent blur-xl pointer-events-none" />
+      </motion.div>
+
       {/* Leaders Section - Full Width Card */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-4 md:mt-8 mb-12 md:mb-20"
+        className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mb-12 md:mb-20"
       >
         {/* TooltipCard - Replaces StickyScrollReveal for better scrolling */}
         <TooltipCard className="mx-auto" />

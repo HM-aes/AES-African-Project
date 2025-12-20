@@ -110,20 +110,18 @@ export function TooltipCard({ className }: TooltipCardProps) {
 
         {/* HEADER SECTION - Fixed */}
         <div className="relative z-20 px-4 md:px-8 pt-6 md:pt-8 pb-4 md:pb-6 bg-gradient-to-b from-white via-white to-white/95 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950/95 border-b border-neutral-200 dark:border-neutral-800">
-          {/* Badge */}
-          <div className="flex justify-center mb-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30">
+          {/* Title with Alliance Badge inline */}
+          <div className="text-center mb-4 md:mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.1em] text-stone-900 dark:text-white mb-3">
+              {t("hero.visionaryLeaders")}
+            </h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500/10 via-green-500/10 to-red-500/10 border border-amber-500/30">
               <Shield className="w-4 h-4 text-amber-500" />
-              <span className="text-xs md:text-sm font-semibold text-amber-500 uppercase tracking-wider">
+              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-amber-500 via-green-500 to-red-500 bg-clip-text text-transparent uppercase tracking-wider">
                 Alliance of Sahel States
               </span>
             </div>
           </div>
-
-          {/* Title */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.1em] text-center text-stone-900 dark:text-white mb-4 md:mb-6">
-            {t("hero.visionaryLeaders")}
-          </h2>
 
           {/* Leader Tab Buttons */}
           <div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap mb-4">
@@ -220,15 +218,6 @@ export function TooltipCard({ className }: TooltipCardProps) {
                   transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="space-y-6 md:space-y-8"
                 >
-                  {/* Country badge */}
-                  <div className="flex items-center gap-3">
-                    <span className="text-4xl md:text-5xl">{currentLeader.emoji}</span>
-                    <div className={`px-5 py-2 rounded-full ${currentLeader.bgColor} border-2 ${currentLeader.borderColor}`}>
-                      <span className={`text-base md:text-lg font-bold ${currentLeader.textColor} uppercase tracking-wider`}>
-                        {currentLeader.country}
-                      </span>
-                    </div>
-                  </div>
 
                   {/* Leader name */}
                   <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-neutral-900 dark:text-white leading-tight">
@@ -290,12 +279,20 @@ export function TooltipCard({ className }: TooltipCardProps) {
                         priority
                       />
                       {/* Bottom gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                      {/* Name overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                        <p className="text-white font-bold text-xl md:text-2xl">{currentLeader.name}</p>
-                        <p className={`${currentLeader.textColor} text-base font-semibold`}>{currentLeader.country}</p>
+                      {/* Name and Country overlay - Clean layout */}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-3xl md:text-4xl">{currentLeader.emoji}</span>
+                          <div className={`px-3 py-1 rounded-full ${currentLeader.bgColor} border ${currentLeader.borderColor}`}>
+                            <span className={`text-sm font-bold ${currentLeader.textColor} uppercase tracking-wider`}>
+                              {currentLeader.country}
+                            </span>
+                          </div>
+                        </div>
+                        <p className="text-white font-bold text-xl md:text-2xl font-heading">{currentLeader.name}</p>
+                        <p className={`${currentLeader.textColor} text-sm md:text-base font-semibold mt-1`}>{currentLeader.role}</p>
                       </div>
                     </div>
                   </motion.div>
