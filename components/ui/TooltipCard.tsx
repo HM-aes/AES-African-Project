@@ -169,12 +169,12 @@ export function TooltipCard({ className }: TooltipCardProps) {
           </div>
         </div>
 
-        {/* CONTENT AREA - Scrollable with visible scrollbar */}
-        <div className="tooltip-card-scroll overflow-y-auto max-h-[500px] md:max-h-[550px] lg:max-h-[600px]">
-          <div className="flex flex-col lg:flex-row min-h-[400px]">
-            
-            {/* Left Column - Leader Info */}
-            <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-10 flex flex-col justify-start relative z-10">
+        {/* CONTENT AREA - Two column layout with scrollable text */}
+        <div className="flex flex-col lg:flex-row min-h-[400px] lg:min-h-[500px]">
+          
+          {/* Left Column - Scrollable Leader Info */}
+          <div className="w-full lg:w-1/2 relative z-10">
+            <div className="tooltip-card-scroll overflow-y-auto max-h-[350px] md:max-h-[400px] lg:max-h-[500px] p-6 md:p-8 lg:p-10">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={currentLeader.id}
@@ -206,9 +206,16 @@ export function TooltipCard({ className }: TooltipCardProps) {
                       &ldquo;{currentLeader.quote}&rdquo;
                     </p>
                   </div>
+                  
+                  {/* Scroll indicator for more content */}
+                  <div className="flex items-center justify-center gap-2 pt-4 text-neutral-400 dark:text-neutral-500 text-sm">
+                    <div className="w-1 h-4 rounded-full bg-gradient-to-b from-neutral-300 to-neutral-400 dark:from-neutral-600 dark:to-neutral-500 animate-bounce" />
+                    <span>Scroll to read more</span>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
 
             {/* Right Column - Leader Image */}
             <div className="w-full lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-neutral-100 via-neutral-50 to-neutral-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800 min-h-[350px] lg:min-h-[500px]">
@@ -266,7 +273,6 @@ export function TooltipCard({ className }: TooltipCardProps) {
               </div>
             </div>
           </div>
-        </div>
 
         {/* FOOTER - Tagline Only */}
         <div className="relative z-20 px-4 md:px-8 py-4 md:py-5 bg-gradient-to-t from-white via-white to-white/95 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950/95 border-t border-neutral-200 dark:border-neutral-800">
