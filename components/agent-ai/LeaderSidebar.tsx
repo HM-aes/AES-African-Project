@@ -27,19 +27,22 @@ export function LeaderSidebar({
   onClose,
 }: LeaderSidebarProps) {
   return (
-    <div className="h-full bg-slate-200/95 dark:bg-stone-900/95 backdrop-blur-xl border-r border-slate-300 dark:border-stone-700 flex flex-col">
+    <div className="h-full bg-gradient-to-b from-slate-100 via-slate-150 to-slate-200 dark:from-stone-900 dark:via-stone-900 dark:to-stone-950 backdrop-blur-xl border-r-2 border-slate-400 dark:border-amber-500/30 flex flex-col relative overflow-hidden">
+      {/* Decorative gradient line on the right edge */}
+      <div className="absolute right-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-amber-500 via-green-500 to-red-500 opacity-60 dark:opacity-80" />
+      
       {/* Header */}
-      <div className="p-4 border-b border-slate-300 dark:border-stone-700">
+      <div className="p-4 border-b-2 border-slate-300 dark:border-stone-700 bg-slate-200/50 dark:bg-stone-800/30">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-500 via-slate-600 to-zinc-600 dark:from-amber-500 dark:via-green-500 dark:to-red-500 p-[2px]">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-green-500 to-red-500 p-[2px] shadow-lg shadow-amber-500/20">
               <div className="w-full h-full rounded-[10px] bg-slate-100 dark:bg-stone-900 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-slate-600 dark:text-amber-500" />
+                <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-500" />
               </div>
             </div>
             <div>
-              <h2 className="font-semibold text-slate-700 dark:text-white">Agent AI</h2>
-              <p className="text-xs text-slate-500 dark:text-stone-400">Pan-African Education</p>
+              <h2 className="font-semibold text-slate-800 dark:text-white">Agent AI</h2>
+              <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">Pan-African Education</p>
             </div>
           </div>
           <button
@@ -54,7 +57,8 @@ export function LeaderSidebar({
       {/* Leaders Section */}
       <div className="flex-1 overflow-y-auto">
         <div className="p-4">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-stone-400 mb-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-3 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-amber-500 to-green-500" />
             Historical Leaders
           </h3>
           <div className="grid grid-cols-2 gap-3">
@@ -67,14 +71,14 @@ export function LeaderSidebar({
                 onClick={() => onSelectLeader(selectedLeader?.id === leader.id ? null : leader)}
                 className={`relative group p-3 rounded-xl border-2 transition-all duration-300 ${
                   selectedLeader?.id === leader.id
-                    ? "border-slate-500 dark:border-amber-500 bg-slate-300 dark:bg-amber-500/10"
-                    : "border-slate-300 dark:border-stone-700 hover:border-slate-400 dark:hover:border-amber-500/50 bg-slate-100/80 dark:bg-stone-800/50"
+                    ? "border-amber-500 bg-gradient-to-br from-amber-50 to-green-50 dark:from-amber-500/15 dark:to-green-500/10 shadow-lg shadow-amber-500/20"
+                    : "border-slate-300 dark:border-stone-600 hover:border-amber-400 dark:hover:border-amber-500/50 bg-white/80 dark:bg-stone-800/60 hover:bg-gradient-to-br hover:from-slate-50 hover:to-amber-50/30 dark:hover:from-stone-800 dark:hover:to-amber-900/20"
                 }`}
               >
                 {/* Avatar */}
-                <div className="relative w-12 h-12 mx-auto mb-2">
-                  <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-slate-400 to-zinc-500 dark:from-amber-500 dark:to-green-500 p-[2px] ${
-                    selectedLeader?.id === leader.id ? "animate-pulse" : ""
+                <div className="relative w-14 h-14 mx-auto mb-2">
+                  <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-amber-500 via-green-500 to-red-500 p-[2.5px] shadow-md ${
+                    selectedLeader?.id === leader.id ? "animate-pulse shadow-amber-500/40" : "shadow-slate-400/30"
                   }`}>
                     <div className="w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-stone-700">
                       <Image
@@ -86,13 +90,17 @@ export function LeaderSidebar({
                     </div>
                   </div>
                   {/* Country Flag Badge */}
-                  <div className="absolute -bottom-1 -right-1 text-lg bg-slate-100 dark:bg-stone-800 rounded-full p-0.5 shadow-md">
+                  <div className="absolute -bottom-1 -right-1 text-lg bg-white dark:bg-stone-800 rounded-full p-0.5 shadow-md border border-slate-200 dark:border-stone-600">
                     {leader.countryFlag}
                   </div>
                 </div>
 
                 {/* Info */}
-                <p className="text-sm font-medium text-slate-700 dark:text-stone-200 truncate">
+                <p className={`text-sm font-semibold truncate ${
+                  selectedLeader?.id === leader.id 
+                    ? "text-amber-700 dark:text-amber-400" 
+                    : "text-slate-700 dark:text-stone-200"
+                }`}>
                   {leader.name.split(" ").slice(-1)[0]}
                 </p>
                 <p className="text-[10px] text-slate-500 dark:text-stone-400 truncate">
@@ -103,7 +111,7 @@ export function LeaderSidebar({
                 {selectedLeader?.id === leader.id && (
                   <motion.div
                     layoutId="leader-selection"
-                    className="absolute inset-0 rounded-xl border-2 border-slate-500 dark:border-amber-500"
+                    className="absolute inset-0 rounded-xl border-2 border-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.3)]"
                     initial={false}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
