@@ -123,40 +123,6 @@ export function TooltipCard({ className }: TooltipCardProps) {
             </div>
           </div>
 
-          {/* Leader Tab Buttons */}
-          <div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap mb-4">
-            {leadersData.map((leader, index) => (
-              <motion.button
-                key={leader.id}
-                onClick={() => goToLeader(index)}
-                className={cn(
-                  "group relative px-4 md:px-5 py-2 md:py-2.5 rounded-xl transition-all duration-300",
-                  "border-2",
-                  index === activeIndex
-                    ? `${leader.bgColor} ${leader.borderColor} shadow-lg`
-                    : "bg-white/50 dark:bg-neutral-800/50 border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-600"
-                )}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">{leader.emoji}</span>
-                  <span className={cn(
-                    "text-sm md:text-base font-bold transition-colors",
-                    index === activeIndex ? leader.textColor : "text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
-                  )}>
-                    {leader.shortName}
-                  </span>
-                </div>
-                {index === activeIndex && (
-                  <motion.div
-                    layoutId="leader-indicator"
-                    className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-gradient-to-r ${leader.colorClass}`}
-                  />
-                )}
-              </motion.button>
-            ))}
-          </div>
 
           {/* Navigation Controls - At Top */}
           <div className="flex items-center justify-between max-w-2xl mx-auto">
