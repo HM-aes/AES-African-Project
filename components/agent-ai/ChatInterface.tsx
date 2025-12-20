@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Bot, User, X, Lightbulb } from "lucide-react";
-import { Leader, getRandomQuote, educationalTopics } from "@/data/leaders";
+import { Leader, Quote, getRandomQuote, educationalTopics } from "@/data/leaders";
 import { ChatInput } from "./ChatInput";
 import { TopicCard } from "./TopicCard";
 import { QuoteCard } from "./QuoteCard";
@@ -25,8 +25,8 @@ interface ChatInterfaceProps {
 export function ChatInterface({ selectedLeader, onClearLeader }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [featuredQuote, setFeaturedQuote] = useState<{ quote: Quote; leader: Leader } | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { quote: featuredQuote, leader: quoteLeader } = getRandomQuote();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -35,6 +35,11 @@ export function ChatInterface({ selectedLeader, onClearLeader }: ChatInterfacePr
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Generate random quote only on client to avoid hydration mismatch
+  useEffect(() => {
+    setFeaturedQuote(getRandomQuote());
+  }, []);
 
   // When a leader is selected, add a context message
   useEffect(() => {
@@ -149,7 +154,9 @@ export function ChatInterface({ selectedLeader, onClearLeader }: ChatInterfacePr
               </div>
 
               {/* Featured Quote */}
-              <QuoteCard quote={featuredQuote} leader={quoteLeader} />
+              {featuredQuote && (
+                <QuoteCard quote={featuredQuote.quote} leader={featuredQuote.leader} />
+              )}
 
               {/* Topic Cards */}
               <div className="space-y-4">

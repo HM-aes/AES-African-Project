@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+import { ConditionalFooter } from "@/components/ConditionalFooter";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { HydrationFix } from "@/components/HydrationFix";
@@ -48,7 +48,7 @@ export default function RootLayout({
             <main className="flex-grow">
               {children}
             </main>
-            <Footer />
+            <ConditionalFooter />
           </LanguageProvider>
         </ThemeProvider>
       </body>
