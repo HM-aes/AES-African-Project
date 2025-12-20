@@ -19,7 +19,7 @@ npm run clean        # Clear .next and node_modules/.cache
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 (App Router with Turbopack)
+- **Framework:** Next.js 15.5 (App Router with Turbopack)
 - **React:** v19
 - **TypeScript:** Strict mode, ES2017 target, bundler module resolution
 - **Styling:** Tailwind CSS v3.4 with tailwindcss-animate plugin

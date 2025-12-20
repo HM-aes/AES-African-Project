@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HeroText } from "@/components/HeroText";
-import { StickyScrollReveal } from "@/components/ui/StickyScrollReveal";
+import { TooltipCard } from "@/components/ui/TooltipCard";
 
 export function Hero() {
   return (
@@ -61,9 +61,10 @@ export function Hero() {
         transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-4 md:mt-8 mb-12 md:mb-20"
       >
-        {/* Sticky Scroll Reveal - Now contains header, flags, names, and content */}
-        <StickyScrollReveal className="mx-auto" />
+        {/* TooltipCard - Replaces StickyScrollReveal for better scrolling */}
+        <TooltipCard className="mx-auto" />
       </motion.div>
     </section>
   );
 }
+

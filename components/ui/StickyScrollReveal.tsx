@@ -228,7 +228,7 @@ export function StickyScrollReveal({ className }: StickyScrollRevealProps) {
               {/* CONTENT AREA */}
               <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
                 {/* Left Column - Leader Info */}
-                <div className="w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-center relative z-10">
+                <div className="w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-start pt-6 md:pt-8 relative z-10 overflow-visible">
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                       key={currentLeader.id}

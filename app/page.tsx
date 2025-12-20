@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section - The Visionary Leaders */}
-      <Section background="default" showEndLine={true} endLineColor="amber">
+      <Section background="default" showEndLine={true} endLineColor="gradient">
         <Hero />
       </Section>
 
@@ -20,7 +20,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="amber"
         showEndLine={true}
-        endLineColor="gradient"
+        endLineColor="amber"
         delay={0.1}
       >
         <AESIntroduction />
@@ -28,7 +28,7 @@ export default function Home() {
 
       {/* 3. Economic Transformation - Growth Story */}
       <AnimatedSectionWrapper
-        background="green"
+        background="charcoal"
         showEndLine={true}
         endLineColor="green"
         delay={0.1}
@@ -40,7 +40,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="alt"
         showEndLine={true}
-        endLineColor="amber"
+        endLineColor="gradient"
         delay={0.1}
       >
         <NewsHeadlines />
@@ -50,7 +50,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="gradient-1"
         showEndLine={true}
-        endLineColor="gradient"
+        endLineColor="amber"
         delay={0.1}
       >
         <DevelopmentSectors />
@@ -58,7 +58,7 @@ export default function Home() {
 
       {/* 6. Path to Sovereignty - Military Transformation */}
       <AnimatedSectionWrapper
-        background="dark"
+        background="slate"
         showEndLine={true}
         endLineColor="red"
         delay={0.1}
@@ -70,7 +70,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="gradient-2"
         showEndLine={true}
-        endLineColor="amber"
+        endLineColor="gradient"
         delay={0.1}
       >
         <AESVision />
@@ -78,7 +78,7 @@ export default function Home() {
 
       {/* 8. Achievements - Summary */}
       <AnimatedSectionWrapper
-        background="default"
+        background="dark-alt"
         showEndLine={false}
         delay={0.1}
       >
@@ -87,3 +87,4 @@ export default function Home() {
     </div>
   );
 }
+

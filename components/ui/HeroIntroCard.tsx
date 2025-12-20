@@ -5,8 +5,7 @@ import { useRef, MouseEvent } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedAvatarTooltip } from "./AnimatedAvatarTooltip";
 import {
-  MapPin, Sparkles, Globe, Zap, Shield, Wheat, GraduationCap, ArrowRight,
-  TrendingUp, Factory, Pickaxe, Banknote, Target
+  Sparkles, Globe, Zap, Shield, Wheat, GraduationCap, ArrowRight, Target
 } from "lucide-react";
 
 interface HeroIntroCardProps {
@@ -32,36 +31,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
     { label: "Education", icon: GraduationCap, color: "bg-purple-500/10", borderColor: "border-purple-500/40", textColor: "text-purple-600 dark:text-purple-400" },
   ];
 
-  const growthMetrics = [
-    {
-      label: "GDP Growth",
-      value: "+5.2%",
-      description: "Average annual growth",
-      icon: TrendingUp,
-      color: "text-green-600 dark:text-green-500"
-    },
-    {
-      label: "Gold Production",
-      value: "+40%",
-      description: "Increased mining output",
-      icon: Pickaxe,
-      color: "text-amber-600 dark:text-amber-500"
-    },
-    {
-      label: "Local Industries",
-      value: "150+",
-      description: "New factories opened",
-      icon: Factory,
-      color: "text-blue-600 dark:text-blue-500"
-    },
-    {
-      label: "Revenue Retained",
-      value: "85%",
-      description: "Kept in-country",
-      icon: Banknote,
-      color: "text-emerald-600 dark:text-emerald-500"
-    },
-  ];
+
 
   return (
     <motion.div
@@ -79,7 +49,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 via-green-500/10 to-red-500/20 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
 
       {/* Main card - Compact with scroll */}
-      <div className="relative bg-white dark:bg-neutral-900 border-2 border-neutral-800 dark:border-neutral-600 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.15)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)] max-h-[480px] md:max-h-[520px]">
+      <div className="relative bg-white dark:bg-neutral-900 border-2 border-neutral-800 dark:border-neutral-600 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.15)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
 
         {/* Spotlight effect on hover */}
         <motion.div
@@ -100,15 +70,32 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         <div className="h-1 bg-gradient-to-r from-amber-500 via-green-500 to-red-500 sticky top-0 z-30" />
 
         {/* Scrollable Content */}
-        <div className="relative z-10 p-6 md:p-8 overflow-y-auto max-h-[460px] md:max-h-[500px] hero-card-scrollbar">
-          {/* Top Badge Row */}
+        <div className="relative z-10 p-6 md:p-8">
+          {/* AES Education Hub Header */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-wrap items-center justify-between gap-3 mb-8"
+            className="mb-8"
           >
-            <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-center">
+              <span className="bg-gradient-to-r from-amber-600 via-green-500 to-red-500 bg-clip-text text-transparent">
+                AES Education Hub
+              </span>
+            </h1>
+            <p className="text-center text-neutral-600 dark:text-neutral-400 mt-3 text-lg">
+              Your gateway to Pan-African knowledge and sovereignty
+            </p>
+          </motion.div>
+
+          {/* Top Badge Row */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-wrap items-center justify-center gap-3 mb-8"
+          >
+            <div className="flex items-center gap-3 flex-wrap justify-center">
               <div className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/40">
                 <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                 <span className="text-sm font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-wider">
@@ -123,10 +110,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
                 <Target className="w-4 h-4 text-green-600 dark:text-green-400" />
                 <span className="text-sm text-green-700 dark:text-green-400 font-medium">Sovereignty First</span>
               </div>
-            </div>
-            <div className="flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400 text-sm">
-              <MapPin className="w-4 h-4" />
-              <span>Sahel Region, West Africa</span>
             </div>
           </motion.div>
 
@@ -181,43 +164,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
                 </p>
               </motion.div>
 
-              {/* Growth Since Formation */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="pt-4"
-              >
-                <div className="flex items-center gap-2 mb-5">
-                  <TrendingUp className="w-5 h-5 text-green-600 dark:text-green-500" />
-                  <span className="text-xs text-neutral-600 dark:text-neutral-400 uppercase tracking-widest font-bold">
-                    Growth Since Formation
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {growthMetrics.map((metric, index) => (
-                    <motion.div
-                      key={metric.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.9 + index * 0.1 }}
-                      whileHover={{ scale: 1.03, y: -3, transition: { duration: 0.2 } }}
-                      className="relative p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700 cursor-default"
-                    >
-                      <metric.icon className={cn("w-5 h-5 mb-2", metric.color)} />
-                      <p className={cn("text-2xl md:text-3xl font-bold", metric.color)}>
-                        {metric.value}
-                      </p>
-                      <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mt-1">
-                        {metric.label}
-                      </p>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-0.5">
-                        {metric.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+
 
               {/* Key Pillars */}
               <motion.div

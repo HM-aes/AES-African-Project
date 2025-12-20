@@ -173,24 +173,49 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
   );
 }
 
-// Section End Line - Clear separator between sections
+// Section End Line - PROMINENT separator between sections
 export function SectionEndLine({ color = "gradient" }: { color?: "amber" | "green" | "red" | "gradient" }) {
   const colors = {
-    amber: "from-transparent via-amber-500 to-transparent",
-    green: "from-transparent via-green-500 to-transparent",
-    red: "from-transparent via-red-500 to-transparent",
+    amber: "from-amber-600/20 via-amber-500 to-amber-600/20",
+    green: "from-green-600/20 via-green-500 to-green-600/20",
+    red: "from-red-600/20 via-red-500 to-red-600/20",
     gradient: "from-amber-500 via-green-500 to-red-500",
   };
 
+  const glowColors = {
+    amber: "shadow-[0_0_30px_rgba(245,158,11,0.5)]",
+    green: "shadow-[0_0_30px_rgba(34,197,94,0.5)]",
+    red: "shadow-[0_0_30px_rgba(239,68,68,0.5)]",
+    gradient: "shadow-[0_0_40px_rgba(34,197,94,0.4)]",
+  };
+
   return (
-    <div className="w-full py-1">
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className={`w-full h-[3px] bg-gradient-to-r ${colors[color]} origin-center`}
-      />
+    <div className="w-full py-6 md:py-8">
+      {/* Top fade gradient for depth */}
+      <div className="w-full h-8 bg-gradient-to-b from-transparent via-black/5 to-transparent dark:via-white/5" />
+      
+      {/* Main prominent line with glow */}
+      <div className="relative">
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className={`w-full h-[6px] md:h-[8px] bg-gradient-to-r ${colors[color]} origin-center rounded-full ${glowColors[color]}`}
+        />
+        
+        {/* Center diamond decoration */}
+        <motion.div
+          initial={{ scale: 0, rotate: 0 }}
+          whileInView={{ scale: 1, rotate: 45 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 bg-gradient-to-br from-amber-500 via-green-500 to-red-500 shadow-lg"
+        />
+      </div>
+      
+      {/* Bottom fade gradient for depth */}
+      <div className="w-full h-8 bg-gradient-to-t from-transparent via-black/5 to-transparent dark:via-white/5" />
     </div>
   );
 }

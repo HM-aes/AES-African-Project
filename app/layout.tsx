@@ -6,7 +6,6 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { HydrationFix } from "@/components/HydrationFix";
-import { NewsTicker } from "@/components/NewsTicker";
 import { LanguageProvider } from "@/lib/i18n";
 
 const inter = Inter({
@@ -20,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Pan-African Educational Hub",
+  title: "AES Education Hub | Pan-African Educational Portal",
   description: "Learn about Pan-Africanism, History, and the Alliance of Sahel States.",
 };
 
@@ -45,10 +44,6 @@ export default function RootLayout({
             <HydrationFix />
             <ScrollToTop />
             <Navigation />
-            {/* News Ticker - Fixed below navbar */}
-            <div className="fixed top-[72px] left-0 right-0 z-40">
-              <NewsTicker />
-            </div>
             {/* Main content */}
             <main className="flex-grow">
               {children}
