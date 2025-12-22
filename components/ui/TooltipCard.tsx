@@ -6,6 +6,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, Shield } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
+import { PixelatedCanvas } from "./pixelated-canvas";
 
 interface TooltipCardProps {
   className?: string;
@@ -110,14 +111,14 @@ export function TooltipCard({ className }: TooltipCardProps) {
 
         {/* HEADER SECTION - Fixed */}
         <div className="relative z-20 px-4 md:px-8 pt-6 md:pt-8 pb-4 md:pb-6 bg-gradient-to-b from-white via-white to-white/95 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950/95 border-b border-neutral-200 dark:border-neutral-800">
-          {/* Title with Alliance Badge inline */}
+          {/* Title with Alliance Badge inline - neutral style matching hero */}
           <div className="text-center mb-4 md:mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.1em] text-stone-900 dark:text-white mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.1em] text-neutral-900 dark:text-white mb-3">
               {t("hero.visionaryLeaders")}
             </h2>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500/10 via-green-500/10 to-red-500/10 border border-amber-500/30">
-              <Shield className="w-4 h-4 text-amber-500" />
-              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-amber-500 via-green-500 to-red-500 bg-clip-text text-transparent uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700">
+              <Shield className="w-4 h-4 text-neutral-700 dark:text-neutral-300" />
+              <span className="text-xs md:text-sm font-semibold text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">
                 Alliance of Sahel States
               </span>
             </div>
@@ -130,7 +131,7 @@ export function TooltipCard({ className }: TooltipCardProps) {
               onClick={goPrev}
               whileHover={{ scale: 1.05, x: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold shadow-lg shadow-amber-500/30 transition-all duration-300 border-2 border-amber-400/50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-white font-bold shadow-lg transition-all duration-300 border border-neutral-700 dark:border-neutral-600"
             >
               <ChevronLeft className="w-5 h-5" />
               <span className="text-sm">Previous</span>
@@ -161,7 +162,7 @@ export function TooltipCard({ className }: TooltipCardProps) {
               onClick={goNext}
               whileHover={{ scale: 1.05, x: 2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-bold shadow-lg shadow-green-500/30 transition-all duration-300 border-2 border-green-400/50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-white font-bold shadow-lg transition-all duration-300 border border-neutral-700 dark:border-neutral-600"
             >
               <span className="text-sm">Next</span>
               <ChevronRight className="w-5 h-5" />
@@ -219,9 +220,42 @@ export function TooltipCard({ className }: TooltipCardProps) {
 
             {/* Right Column - Leader Image */}
             <div className="w-full lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-neutral-100 via-neutral-50 to-neutral-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800 min-h-[350px] lg:min-h-[500px]">
+              {/* Pixelated Canvas Background - Interactive */}
+              <div className="absolute inset-0 opacity-20 dark:opacity-30">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={currentLeader.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full h-full"
+                  >
+                    <PixelatedCanvas
+                      src={currentLeader.image}
+                      width={500}
+                      height={500}
+                      cellSize={4}
+                      dotScale={0.85}
+                      shape="square"
+                      backgroundColor="transparent"
+                      interactive={true}
+                      distortionMode="swirl"
+                      distortionStrength={5}
+                      distortionRadius={120}
+                      jitterStrength={3}
+                      jitterSpeed={2}
+                      tintColor={currentLeader.glowColor}
+                      tintStrength={0.3}
+                      className="w-full h-full"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
               {/* Background glow */}
               <motion.div
-                className="absolute inset-0 opacity-50"
+                className="absolute inset-0 opacity-30"
                 animate={{
                   background: `radial-gradient(circle at 50% 50%, ${currentLeader.glowColor}, transparent 70%)`,
                 }}
@@ -276,13 +310,13 @@ export function TooltipCard({ className }: TooltipCardProps) {
 
         {/* FOOTER - Tagline Only */}
         <div className="relative z-20 px-4 md:px-8 py-4 md:py-5 bg-gradient-to-t from-white via-white to-white/95 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950/95 border-t border-neutral-200 dark:border-neutral-800">
-          {/* Tagline */}
+          {/* Tagline - neutral style */}
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
-            <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-amber-600 via-green-600 to-red-600 bg-clip-text text-transparent">
+            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />
+            <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-neutral-700 dark:text-neutral-300">
               From Africa, For Africans
             </p>
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
+            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />
           </div>
         </div>
 

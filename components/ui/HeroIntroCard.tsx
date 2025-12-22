@@ -43,11 +43,11 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         className
       )}
     >
-      {/* Subtle ambient glow behind card */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-neutral-200/40 via-neutral-300/20 to-neutral-200/40 dark:from-neutral-800/40 dark:via-neutral-700/20 dark:to-neutral-800/40 rounded-[2rem] blur-2xl opacity-60" />
+      {/* Subtle ambient glow behind card - enhanced */}
+      <div className="absolute -inset-4 bg-gradient-to-r from-amber-200/30 via-neutral-300/20 to-amber-200/30 dark:from-neutral-800/40 dark:via-neutral-700/20 dark:to-neutral-800/40 rounded-[2rem] blur-2xl opacity-60" />
 
-      {/* Main card - Light mode: white/black, Dark mode: dark/metallic */}
-      <div className="relative bg-white dark:bg-[#0a0a0c] border border-neutral-300 dark:border-[#c0c0c8]/30 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
+      {/* Main card - Light mode: subtle gray with beautiful borders, Dark mode: dark/metallic */}
+      <div className="relative bg-gradient-to-br from-neutral-50 via-white to-neutral-50 dark:bg-[#0a0a0c] border-2 border-neutral-400/60 dark:border-[#c0c0c8]/30 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(180,140,60,0.08)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
 
         {/* Spotlight effect on hover */}
         <motion.div
@@ -64,8 +64,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           }}
         />
 
-        {/* Thin top accent line */}
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />
+        {/* Top accent line - amber metallic */}
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent dark:via-neutral-600" />
 
         {/* Scrollable Content */}
         <div className="relative z-10 p-6 md:p-8">
@@ -282,8 +282,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           </div>
         </div>
 
-        {/* Thin bottom accent line */}
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />
+        {/* Bottom accent line - amber metallic */}
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent dark:via-neutral-600" />
       </div>
     </motion.div>
   );
