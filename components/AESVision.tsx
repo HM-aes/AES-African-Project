@@ -9,8 +9,8 @@ export function AESVision() {
   return (
     <section className="relative py-20 md:py-32 overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-amber-400/20 via-transparent to-transparent blur-3xl dark:opacity-0" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-green-400/15 via-transparent to-transparent blur-3xl dark:opacity-0" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-amber-400/20 via-transparent to-transparent blur-3xl dark:from-amber-500/10" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-green-400/15 via-transparent to-transparent blur-3xl dark:from-emerald-500/10" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
         {/* Section Header */}
@@ -47,8 +47,8 @@ export function AESVision() {
             borderRadius: '1rem',
           }}
         >
-          {/* Tooltip-style glassmorphic card with amber glow */}
-          <div className="relative bg-white/90 dark:bg-gradient-to-br dark:from-neutral-900 dark:via-neutral-900/95 dark:to-amber-950/30 backdrop-blur-2xl border border-amber-200/50 dark:border-amber-900/50 rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgba(180,120,20,0.08)] dark:shadow-[0_8px_40px_rgba(120,53,15,0.2)] hover:shadow-[0_20px_60px_rgba(180,120,20,0.15)] dark:hover:shadow-[0_20px_60px_rgba(120,53,15,0.3)] transition-shadow duration-300">
+          {/* Glassmorphic card with amber glow */}
+          <div className="relative bg-white/90 dark:bg-neutral-900/80 backdrop-blur-2xl border border-neutral-200 dark:border-neutral-800 rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgba(180,120,20,0.08)] dark:shadow-[0_8px_40px_rgba(245,158,11,0.1)] hover:shadow-[0_20px_60px_rgba(180,120,20,0.15)] dark:hover:shadow-[0_20px_60px_rgba(245,158,11,0.15)] transition-shadow duration-300">
 
             {/* Content */}
             <div className="relative z-10">
@@ -247,7 +247,7 @@ export function AESVision() {
                   href="/aes"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 dark:from-slate-700 dark:to-slate-600 dark:hover:from-slate-600 dark:hover:to-slate-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-[0_4px_20px_rgba(180,120,20,0.25)] hover:shadow-[0_8px_30px_rgba(180,120,20,0.35)] dark:shadow-lg dark:hover:shadow-xl"
+                  className="px-8 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-semibold rounded-lg transition-all duration-300 shadow-[0_4px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_8px_30px_rgba(245,158,11,0.4)]"
                 >
                   Learn More About AES
                 </motion.a>

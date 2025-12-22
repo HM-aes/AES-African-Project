@@ -49,7 +49,7 @@ export const leaders: Leader[] = [
     era: "1983-1987",
     birthYear: 1949,
     deathYear: 1987,
-    imageUrl: "/AES/AES/ThomasSankara.jpg",
+    imageUrl: "/aes/AES/ThomasSankara.jpg",
     keyThemes: ["Revolution", "Self-Sufficiency", "Women's Rights", "Anti-Imperialism"],
     biography: `Thomas Sankara was a Burkinabè military officer and revolutionary who served as President of Burkina Faso from 1983 until his assassination in 1987. Often called "Africa's Che Guevara," he led one of the most ambitious experiments in African socialism.
 
@@ -143,7 +143,7 @@ Sankara refused foreign aid that came with strings attached, advocated for Afric
     era: "1960",
     birthYear: 1925,
     deathYear: 1961,
-    imageUrl: "/AES/AES/lumumba-stamp-ussr.jpg",
+    imageUrl: "/aes/AES/lumumba-stamp-ussr.jpg",
     keyThemes: ["Independence", "Anti-Colonialism", "African Unity", "Sovereignty"],
     biography: `Patrice Lumumba was a Congolese politician and independence leader who became the first democratically elected Prime Minister of the Republic of the Congo in 1960. He is widely regarded as a martyr for Pan-African liberation.
 
@@ -230,7 +230,7 @@ His death galvanized the Pan-African movement and remains a symbol of the violen
     era: "1960-1968",
     birthYear: 1915,
     deathYear: 1977,
-    imageUrl: "/AES/AES/sahel-mao.jpg",
+    imageUrl: "/aes/AES/sahel-mao.jpg",
     keyThemes: ["Pan-Africanism", "Socialism", "Federation", "Non-Alignment"],
     biography: `Modibo Keïta was the first President of Mali, serving from 1960 to 1968. A schoolteacher who became a revolutionary, he was one of the founding fathers of both Malian independence and the broader Pan-African movement.
 
@@ -314,7 +314,7 @@ Though overthrown in a 1968 coup, Keïta's vision of African unity and self-dete
     era: "1957-1966",
     birthYear: 1909,
     deathYear: 1972,
-    imageUrl: "/aes/leaders/nkrumah.jpg",
+    imageUrl: "/aes/AES/leaders-aes.jpg",
     keyThemes: ["African Unity", "Pan-Africanism", "Development", "Anti-Neocolonialism"],
     biography: `Kwame Nkrumah was the first President of Ghana and a leading figure in the Pan-African movement. He led the Gold Coast's drive for independence from Britain and became the first Prime Minister of an independent Ghana in 1957—the first sub-Saharan African country to gain independence from European colonialism.
 

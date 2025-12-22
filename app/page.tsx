@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { AESIntroduction } from "@/components/AESIntroduction";
-import { EconomicTransformation } from "@/components/EconomicTransformation";
-import { DevelopmentSectors } from "@/components/DevelopmentSectors";
+import { JointForcesSection } from "@/components/JointForcesSection";
+import { InvestmentBankSection } from "@/components/InvestmentBankSection";
 import { NewsHeadlines } from "@/components/NewsHeadlines";
 import { AESSpotlight } from "@/components/AESSpotlight";
 import { AESVision } from "@/components/AESVision";
@@ -12,13 +12,19 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section - The Visionary Leaders */}
-      <Section background="default" showEndLine={true} endLineColor="gradient">
+      <Section
+        background="default"
+        showEndLine={true}
+        endLineColor="amber"
+        showGrid={true}
+        gridStyle="amber"
+      >
         <Hero />
       </Section>
 
       {/* 2. AES Introduction - What is AES? */}
       <AnimatedSectionWrapper
-        background="amber"
+        background="default"
         showEndLine={true}
         endLineColor="amber"
         delay={0.1}
@@ -26,65 +32,72 @@ export default function Home() {
         <AESIntroduction />
       </AnimatedSectionWrapper>
 
-      {/* 3. Economic Transformation - Growth Story */}
-      <AnimatedSectionWrapper
-        background="charcoal"
-        showEndLine={true}
-        endLineColor="green"
-        delay={0.1}
-      >
-        <EconomicTransformation />
-      </AnimatedSectionWrapper>
-
-      {/* 4. Latest News - Breaking Headlines */}
+      {/* 3. AES Joint Forces Section */}
       <AnimatedSectionWrapper
         background="alt"
         showEndLine={true}
-        endLineColor="gradient"
+        endLineColor="green"
         delay={0.1}
+        showGrid={true}
+        gridStyle="default"
       >
-        <NewsHeadlines />
+        <JointForcesSection />
       </AnimatedSectionWrapper>
 
-      {/* 5. Development Sectors - Key Growth Areas */}
+      {/* 4. AES Investment Bank Section */}
       <AnimatedSectionWrapper
-        background="gradient-1"
+        background="default"
         showEndLine={true}
         endLineColor="amber"
         delay={0.1}
       >
-        <DevelopmentSectors />
+        <InvestmentBankSection />
       </AnimatedSectionWrapper>
 
-      {/* 6. Path to Sovereignty - Military Transformation */}
+      {/* 5. Path to Sovereignty - Military Transformation */}
       <AnimatedSectionWrapper
-        background="slate"
+        background="alt"
         showEndLine={true}
         endLineColor="red"
         delay={0.1}
+        showGrid={true}
+        gridStyle="default"
       >
         <AESSpotlight />
       </AnimatedSectionWrapper>
 
-      {/* 7. Pan-African Vision - Historical Connection */}
+      {/* 6. Pan-African Vision - Historical Connection */}
       <AnimatedSectionWrapper
-        background="gradient-2"
+        background="default"
         showEndLine={true}
         endLineColor="gradient"
         delay={0.1}
+        showGrid={true}
+        gridStyle="amber"
       >
         <AESVision />
       </AnimatedSectionWrapper>
 
-      {/* 8. Achievements - Summary */}
+      {/* 7. Achievements Timeline */}
       <AnimatedSectionWrapper
-        background="dark-alt"
-        showEndLine={false}
+        background="alt"
+        showEndLine={true}
+        endLineColor="amber"
         delay={0.1}
       >
         <AESAchievements />
       </AnimatedSectionWrapper>
+
+      {/* 8. Latest News */}
+      <AnimatedSectionWrapper
+        background="default"
+        showEndLine={false}
+        delay={0.1}
+        showGrid={true}
+        gridStyle="default"
+      >
+        <NewsHeadlines />
+      </AnimatedSectionWrapper>
     </div>
   );
 }
-

@@ -88,19 +88,15 @@ const content = [
 
 export function AESSpotlight() {
   return (
-    <div className="py-20 bg-gradient-to-b from-amber-50 via-stone-100/50 to-background dark:from-background dark:via-background dark:to-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground dark:text-gray-200 drop-shadow-sm">
-            The Path to Sovereignty
-          </h2>
-          <p className="text-2xl md:text-3xl font-heading text-stone-600 dark:text-gray-400">
-            AES Journey
-          </p>
-          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 dark:from-amber-500 dark:to-amber-500 rounded-full mt-6" />
-        </div>
+    <div className="py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <StickyScroll
+          content={content}
+          headerTitle="The AES Journey"
+          headerSubtitle="From colonial exploitation to true independence"
+          headerBadge="Path to Sovereignty"
+        />
       </div>
-      <StickyScroll content={content} />
     </div>
   );
 }
