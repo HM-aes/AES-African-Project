@@ -37,7 +37,7 @@ export function AESIntroduction() {
       <div className="absolute bottom-20 right-0 w-72 h-72 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent dark:from-neutral-700/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Header - Standardized */}
+        {/* Section Header - Simplified */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ export function AESIntroduction() {
         >
           {/* Header FIRST */}
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
-            What is the AES?
+            The Birth of AES
           </h2>
 
           {/* Tag/Badge AFTER header */}
@@ -56,53 +56,13 @@ export function AESIntroduction() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700"
           >
             <Shield className="w-4 h-4 text-neutral-700 dark:text-[#c0c0c8]" />
             <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8] uppercase tracking-wider">
               Alliance of Sahel States
             </span>
           </motion.div>
-
-          <p className="text-lg md:text-xl text-neutral-600 dark:text-[#8a8a94] max-w-3xl mx-auto leading-relaxed">
-            The <span className="font-semibold text-neutral-900 dark:text-[#e8e8ec]">Alliance of Sahel States</span> (AES)
-            is a mutual defense pact and confederation formed in September 2023, uniting
-            <span className="font-semibold text-neutral-900 dark:text-[#e8e8ec]"> Mali</span>,
-            <span className="font-semibold text-neutral-900 dark:text-[#e8e8ec]"> Burkina Faso</span>, and
-            <span className="font-semibold text-neutral-900 dark:text-[#e8e8ec]"> Niger</span> in pursuit of
-            sovereignty, security, and shared prosperity.
-          </p>
-
-          <div className="w-32 h-1 mx-auto bg-neutral-400 dark:bg-neutral-600 rounded-full mt-8" />
-        </motion.div>
-
-        {/* Key Stat - Population */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex justify-center mb-12"
-        >
-          <div className="inline-flex items-center gap-6 px-8 py-4 rounded-2xl bg-white dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 backdrop-blur-sm">
-            <div className="text-center">
-              <p className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-[#e8e8ec]">
-                72M+
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-[#8a8a94] mt-1">
-                Combined Population
-              </p>
-            </div>
-            <div className="w-px h-12 bg-neutral-300 dark:bg-neutral-700" />
-            <div className="text-left">
-              <div className="flex items-center gap-2 mb-1">
-                <Calendar className="w-4 h-4 text-neutral-600 dark:text-[#8a8a94]" />
-                <p className="text-xs text-neutral-500 dark:text-[#8a8a94] uppercase tracking-wider">Founded</p>
-              </div>
-              <p className="text-lg font-bold text-neutral-900 dark:text-[#e8e8ec]">September 16, 2023</p>
-              <p className="text-xs text-neutral-500 dark:text-[#8a8a94]">Liptako-Gourma Charter</p>
-            </div>
-          </div>
         </motion.div>
 
         {/* Video Section - Faso7 Explanation */}
@@ -110,7 +70,7 @@ export function AESIntroduction() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
           <VideoPlayer
