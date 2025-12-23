@@ -6,6 +6,7 @@ import { AESSpotlight } from "@/components/AESSpotlight";
 import { AESVision } from "@/components/AESVision";
 import { AESAchievements } from "@/components/AESAchievements";
 import { Section, AnimatedSectionWrapper } from "@/components/Section";
+import { StatsSection } from "@/components/sections/StatsSection";
 
 export default function Home() {
   return (
@@ -20,6 +21,16 @@ export default function Home() {
       >
         <Hero />
       </Section>
+
+      {/* 2. AES Quick Facts - NEW */}
+      <AnimatedSectionWrapper
+        background="alt"
+        showEndLine={true}
+        endLineColor="silver"
+        delay={0.1}
+      >
+        <StatsSection />
+      </AnimatedSectionWrapper>
 
       {/* 3. AES Joint Forces Section */}
       <AnimatedSectionWrapper
