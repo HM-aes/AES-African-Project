@@ -74,7 +74,7 @@ export function AESIntroduction() {
           className="mb-16"
         >
           <VideoPlayer
-            videoId="YOUR_YOUTUBE_VIDEO_ID_HERE"
+            videoId="aoszsEpNFiQ"
             title="Understanding the Alliance of Sahel States"
             description="An in-depth explanation of how the AES was created and what it means for the future of the Sahel region."
             source="Faso7"
