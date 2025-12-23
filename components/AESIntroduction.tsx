@@ -43,7 +43,7 @@ export function AESIntroduction() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
           {/* Header FIRST */}
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
@@ -63,26 +63,6 @@ export function AESIntroduction() {
               Alliance of Sahel States
             </span>
           </motion.div>
-        </motion.div>
-
-        {/* Video Section - Faso7 Explanation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
-        >
-          {/* Pan-African Gradient Border Wrapper - Compact Size */}
-          <div className="relative max-w-4xl mx-auto rounded-2xl p-1 bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_40px_rgba(245,158,11,0.3),0_0_40px_rgba(34,197,94,0.3),0_0_40px_rgba(239,68,68,0.3)]">
-            <div className="rounded-2xl overflow-hidden">
-              <YouTubePlayer
-                videoId="aoszsEpNFiQ"
-                title="Understanding the Alliance of Sahel States"
-                containerClassName="rounded-2xl"
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

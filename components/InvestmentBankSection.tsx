@@ -14,7 +14,7 @@ const features = [
 
 export function InvestmentBankSection() {
   return (
-    <section className="relative pt-20 pb-16 md:pb-24 overflow-hidden">
+    <section className="relative pt-32 pb-24 overflow-hidden">
       {/* Background effects - removed colored glows for cleaner look */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent dark:from-neutral-700/10 blur-3xl" />
 
