@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import Image from "next/image";
+import { Compass } from "lucide-react";
 
 const content = [
   {
@@ -89,38 +90,45 @@ const content = [
 
 export function AESSpotlight() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="py-24">
       <div className="max-w-full mx-auto px-4 md:px-8">
-        {/* Section Header - Outside Card */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec]">
-            The Path to Sovereignty
+          {/* AES Logo */}
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/AES-logos/aes-main-logo.png"
+              alt="AES Logo"
+              width={72}
+              height={72}
+              className="rounded-xl"
+            />
+          </div>
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm mb-6">
+            <Compass className="w-4 h-4 text-amber-400" />
+            <span className="text-sm font-bold text-white uppercase tracking-wider">
+              The Path Forward
+            </span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-zinc-900 dark:text-white mb-4">
+            AES Strategic Vision for Africa
           </h2>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+            From colonial exploitation to sovereign self-determination
+          </p>
         </motion.div>
 
-        {/* StickyScroll with badge inside */}
+        {/* StickyScroll Timeline */}
         <div className="max-w-7xl mx-auto">
-          {/* Subtitle Badge - Inside Card Area */}
-          <div className="flex justify-center mb-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800"
-            >
-              <span className="text-sm font-bold text-white uppercase tracking-wider">
-                AES Journey
-              </span>
-            </motion.div>
-          </div>
-          
           <StickyScroll content={content} />
         </div>
       </div>
