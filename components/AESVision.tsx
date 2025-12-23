@@ -7,7 +7,7 @@ export function AESVision() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section className="relative pt-20 pb-20 md:pb-32 overflow-hidden">
       {/* Ambient background glows - neutral */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent blur-3xl dark:from-neutral-700/10" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent blur-3xl dark:from-neutral-700/10" />
@@ -19,7 +19,7 @@ export function AESVision() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4 drop-shadow-sm">
             AES Strategic Vision for Africa
