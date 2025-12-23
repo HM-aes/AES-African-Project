@@ -95,7 +95,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
   }, []);
 
   return (
-    <section
+    <div
       ref={heroRef}
       className={`relative min-h-screen flex items-center justify-center pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden ${className}`}
     >
@@ -300,6 +300,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           <div className="w-1.5 h-1.5 rounded-full bg-neutral-600 dark:bg-neutral-400" />
         </motion.div>
       </motion.div>
-    </section>
+    </div>
   );
 }
