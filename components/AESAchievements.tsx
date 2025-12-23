@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Timeline } from "@/components/ui/timeline";
 import Image from "next/image";
+import { Award } from "lucide-react";
 
 export function AESAchievements() {
   const data = [
@@ -103,7 +105,42 @@ export function AESAchievements() {
     },
   ];
   return (
-    <div className="w-full">
+    <div className="w-full py-24">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12 px-6"
+      >
+        {/* AES Logo */}
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/AES-logos/aes-main-logo.png"
+            alt="AES Logo"
+            width={72}
+            height={72}
+            className="rounded-xl"
+          />
+        </div>
+
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm mb-6">
+          <Award className="w-4 h-4 text-amber-400" />
+          <span className="text-sm font-bold text-white uppercase tracking-wider">
+            Key Milestones
+          </span>
+        </div>
+
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-zinc-900 dark:text-white mb-4">
+          AES Achievements Timeline
+        </h2>
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          Tracking our progress toward sovereignty, security, and prosperity
+        </p>
+      </motion.div>
+
       <Timeline data={data} />
     </div>
   );
