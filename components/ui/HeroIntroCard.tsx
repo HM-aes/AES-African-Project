@@ -121,18 +121,18 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
 
             {/* Badges */}
             <div className="flex flex-wrap gap-3 hero-text-item">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700">
-                <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+                <span className="text-sm font-bold text-white">
                   Est. September 2023
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700">
-                <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+                <span className="text-sm font-bold text-white">
                   Pan-African Alliance
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700">
-                <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+                <span className="text-sm font-bold text-white">
                   Sovereignty First
                 </span>
               </div>
