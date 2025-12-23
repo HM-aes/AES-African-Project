@@ -19,21 +19,24 @@ export function NewsTicker() {
   const doubledHeadlines = [...headlines, ...headlines];
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 border-y border-amber-900/30">
-      {/* Left fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
+    <div className="relative w-full overflow-hidden bg-neutral-900/20 dark:bg-neutral-900/30 backdrop-blur-xl border-y border-white/10 dark:border-white/5">
+      {/* Glassmorphism glass effect overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 dark:from-white/5 dark:via-white/10 dark:to-white/5" />
       
-      {/* Right fade */}
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none" />
+      {/* Left fade with glass effect */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-neutral-900/60 via-neutral-900/30 to-transparent dark:from-black/60 dark:via-black/30 z-10 pointer-events-none backdrop-blur-sm" />
+      
+      {/* Right fade with glass effect */}
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-neutral-900/60 via-neutral-900/30 to-transparent dark:from-black/60 dark:via-black/30 z-10 pointer-events-none backdrop-blur-sm" />
 
-      {/* Breaking News label */}
+      {/* Breaking News label with glass effect */}
       <div className="absolute left-0 top-0 bottom-0 z-20 flex items-center">
-        <div className="bg-gradient-to-r from-red-600 to-red-500 px-4 py-2 flex items-center gap-2 shadow-lg">
+        <div className="bg-gradient-to-r from-red-600/80 to-red-500/80 backdrop-blur-md px-4 py-2 flex items-center gap-2 shadow-lg border-r border-white/10">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
           </span>
-          <span className="text-white text-xs font-bold uppercase tracking-wider">Live</span>
+          <span className="text-white text-xs font-bold uppercase tracking-wider drop-shadow-lg">Live</span>
         </div>
       </div>
 
@@ -70,19 +73,22 @@ export function NewsTicker() {
               <span className="text-amber-600/40">|</span>
               
               {/* Headline text */}
-              <span className="text-sm text-white/80 group-hover/item:text-white transition-colors duration-200">
+              <span className="text-sm text-white/90 dark:text-white/95 group-hover/item:text-white font-medium transition-colors duration-200 drop-shadow-sm">
                 {headline.text}
               </span>
               
               {/* Dot separator between headlines */}
-              <span className="text-amber-500/60 ml-4">•</span>
+              <span className="text-amber-400/70 ml-4">•</span>
             </div>
           ))}
         </motion.div>
       </div>
 
-      {/* Subtle top glow line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+      {/* Glass shimmer effect - top glow */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      
+      {/* Glass shimmer effect - bottom glow */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-amber-300/30 to-transparent" />
     </div>
   );
 }
