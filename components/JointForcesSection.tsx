@@ -74,27 +74,27 @@ export function JointForcesSection() {
               {/* Content Side - Left (3 columns width on desktop) */}
               <div className="lg:col-span-3 p-8 lg:p-10 order-2 lg:order-1">
                 <div className="space-y-6">
-                  {/* Breaking News Banner - neutral styling */}
+                  {/* Breaking News Banner - Black shadcn style */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.3 }}
-                    className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-xl p-4"
+                    className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 shadow-lg"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center flex-shrink-0">
-                        <Newspaper className="w-4 h-4 text-neutral-700 dark:text-[#c0c0c8]" />
+                      <div className="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center flex-shrink-0">
+                        <Newspaper className="w-4 h-4 text-white" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs font-bold text-neutral-700 dark:text-[#c0c0c8] uppercase">Latest News</span>
-                          <span className="text-xs text-neutral-500 dark:text-[#8a8a94]">{latestNews.date}</span>
+                          <span className="text-xs font-bold text-white uppercase">Latest News</span>
+                          <span className="text-xs text-zinc-400">{latestNews.date}</span>
                         </div>
-                        <h4 className="font-semibold text-neutral-900 dark:text-[#e8e8ec] text-sm mb-1">
+                        <h4 className="font-semibold text-white text-sm mb-1">
                           {latestNews.title}
                         </h4>
-                        <p className="text-xs text-neutral-600 dark:text-[#8a8a94]">
+                        <p className="text-xs text-zinc-300">
                           {latestNews.excerpt}
                         </p>
                       </div>
@@ -116,7 +116,7 @@ export function JointForcesSection() {
                     </p>
                   </div>
 
-                  {/* Features Grid - neutral styling */}
+                  {/* Features Grid - Black shadcn styling */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {features.map((feature, i) => (
                       <motion.div
@@ -125,10 +125,10 @@ export function JointForcesSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
-                        className="flex items-center gap-3 p-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700"
+                        className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900 border border-zinc-800 shadow-md"
                       >
-                        <feature.icon className="w-5 h-5 text-neutral-700 dark:text-[#c0c0c8] flex-shrink-0" />
-                        <span className="text-sm text-neutral-700 dark:text-[#c0c0c8]">{feature.text}</span>
+                        <feature.icon className="w-5 h-5 text-white flex-shrink-0" />
+                        <span className="text-sm text-zinc-200">{feature.text}</span>
                       </motion.div>
                     ))}
                   </div>
