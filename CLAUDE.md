@@ -2,191 +2,82 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
-
-This is a **Pan-African Heroes Educational Website** built with Next.js 15, showcasing historical Pan-African figures and contemporary AES (Alliance of Sahel States) leaders. The project aims to educate users about Pan-Africanism, sovereignty movements, and the continuity between historical independence movements and modern Sahel leadership.
-
 ## Development Commands
 
 ```bash
-npm run dev          # Start dev server with Turbopack (http://localhost:3000)
-npm run dev:webpack  # Start dev server with Webpack (fallback)
+npm run dev          # Dev server with Turbopack (http://localhost:3000)
+npm run dev:webpack  # Dev server with Webpack (fallback for compatibility issues)
 npm run build        # Production build
-npm start            # Start production server
-npm run lint         # Run ESLint
+npm run lint         # ESLint
 npm run clean        # Clear .next and node_modules/.cache
 ```
 
-## Tech Stack
+## Key Patterns
 
-- **Framework:** Next.js 15.5 (App Router with Turbopack)
-- **React:** v19
-- **TypeScript:** Strict mode, ES2017 target, bundler module resolution
-- **Styling:** Tailwind CSS v3.4 with tailwindcss-animate plugin
-- **Animations:** Framer Motion v11 (declarative), GSAP v3 (scroll-based) - both require `"use client"`
-- **UI Components:** shadcn/ui (new-york style, stone base) with registries: @aceternity, @tailark, @magicui, @react-bits
-- **3D Graphics:** Three.js, React Three Fiber, @react-three/drei, Cobe, three-globe
-- **Theme:** next-themes (defaults to dark mode)
-- **i18n:** Custom context-based solution (English/French)
-- **Icons:** lucide-react
-
-## Architecture
-
-### App Structure
-```
-app/
-├── layout.tsx              # Root layout with theme, navigation, footer
-├── page.tsx                # Home page (Hero + AES sections)
-├── heroes/page.tsx         # Hero cards gallery
-├── aes/page.tsx            # AES-specific page
-├── russia/page.tsx         # Russia-AES relations page
-├── about/page.tsx          # About page
-├── tech/page.tsx           # Technology page
-├── blog/
-│   ├── page.tsx            # Blog listing
-│   └── [slug]/page.tsx     # Dynamic blog post pages
-```
-
-### Component Architecture
-
-**Client vs Server Components:**
+### Client vs Server Components
 - Most components use `"use client"` for interactivity (Framer Motion, GSAP, Three.js)
-- Static page layouts can remain server components
-- Blog utilities (`lib/blog-utils.ts`) are server-only (uses `fs`)
-
-**Key Components:**
-- `Hero.tsx` - Landing hero with animated text
-- `ProfileCard.tsx` - AES leader cards (Framer Motion)
-- `BlogCard.tsx` - Blog post cards
-- `Navigation.tsx`, `Footer.tsx` - Site layout
-- `NewsTicker.tsx` - Fixed news ticker below navbar
-- `AESSpotlight.tsx`, `AESAchievements.tsx` - AES content sections
-- `theme-provider.tsx` - Theme context wrapper
-- `HydrationFix.tsx` - Client/server hydration handling
-- `LanguageToggle.tsx` - EN/FR language switcher
-
-**UI Components** (`components/ui/`):
-- shadcn/ui base components plus animated components from extended registries
-- Notable: `globe.tsx` (3D), `timeline.tsx`, `osmo-card.tsx`, `hover-reveal-card.tsx`
+- `lib/blog-utils.ts` is server-only (uses `fs`)
+- Three.js/Spline components must be client components
+- Use `HydrationFix.tsx` pattern for hydration mismatches
 
 ### Path Alias
 ```typescript
-"@/*" → "./*"
-```
-Use `@/` imports for all internal code (e.g., `@/components/Hero`, `@/lib/utils`).
-
-### Styling Patterns
-
-**Tailwind CSS:**
-- `darkMode: ["class"]` - theme toggled via `.dark` class
-- CSS variables in `globals.css` for shadcn/ui theming (hex values, not HSL)
-- Custom Pan-African colors: `pan-red`, `pan-black`, `pan-green`, `pan-gold` (OKLCH in CSS)
-- Custom animations: `gradient-shift`, `glow-pulse`, `shimmer`
-- Utility classes in globals.css: `perspective-distant`, `transform-3d`, `custom-scrollbar`, `hero-card-scrollbar`
-
-**Typography:**
-- Sans: Inter (`font-sans`, `--font-sans`)
-- Heading: Playfair Display (`font-heading`, `--font-heading`)
-
-### Animation Patterns
-
-**Framer Motion:**
-```tsx
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
->
+"@/*" → "./*"  // Use @/components/Hero, @/lib/utils
 ```
 
-**GSAP + ScrollTrigger:**
+### Animations
 ```tsx
+// Framer Motion (declarative)
+<motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} />
+
+// GSAP + ScrollTrigger (scroll-based)
 useGSAP(() => {
-  gsap.fromTo(ref.current,
-    { opacity: 0, y: 50 },
-    { opacity: 1, y: 0, scrollTrigger: { trigger: ref.current, start: "top bottom-=100" } }
-  );
+  gsap.fromTo(ref.current, { opacity: 0 }, { opacity: 1, scrollTrigger: { trigger: ref.current } });
 }, []);
+
+// Stagger pattern: use index * 0.1 delay
 ```
 
-### 3D Components
-
-Three.js components must be client components. The project uses `empty-module.js` as a canvas polyfill for Turbopack compatibility (configured in `next.config.ts`).
-
-```tsx
-import { Canvas } from '@react-three/fiber'
-// Always wrap Three.js content in Canvas
-```
-
-**SSR Note:** Three.js libraries (`three`, `three-globe`) are in `serverExternalPackages` in next.config.ts to avoid SSR issues.
-
-### Internationalization (i18n)
-
-Custom React Context solution in `lib/i18n/`:
-- `LanguageProvider` wraps app in `layout.tsx`
-- `useTranslation()` hook returns `{ locale, setLocale, t }`
-- Translation files: `lib/i18n/locales/en.json`, `lib/i18n/locales/fr.json`
-- Dot notation for nested keys: `t("nav.home")`, `t("hero.visionaryLeaders")`
-- Locale persisted to localStorage, updates `document.documentElement.lang`
-
+### i18n Usage
 ```tsx
 import { useTranslation } from "@/lib/i18n";
-
-function Component() {
-  const { t, locale, setLocale } = useTranslation();
-  return <h1>{t("hero.visionaryLeaders")}</h1>;
-}
-```
-
-### Data Structure
-
-**Hero Profiles:** Defined inline in page files as arrays of objects with `name`, `role`, `country`, `description`, `imageUrl`.
-
-**Blog System:**
-- JSON files in `data/blogs/` with structure defined in `types/blog.ts`
-- `lib/blog-utils.ts` - Server-side utilities (`getAIGeneratedBlogs`, `getBlogBySlug`, `getAllBlogSlugs`)
-- Only `status: "published"` posts are returned
-
-## Code Standards
-
-**TypeScript:** Strict mode enabled. Use interfaces for component props.
-
-**Component Pattern:**
-```typescript
-interface ComponentProps {
-  name: string;
-  index?: number; // For stagger animations
-}
-
-export function Component({ name, index = 0 }: ComponentProps) {
-  // delay: index * 0.1 for staggered effects
-}
+const { t, locale, setLocale } = useTranslation();
+// Dot notation: t("nav.home"), t("hero.visionaryLeaders")
 ```
 
 ### Adding UI Components
-
 ```bash
-npx shadcn@latest add [component-name]              # Default shadcn/ui
-npx shadcn@latest add @aceternity/[component-name]  # Animated components
-npx shadcn@latest add @magicui/[component-name]     # Magic UI
-npx shadcn@latest add @tailark/[component-name]     # Tailark
-npx shadcn@latest add @react-bits/[component-name]  # React Bits
+npx shadcn@latest add [component]              # Default shadcn/ui
+npx shadcn@latest add @aceternity/[component]  # Aceternity (animated)
+npx shadcn@latest add @magicui/[component]     # Magic UI
+npx shadcn@latest add @cult-ui/[component]     # Cult UI
 ```
 
-## Asset Management
+## Styling
 
-**Image Directories:**
+- **Dark mode default** via `darkMode: ["class"]`
+- **Fonts**: Inter (`font-sans`), Playfair Display (`font-heading`)
+- **Pan-African colors**: `pan-red`, `pan-black`, `pan-green`, `pan-gold` (defined as OKLCH in globals.css)
+- **Custom animations**: `gradient-shift`, `glow-pulse`, `shimmer` (in tailwind.config.ts)
+- **Layout**: Fixed navbar (72px height), news ticker at `top-[72px]`
+
+## Configuration Notes
+
+- **Turbopack**: Uses `empty-module.js` canvas polyfill for Three.js (in next.config.ts)
+- **SSR**: `three` and `three-globe` in `serverExternalPackages` to avoid SSR issues
+- **Remote images**: Unsplash and Spline domains allowed in next.config.ts
+- **shadcn/ui**: new-york style, stone base color, registries configured in components.json
+
+## Blog System
+
+- JSON files in `data/blogs/week-of-YYYY-MM-DD.json`
+- `lib/blog-utils.ts`: `getAIGeneratedBlogs()`, `getBlogBySlug()`, `getAllBlogSlugs()`
+- Only posts with `status: "published"` are served
+- Type definitions in `types/blog.ts`
+
+## Asset Directories
+
 - `/public/aes/AES/` - Primary AES leader images
-- `/public/aes/Images-AES-Leaders/` - Additional AES leader photos
+- `/public/aes/Images-AES-Leaders/` - Additional leader photos
 - `/public/images/` - General site images
 - `/public/aes-russia-military-images/` - Russia-AES relations imagery
-
-**Remote Images:** Unsplash and Spline domains allowed via `next.config.ts` remote patterns.
-
-## Important Notes
-
-- **Theme:** Defaults to dark mode, uses `suppressHydrationWarning` on html/body
-- **Turbopack:** Uses `empty-module.js` canvas polyfill for Three.js compatibility
-- **Layout:** Fixed navbar (72px height) with news ticker positioned directly below at `top-[72px]`
-- **Content:** Maintain factual accuracy - educational focus on Pan-Africanism
-- **Featured Heroes:** Thomas Sankara, Patrice Lumumba, Kwame Nkrumah, Modibo Keïta (historical); Ibrahim Traoré, Assimi Goïta, Abdourahamane Tchiani (contemporary)
