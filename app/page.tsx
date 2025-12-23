@@ -7,6 +7,7 @@ import { AESVision } from "@/components/AESVision";
 import { AESAchievements } from "@/components/AESAchievements";
 import { Section, AnimatedSectionWrapper } from "@/components/Section";
 import { StatsSection } from "@/components/sections/StatsSection";
+import { AESSummitSection } from "@/components/sections/AESSummitSection";
 
 export default function Home() {
   return (
@@ -22,14 +23,14 @@ export default function Home() {
         <Hero />
       </Section>
 
-      {/* 2. AES Quick Facts - NEW */}
+      {/* 2. AES Second Summit - Bamako */}
       <AnimatedSectionWrapper
         background="alt"
         showEndLine={true}
         endLineColor="silver"
         delay={0.1}
       >
-        <StatsSection />
+        <AESSummitSection />
       </AnimatedSectionWrapper>
 
       {/* 3. AES Joint Forces Section */}
