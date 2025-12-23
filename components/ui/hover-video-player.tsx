@@ -968,7 +968,7 @@ const HoverVideoPlayerProgressBar: React.FC = () => {
       min={0}
       max={100}
       step={0.1}
-      onValueChange={(value) => {
+      onValueChange={(value: number[]) => {
         if (videoRef.current) {
           const newTime = (value[0] / 100) * videoRef.current.duration
           videoRef.current.currentTime = newTime
