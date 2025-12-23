@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Shield } from "lucide-react";
 import Image from "next/image";
-import { VideoPlayer } from "@/components/ui/VideoPlayer";
+import { YouTubePlayer } from "@/components/ui/youtube-video-player";
 
 const countries = [
   {
@@ -73,13 +73,16 @@ export function AESIntroduction() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
-          <VideoPlayer
-            videoId="aoszsEpNFiQ"
-            title="Understanding the Alliance of Sahel States"
-            description="An in-depth explanation of how the AES was created and what it means for the future of the Sahel region."
-            source="Faso7"
-            sourceIcon="/news-sources/faso7-logo.png"
-          />
+          {/* Pan-African Gradient Border Wrapper */}
+          <div className="relative rounded-3xl p-1 bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_40px_rgba(245,158,11,0.3),0_0_40px_rgba(34,197,94,0.3),0_0_40px_rgba(239,68,68,0.3)]">
+            <div className="rounded-3xl overflow-hidden">
+              <YouTubePlayer
+                videoId="aoszsEpNFiQ"
+                title="Understanding the Alliance of Sahel States"
+                containerClassName="rounded-3xl"
+              />
+            </div>
+          </div>
         </motion.div>
 
         {/* Three Nations */}
