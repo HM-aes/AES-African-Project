@@ -1,5 +1,4 @@
 import { Hero } from "@/components/Hero";
-import { AESIntroduction } from "@/components/AESIntroduction";
 import { JointForcesSection } from "@/components/JointForcesSection";
 import { InvestmentBankSection } from "@/components/InvestmentBankSection";
 import { NewsHeadlines } from "@/components/NewsHeadlines";
@@ -21,16 +20,6 @@ export default function Home() {
       >
         <Hero />
       </Section>
-
-      {/* 2. AES Introduction - What is AES? */}
-      <AnimatedSectionWrapper
-        background="default"
-        showEndLine={true}
-        endLineColor="silver"
-        delay={0.1}
-      >
-        <AESIntroduction />
-      </AnimatedSectionWrapper>
 
       {/* 3. AES Joint Forces Section */}
       <AnimatedSectionWrapper
