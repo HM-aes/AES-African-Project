@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
+import { NewsSourceBanner } from "@/components/NewsSourceBanner";
 import { ConditionalFooter } from "@/components/ConditionalFooter";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -44,6 +45,10 @@ export default function RootLayout({
             <HydrationFix />
             <ScrollToTop />
             <Navigation />
+            {/* News Source Banner - positioned between navbar and content */}
+            <div className="pt-20">
+              <NewsSourceBanner />
+            </div>
             {/* Main content */}
             <main className="flex-grow">
               {children}

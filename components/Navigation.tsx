@@ -60,19 +60,15 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Outer glow for visibility */}
         <div className="relative">
-          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-amber-500/40 via-green-500/30 to-amber-500/40 opacity-60 blur-[1px]" />
+          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-amber-500/50 via-amber-400/40 to-amber-500/50 opacity-70 blur-sm" />
           
           <motion.div
-            className={`relative rounded-2xl transition-all duration-500 ${
-              isScrolled
-                ? "bg-white/90 dark:bg-black/80 backdrop-blur-2xl border-2 border-amber-400/50 dark:border-amber-500/30 shadow-[0_8px_32px_rgba(180,120,20,0.15)] dark:shadow-[0_8px_32px_rgba(251,191,36,0.1)]"
-                : "bg-white/70 dark:bg-black/50 backdrop-blur-xl border-2 border-amber-300/40 dark:border-amber-500/20 shadow-[0_4px_20px_rgba(180,120,20,0.1)]"
-            }`}
+            className="relative rounded-2xl bg-zinc-950 border border-zinc-800/50 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.03)] backdrop-blur-xl transition-all duration-500"
           >
-            {/* Top highlight - amber glow */}
-            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/60 to-transparent rounded-t-2xl" />
+            {/* Top highlight - subtle glow */}
+            <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
             {/* Bottom highlight */}
-            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-500/40 to-transparent rounded-b-2xl" />
+            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-700/50 to-transparent" />
 
             <div className="flex items-center justify-between h-16 px-6">
             {/* Logo */}
@@ -88,8 +84,8 @@ export function Navigation() {
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <div className="w-full h-full rounded-xl bg-white dark:bg-black/90 flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-amber-500 dark:text-amber-400" />
+                  <div className="w-full h-full rounded-xl bg-zinc-950 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-amber-400" />
                   </div>
                   {/* Animated shine */}
                   <motion.div
@@ -102,18 +98,18 @@ export function Navigation() {
                 {/* Logo Text */}
                 <div className="hidden sm:block">
                   <motion.span
-                    className="text-lg font-bold bg-gradient-to-r from-stone-800 via-stone-700 to-stone-600 dark:from-white dark:via-white dark:to-white/60 bg-clip-text text-transparent"
+                    className="text-lg font-bold text-white"
                     whileHover={{ scale: 1.02 }}
                   >
                     AES Hub
                   </motion.span>
-                  <p className="text-[10px] text-stone-500 dark:text-white/40 -mt-0.5">Pan-African Alliance</p>
+                  <p className="text-[10px] text-zinc-400 -mt-0.5">Pan-African Alliance</p>
                 </div>
               </Link>
             </motion.div>
 
             <div className="hidden md:flex items-center">
-              <div className="flex items-center bg-stone-100 dark:bg-white/5 rounded-xl p-1">
+              <div className="flex items-center bg-zinc-900/50 rounded-xl p-1 border border-zinc-800/50">
                 {navLinkKeys.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -131,7 +127,7 @@ export function Navigation() {
                       {hoveredIndex === index && (
                         <motion.div
                           layoutId="navbar-hover"
-                          className="absolute inset-0 bg-stone-200 dark:bg-white/10 rounded-lg"
+                          className="absolute inset-0 bg-zinc-800/80 rounded-lg"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
@@ -141,12 +137,9 @@ export function Navigation() {
                       <span
                         className={`relative z-10 transition-all duration-200 font-semibold ${
                           hoveredIndex === index 
-                            ? "text-amber-600 dark:text-amber-400" 
-                            : "text-slate-500 dark:text-slate-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]"
+                            ? "text-amber-400" 
+                            : "text-white"
                         }`}
-                        style={{
-                          textShadow: hoveredIndex === index ? 'none' : '0 1px 2px rgba(255,255,255,0.1)'
-                        }}
                       >
                         {t(`nav.${link.key}`)}
                       </span>
@@ -165,7 +158,7 @@ export function Navigation() {
             >
               {/* CTA Button - Desktop */}
               <motion.button
-                className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-green-500/20 border border-amber-500/30 hover:border-amber-500/60 text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 text-sm font-medium transition-all duration-300 shadow-[0_0_15px_rgba(180,120,20,0.15)] hover:shadow-[0_0_25px_rgba(180,120,20,0.35),0_0_50px_rgba(180,120,20,0.2)] dark:shadow-[0_0_15px_rgba(251,191,36,0.1)] dark:hover:shadow-[0_0_25px_rgba(251,191,36,0.25),0_0_50px_rgba(251,191,36,0.15)]"
+                className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500/10 border border-amber-500/40 hover:border-amber-400 text-white hover:bg-amber-500/20 text-sm font-medium transition-all duration-300 shadow-[0_0_15px_rgba(251,191,36,0.2)] hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -190,7 +183,7 @@ export function Navigation() {
 
               {/* Mobile Menu Button */}
               <motion.button
-                className="md:hidden relative w-10 h-10 rounded-xl bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/10 flex items-center justify-center"
+                className="md:hidden relative w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center"
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
                 whileTap={{ scale: 0.9 }}
               >
@@ -199,9 +192,9 @@ export function Navigation() {
                   transition={{ duration: 0.3 }}
                 >
                   {isMobileOpen ? (
-                    <X className="w-5 h-5 text-stone-700 dark:text-white" />
+                    <X className="w-5 h-5 text-white" />
                   ) : (
-                    <Menu className="w-5 h-5 text-stone-700 dark:text-white" />
+                    <Menu className="w-5 h-5 text-white" />
                   )}
                 </motion.div>
               </motion.button>
@@ -222,7 +215,7 @@ export function Navigation() {
         className="md:hidden overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 pt-2">
-          <div className="bg-white/95 dark:bg-black/80 backdrop-blur-2xl border border-amber-200/50 dark:border-white/10 rounded-2xl p-4 space-y-2 shadow-[0_8px_30px_rgba(180,120,20,0.1)] dark:shadow-none">
+          <div className="bg-zinc-950 backdrop-blur-2xl border border-zinc-800/50 rounded-2xl p-4 space-y-2 shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
             {navLinkKeys.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -235,7 +228,7 @@ export function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className="block px-4 py-3 rounded-xl text-stone-600 dark:text-white/70 hover:text-amber-700 dark:hover:text-white hover:bg-amber-50 dark:hover:bg-white/5 transition-all duration-200 font-medium"
+                  className="block px-4 py-3 rounded-xl text-white/90 hover:text-white hover:bg-zinc-800/80 transition-all duration-200 font-medium"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   {t(`nav.${link.key}`)}
@@ -251,9 +244,9 @@ export function Navigation() {
                 y: isMobileOpen ? 0 : 10,
               }}
               transition={{ duration: 0.3, delay: navLinkKeys.length * 0.05 }}
-              className="pt-2 border-t border-amber-200/30 dark:border-white/10 flex items-center justify-between"
+              className="pt-2 border-t border-zinc-800 flex items-center justify-between"
             >
-              <span className="text-sm text-stone-500 dark:text-white/40">Language</span>
+              <span className="text-sm text-zinc-400">Language</span>
               <LanguageToggle />
             </motion.div>
 
@@ -265,9 +258,9 @@ export function Navigation() {
                 y: isMobileOpen ? 0 : 10,
               }}
               transition={{ duration: 0.3, delay: (navLinkKeys.length + 1) * 0.05 }}
-              className="pt-2 border-t border-amber-200/30 dark:border-white/10 flex items-center justify-between"
+              className="pt-2 border-t border-zinc-800 flex items-center justify-between"
             >
-              <span className="text-sm text-stone-500 dark:text-white/40">Theme</span>
+              <span className="text-sm text-zinc-400">Theme</span>
               <ThemeToggle />
             </motion.div>
           </div>

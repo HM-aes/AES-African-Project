@@ -20,7 +20,7 @@ interface SectionProps {
   children: ReactNode;
   background?: SectionBackground;
   showEndLine?: boolean;
-  endLineColor?: "amber" | "green" | "red" | "gradient";
+  endLineColor?: "amber" | "green" | "red" | "gradient" | "silver";
   className?: string;
   id?: string;
   showGrid?: boolean;
@@ -62,7 +62,7 @@ export function Section({
   children,
   background = "default",
   showEndLine = true,
-  endLineColor = "gradient",
+  endLineColor = "silver",
   className = "",
   id,
   showGrid = false,
@@ -94,7 +94,7 @@ export function AnimatedSectionWrapper({
   children,
   background = "default",
   showEndLine = true,
-  endLineColor = "gradient",
+  endLineColor = "silver",
   className = "",
   id,
   delay = 0,

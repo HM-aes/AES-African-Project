@@ -52,10 +52,11 @@ export const StickyScroll = ({
   });
 
   return (
-    <motion.div
-      className="h-[34rem] overflow-y-auto flex justify-between relative gap-0 rounded-2xl custom-scrollbar-card border border-neutral-300 dark:border-neutral-700 bg-gradient-to-br from-white via-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-900 shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-xl"
-      ref={ref}
-    >
+    <div className="relative rounded-2xl p-[2px] bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_20px_rgba(245,158,11,0.15),0_0_20px_rgba(34,197,94,0.15),0_0_20px_rgba(239,68,68,0.15)]">
+      <motion.div
+        className="h-[34rem] overflow-y-auto flex justify-between relative gap-0 rounded-2xl custom-scrollbar-card bg-gradient-to-br from-white via-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-900 shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-xl"
+        ref={ref}
+      >
       <div className="relative flex flex-col items-start w-full lg:w-auto lg:flex-1">
         {/* Scrollable Content Container */}
         <div className="px-6 py-8">
@@ -64,7 +65,7 @@ export const StickyScroll = ({
             {headerTitle && (
               <motion.div
                 style={{ opacity: headerOpacity, scale: headerScale }}
-                className="mb-10 pb-6 border-b border-neutral-200 dark:border-neutral-700"
+                className="mb-6 pb-4 border-b border-neutral-200 dark:border-neutral-700"
               >
                 <div className="space-y-3">
                   {headerBadge && (
@@ -122,6 +123,7 @@ export const StickyScroll = ({
       >
         {content[activeCard].content ?? null}
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };

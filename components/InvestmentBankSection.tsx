@@ -62,7 +62,9 @@ export function InvestmentBankSection() {
           {/* Glow effect - neutral */}
           <div className="absolute inset-0 bg-gradient-radial from-neutral-300/30 to-transparent dark:from-neutral-700/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <div className="relative bg-white dark:bg-neutral-900/60 backdrop-blur-sm border border-neutral-200 dark:border-neutral-800 rounded-3xl overflow-hidden">
+          {/* Pan-African Gradient Border Wrapper */}
+          <div className="relative rounded-3xl p-[2px] bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_25px_rgba(245,158,11,0.2),0_0_25px_rgba(34,197,94,0.2),0_0_25px_rgba(239,68,68,0.2)]">
+            <div className="relative bg-white dark:bg-neutral-900/60 backdrop-blur-sm rounded-3xl overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Content Side - Left on desktop */}
               <div className="p-8 lg:p-10 order-2 lg:order-1">
@@ -138,6 +140,8 @@ export function InvestmentBankSection() {
                   </div>
                 </div>
               </div>
+            </div>
+            </div>
             </div>
           </div>
         </motion.div>

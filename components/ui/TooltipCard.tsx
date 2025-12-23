@@ -106,8 +106,8 @@ export function TooltipCard({ className }: TooltipCardProps) {
           "dark:shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_25px_80px_-20px_rgba(0,0,0,0.6)]",
         )}
       >
-        {/* Top gradient accent */}
-        <div className="absolute top-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-amber-500 via-green-500 to-red-500 z-30" />
+        {/* Top gradient accent - metallic silver */}
+        <div className="absolute top-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-neutral-300 via-neutral-400 to-neutral-300 dark:from-neutral-600 dark:via-neutral-500 dark:to-neutral-600 z-30" />
 
         {/* HEADER SECTION - Fixed */}
         <div className="relative z-20 px-4 md:px-8 pt-6 md:pt-8 pb-4 md:pb-6 bg-gradient-to-b from-white via-white to-white/95 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950/95 border-b border-neutral-200 dark:border-neutral-800">
@@ -146,14 +146,9 @@ export function TooltipCard({ className }: TooltipCardProps) {
                   className={cn(
                     "transition-all duration-300 rounded-full",
                     index === activeIndex
-                      ? "w-10 h-3"
-                      : "w-3 h-3 hover:scale-125"
+                      ? "w-10 h-3 bg-neutral-700 dark:bg-neutral-400"
+                      : "w-3 h-3 hover:scale-125 bg-neutral-400 dark:bg-neutral-600"
                   )}
-                  style={{
-                    background: index === activeIndex
-                      ? `linear-gradient(to right, ${leader.glowColor}, ${leader.glowColor})`
-                      : "rgba(150, 150, 150, 0.4)"
-                  }}
                 />
               ))}
             </div>
@@ -192,7 +187,7 @@ export function TooltipCard({ className }: TooltipCardProps) {
                   </h3>
 
                   {/* Role */}
-                  <p className={`text-xl md:text-2xl font-semibold bg-gradient-to-r ${currentLeader.colorClass} bg-clip-text text-transparent`}>
+                  <p className="text-xl md:text-2xl font-semibold text-neutral-700 dark:text-neutral-300">
                     {currentLeader.role}
                   </p>
 
@@ -201,9 +196,12 @@ export function TooltipCard({ className }: TooltipCardProps) {
                     {currentLeader.description}
                   </p>
 
-                  {/* Quote - More prominent */}
-                  <div className={`p-6 md:p-8 rounded-2xl ${currentLeader.bgColor} border-l-4 ${currentLeader.borderColor} bg-opacity-50`}>
-                    <p className="text-lg md:text-xl italic text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  {/* Quote - Shadcn dark style */}
+                  <div className="relative p-6 md:p-8 rounded-2xl bg-zinc-900 border-l-4 border-amber-500/60 shadow-[0_4px_20px_rgba(0,0,0,0.3)] overflow-hidden">
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800/80 pointer-events-none" />
+                    
+                    <p className="relative text-lg md:text-xl italic text-white leading-relaxed">
                       &ldquo;{currentLeader.quote}&rdquo;
                     </p>
                   </div>
@@ -218,51 +216,13 @@ export function TooltipCard({ className }: TooltipCardProps) {
             </div>
           </div>
 
+
             {/* Right Column - Leader Image */}
             <div className="w-full lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-neutral-100 via-neutral-50 to-neutral-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800 min-h-[350px] lg:min-h-[500px]">
-              {/* Pixelated Canvas Background - Interactive */}
-              <div className="absolute inset-0 opacity-20 dark:opacity-30">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={currentLeader.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full h-full"
-                  >
-                    <PixelatedCanvas
-                      src={currentLeader.image}
-                      width={500}
-                      height={500}
-                      cellSize={4}
-                      dotScale={0.85}
-                      shape="square"
-                      backgroundColor="transparent"
-                      interactive={true}
-                      distortionMode="swirl"
-                      distortionStrength={5}
-                      distortionRadius={120}
-                      jitterStrength={3}
-                      jitterSpeed={2}
-                      tintColor={currentLeader.glowColor}
-                      tintStrength={0.3}
-                      className="w-full h-full"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+              {/* Background - neutral, no glow */}
+              <div className="absolute inset-0 opacity-20" />
 
-              {/* Background glow */}
-              <motion.div
-                className="absolute inset-0 opacity-30"
-                animate={{
-                  background: `radial-gradient(circle at 50% 50%, ${currentLeader.glowColor}, transparent 70%)`,
-                }}
-                transition={{ duration: 0.5 }}
-              />
-
-              {/* Image container */}
+              {/* Pixelated Canvas - Main Image */}
               <div className="relative w-full h-full flex items-center justify-center p-8">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
@@ -273,33 +233,44 @@ export function TooltipCard({ className }: TooltipCardProps) {
                     transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="relative w-full max-w-[320px] md:max-w-[380px] aspect-[3/4]"
                   >
-                    {/* Glow ring */}
-                    <div className={`absolute -inset-4 bg-gradient-to-r ${currentLeader.colorClass} rounded-3xl blur-xl opacity-60`} />
+                    {/* Neutral border - no glow */}
+                    <div className="absolute -inset-4 bg-neutral-400 dark:bg-neutral-600 rounded-3xl blur-xl opacity-20" />
 
-                    {/* Image */}
-                    <div className={`relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 ${currentLeader.borderColor} bg-neutral-200 dark:bg-neutral-700`}>
-                      <Image
+                    {/* Pixelated Canvas Container */}
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-neutral-400 dark:border-neutral-600 bg-neutral-200 dark:bg-neutral-700">
+                      <PixelatedCanvas
                         src={currentLeader.image}
-                        alt={currentLeader.name}
-                        fill
-                        className="object-cover object-top"
-                        priority
+                        width={380}
+                        height={500}
+                        cellSize={4}
+                        dotScale={0.85}
+                        shape="square"
+                        backgroundColor="transparent"
+                        interactive={true}
+                        distortionMode="swirl"
+                        distortionStrength={5}
+                        distortionRadius={120}
+                        jitterStrength={3}
+                        jitterSpeed={2}
+                        tintColor="rgba(150, 150, 150, 0.3)"
+                        tintStrength={0.15}
+                        className="w-full h-full"
                       />
                       {/* Bottom gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
                       {/* Name and Country overlay - Clean layout */}
-                      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 pointer-events-none">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-3xl md:text-4xl">{currentLeader.emoji}</span>
-                          <div className={`px-3 py-1 rounded-full ${currentLeader.bgColor} border ${currentLeader.borderColor}`}>
-                            <span className={`text-sm font-bold ${currentLeader.textColor} uppercase tracking-wider`}>
+                          <div className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-400 dark:border-neutral-600">
+                            <span className="text-sm font-bold text-neutral-900 dark:text-neutral-200 uppercase tracking-wider">
                               {currentLeader.country}
                             </span>
                           </div>
                         </div>
                         <p className="text-white font-bold text-xl md:text-2xl font-heading">{currentLeader.name}</p>
-                        <p className={`${currentLeader.textColor} text-sm md:text-base font-semibold mt-1`}>{currentLeader.role}</p>
+                        <p className="text-neutral-300 dark:text-neutral-400 text-sm md:text-base font-semibold mt-1">{currentLeader.role}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -309,7 +280,7 @@ export function TooltipCard({ className }: TooltipCardProps) {
           </div>
 
         {/* FOOTER - Tagline Only */}
-        <div className="relative z-20 px-4 md:px-8 py-4 md:py-5 bg-gradient-to-t from-white via-white to-white/95 dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950/95 border-t border-neutral-200 dark:border-neutral-800">
+        <div className="relative z-20 px-4 md:px-8 py-4 md:py-5 bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-300 dark:border-neutral-700">
           {/* Tagline - neutral style */}
           <div className="flex items-center justify-center gap-4">
             <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />
@@ -320,21 +291,21 @@ export function TooltipCard({ className }: TooltipCardProps) {
           </div>
         </div>
 
-        {/* Bottom gradient accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-red-500 via-green-500 to-amber-500 z-30" />
+        {/* Bottom gradient accent - metallic silver */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 md:h-1.5 bg-gradient-to-r from-neutral-300 via-neutral-400 to-neutral-300 dark:from-neutral-600 dark:via-neutral-500 dark:to-neutral-600 z-30" />
 
-        {/* Corner accents */}
-        <div className="absolute top-1 md:top-1.5 left-0 w-12 md:w-16 h-12 md:h-16 border-l-2 md:border-l-[3px] border-amber-500/60 pointer-events-none z-30" />
-        <div className="absolute top-1 md:top-1.5 right-0 w-12 md:w-16 h-12 md:h-16 border-r-2 md:border-r-[3px] border-red-500/60 pointer-events-none z-30" />
-        <div className="absolute bottom-1 md:bottom-1.5 left-0 w-12 md:w-16 h-12 md:h-16 border-l-2 md:border-l-[3px] border-green-500/60 pointer-events-none z-30" />
-        <div className="absolute bottom-1 md:bottom-1.5 right-0 w-12 md:w-16 h-12 md:h-16 border-r-2 md:border-r-[3px] border-amber-500/60 pointer-events-none z-30" />
+        {/* Corner accents - neutral */}
+        <div className="absolute top-1 md:top-1.5 left-0 w-12 md:w-16 h-12 md:h-16 border-l-2 md:border-l-[3px] border-neutral-400/60 dark:border-neutral-600/60 pointer-events-none z-30" />
+        <div className="absolute top-1 md:top-1.5 right-0 w-12 md:w-16 h-12 md:h-16 border-r-2 md:border-r-[3px] border-neutral-400/60 dark:border-neutral-600/60 pointer-events-none z-30" />
+        <div className="absolute bottom-1 md:bottom-1.5 left-0 w-12 md:w-16 h-12 md:h-16 border-l-2 md:border-l-[3px] border-neutral-400/60 dark:border-neutral-600/60 pointer-events-none z-30" />
+        <div className="absolute bottom-1 md:bottom-1.5 right-0 w-12 md:w-16 h-12 md:h-16 border-r-2 md:border-r-[3px] border-neutral-400/60 dark:border-neutral-600/60 pointer-events-none z-30" />
       </div>
 
       {/* Scrollbar styles */}
       <style jsx global>{`
         .tooltip-card-scroll {
           scrollbar-width: thin;
-          scrollbar-color: rgba(251, 191, 36, 0.6) rgba(0, 0, 0, 0.15);
+          scrollbar-color: rgba(115, 115, 115, 0.6) rgba(0, 0, 0, 0.15);
         }
 
         .tooltip-card-scroll::-webkit-scrollbar {
@@ -348,21 +319,13 @@ export function TooltipCard({ className }: TooltipCardProps) {
         }
 
         .tooltip-card-scroll::-webkit-scrollbar-thumb {
-          background: linear-gradient(180deg,
-            rgba(251, 191, 36, 0.7) 0%,
-            rgba(34, 197, 94, 0.7) 50%,
-            rgba(239, 68, 68, 0.7) 100%
-          );
+          background: rgba(115, 115, 115, 0.7);
           border-radius: 5px;
           border: 2px solid rgba(0, 0, 0, 0.1);
         }
 
         .tooltip-card-scroll::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(180deg,
-            rgba(251, 191, 36, 0.9) 0%,
-            rgba(34, 197, 94, 0.9) 50%,
-            rgba(239, 68, 68, 0.9) 100%
-          );
+          background: rgba(115, 115, 115, 0.9);
         }
 
         @media (prefers-color-scheme: dark) {

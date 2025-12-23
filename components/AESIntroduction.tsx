@@ -156,7 +156,7 @@ export function AESIntroduction() {
           </div>
         </motion.div>
 
-        {/* Mission Statement */}
+        {/* Mission Statement - Shadcn dark style */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -164,14 +164,17 @@ export function AESIntroduction() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <div className="inline-block bg-white dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-2xl p-8 md:p-10 max-w-4xl backdrop-blur-sm">
-            <p className="text-lg md:text-xl text-neutral-700 dark:text-[#c0c0c8] leading-relaxed italic">
+          <div className="relative inline-block bg-zinc-900 border-l-4 border-amber-500/60 rounded-2xl p-8 md:p-10 max-w-4xl shadow-[0_4px_20px_rgba(0,0,0,0.3)] overflow-hidden">
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800/80 pointer-events-none" />
+            
+            <p className="relative text-lg md:text-xl text-white leading-relaxed italic">
               "An attack on one member state is considered an attack on all member states.
-              Together, we are building an Africa that is <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">sovereign</span>,
-              <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]"> self-sufficient</span>, and
-              <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]"> united</span>."
+              Together, we are building an Africa that is <span className="font-bold text-amber-400">sovereign</span>,
+              <span className="font-bold text-amber-400"> self-sufficient</span>, and
+              <span className="font-bold text-amber-400"> united</span>."
             </p>
-            <p className="mt-4 text-sm text-neutral-500 dark:text-[#8a8a94] font-semibold">
+            <p className="relative mt-4 text-sm text-zinc-400 font-semibold">
               — Liptako-Gourma Charter, 2023
             </p>
           </div>

@@ -85,7 +85,7 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 2.0, ease: [0.16, 1, 0.3, 1] }}
           className={`flex-1 h-[2px] bg-gradient-to-r ${style.line} origin-right ${style.shadow}`}
         />
 
@@ -94,7 +94,7 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-4 md:mx-6"
         >
           {/* Outer ring */}
@@ -102,7 +102,7 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
             {/* Inner dot */}
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className={`w-3 h-3 md:w-4 md:h-4 rounded-full ${style.dot}`}
             />
           </div>
@@ -116,7 +116,7 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 2.0, ease: [0.16, 1, 0.3, 1] }}
           className={`flex-1 h-[2px] bg-gradient-to-l ${style.line} origin-left ${style.shadow}`}
         />
       </div>
@@ -127,21 +127,21 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 0.4, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 1.0, duration: 0.8 }}
           className={`w-1 h-1 rounded-full ${style.dot}`}
         />
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 0.6, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
           className={`w-1.5 h-1.5 rounded-full ${style.dot}`}
         />
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 0.4, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
           className={`w-1 h-1 rounded-full ${style.dot}`}
         />
       </div>
@@ -151,21 +151,21 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
           initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 0.4, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
           className={`w-1 h-1 rounded-full ${style.dot}`}
         />
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 0.6, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
           className={`w-1.5 h-1.5 rounded-full ${style.dot}`}
         />
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 0.4, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 1.0, duration: 0.8 }}
           className={`w-1 h-1 rounded-full ${style.dot}`}
         />
       </div>
@@ -173,13 +173,15 @@ export function SectionDivider({ variant = "gradient", className = "" }: Section
   );
 }
 
-// Section End Line - PROMINENT separator between sections
-export function SectionEndLine({ color = "gradient" }: { color?: "amber" | "green" | "red" | "gradient" }) {
+// Section End Line - PROMINENT separator between sections with metallic silver
+export function SectionEndLine({ color = "silver" }: { color?: "amber" | "green" | "red" | "gradient" | "silver" }) {
+  // Metallic silver is now the default and preferred option
   const colors = {
     amber: "from-amber-600/20 via-amber-500 to-amber-600/20",
     green: "from-green-600/20 via-green-500 to-green-600/20",
     red: "from-red-600/20 via-red-500 to-red-600/20",
     gradient: "from-amber-500 via-green-500 to-red-500",
+    silver: "from-neutral-300 via-neutral-400 to-neutral-300 dark:from-neutral-600 dark:via-neutral-500 dark:to-neutral-600",
   };
 
   const glowColors = {
@@ -187,6 +189,7 @@ export function SectionEndLine({ color = "gradient" }: { color?: "amber" | "gree
     green: "shadow-[0_0_30px_rgba(34,197,94,0.5)]",
     red: "shadow-[0_0_30px_rgba(239,68,68,0.5)]",
     gradient: "shadow-[0_0_40px_rgba(34,197,94,0.4)]",
+    silver: "shadow-[0_0_30px_rgba(163,163,163,0.3)] dark:shadow-[0_0_30px_rgba(115,115,115,0.4)]",
   };
 
   return (
@@ -194,23 +197,23 @@ export function SectionEndLine({ color = "gradient" }: { color?: "amber" | "gree
       {/* Top fade gradient for depth */}
       <div className="w-full h-8 bg-gradient-to-b from-transparent via-black/5 to-transparent dark:via-white/5" />
       
-      {/* Main prominent line with glow */}
+      {/* Main prominent line with glow and smooth animation */}
       <div className="relative">
         <motion.div
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`w-full h-[6px] md:h-[8px] bg-gradient-to-r ${colors[color]} origin-center rounded-full ${glowColors[color]}`}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+          className={`w-full h-[4px] md:h-[6px] bg-gradient-to-r ${colors[color]} origin-center rounded-full ${glowColors[color]}`}
         />
         
-        {/* Center diamond decoration */}
+        {/* Center diamond decoration - metallic silver */}
         <motion.div
-          initial={{ scale: 0, rotate: 0 }}
-          whileInView={{ scale: 1, rotate: 45 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 bg-gradient-to-br from-amber-500 via-green-500 to-red-500 shadow-lg"
+          initial={{ scale: 0, rotate: 0, opacity: 0 }}
+          whileInView={{ scale: 1, rotate: 45, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.0, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-neutral-300 via-neutral-400 to-neutral-300 dark:from-neutral-600 dark:via-neutral-500 dark:to-neutral-600 shadow-lg"
         />
       </div>
       

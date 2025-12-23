@@ -46,8 +46,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       {/* Subtle ambient glow behind card - enhanced */}
       <div className="absolute -inset-4 bg-gradient-to-r from-amber-200/30 via-neutral-300/20 to-amber-200/30 dark:from-neutral-800/40 dark:via-neutral-700/20 dark:to-neutral-800/40 rounded-[2rem] blur-2xl opacity-60" />
 
-      {/* Main card - Light mode: subtle gray with beautiful borders, Dark mode: dark/metallic */}
-      <div className="relative bg-gradient-to-br from-neutral-50 via-white to-neutral-50 dark:bg-[#0a0a0c] border-2 border-neutral-400/60 dark:border-[#c0c0c8]/30 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(180,140,60,0.08)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
+      {/* Main card - Proper light/dark mode support */}
+      <div className="relative bg-gradient-to-br from-neutral-50 via-neutral-100 to-neutral-50 dark:from-[#0a0a0c] dark:via-[#0f0f11] dark:to-[#0a0a0c] border-2 border-neutral-400/60 dark:border-[#c0c0c8]/30 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(180,140,60,0.08)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
 
         {/* Spotlight effect on hover */}
         <motion.div
@@ -251,13 +251,16 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
                 {/* Divider */}
                 <div className="h-[1px] bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent" />
 
-                {/* Quote */}
-                <div className="space-y-2">
-                  <p className="text-sm leading-relaxed italic text-neutral-600 dark:text-[#8a8a94]">
+                {/* Quote - Shadcn dark style */}
+                <div className="relative space-y-2 p-4 rounded-xl bg-zinc-900 border-l-4 border-amber-500/60 shadow-[0_4px_20px_rgba(0,0,0,0.3)] overflow-hidden">
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800/80 pointer-events-none" />
+                  
+                  <p className="relative text-sm leading-relaxed italic text-white">
                     &ldquo;The time for Africa&apos;s true independence has come.
                     We stand united, sovereign, and unstoppable.&rdquo;
                   </p>
-                  <p className="text-xs font-bold text-neutral-700 dark:text-[#c0c0c8]">
+                  <p className="relative text-xs font-bold text-zinc-400">
                     — The Spirit of AES
                   </p>
                 </div>

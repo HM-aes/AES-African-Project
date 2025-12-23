@@ -15,7 +15,7 @@ export default function Home() {
       <Section
         background="default"
         showEndLine={true}
-        endLineColor="amber"
+        endLineColor="silver"
         showGrid={true}
         gridStyle="amber"
       >
@@ -26,7 +26,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="default"
         showEndLine={true}
-        endLineColor="amber"
+        endLineColor="silver"
         delay={0.1}
       >
         <AESIntroduction />
@@ -36,7 +36,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="alt"
         showEndLine={true}
-        endLineColor="green"
+        endLineColor="silver"
         delay={0.1}
         showGrid={true}
         gridStyle="default"
@@ -48,7 +48,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="default"
         showEndLine={true}
-        endLineColor="amber"
+        endLineColor="silver"
         delay={0.1}
       >
         <InvestmentBankSection />
@@ -58,7 +58,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="alt"
         showEndLine={true}
-        endLineColor="red"
+        endLineColor="silver"
         delay={0.1}
         showGrid={true}
         gridStyle="default"
@@ -70,7 +70,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="default"
         showEndLine={true}
-        endLineColor="gradient"
+        endLineColor="silver"
         delay={0.1}
         showGrid={true}
         gridStyle="amber"
@@ -82,7 +82,7 @@ export default function Home() {
       <AnimatedSectionWrapper
         background="alt"
         showEndLine={true}
-        endLineColor="amber"
+        endLineColor="silver"
         delay={0.1}
       >
         <AESAchievements />
