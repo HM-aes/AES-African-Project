@@ -948,7 +948,7 @@ const HoverVideoPlayerVolumeControl: React.FC = () => {
         min={0}
         max={100}
         step={1}
-        onValueChange={(value) => setVolume(value[0] / 100)}
+        onValueChange={(value: number[]) => setVolume(value[0] / 100)}
         aria-label="Volume"
       />
     </div>
