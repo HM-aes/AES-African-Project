@@ -138,10 +138,10 @@ export function InvestmentBankSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="flex gap-4 p-6 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800"
+                  className="flex gap-4 p-6 rounded-xl bg-zinc-900 dark:bg-neutral-900/50 border border-zinc-800 dark:border-neutral-800"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-amber-500/20 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-green-700 dark:text-green-400" />
+                    <Icon className="w-6 h-6 text-green-400" />
                   </div>
                   <div>
                     {/* Black tag for feature title */}

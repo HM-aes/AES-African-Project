@@ -1,30 +1,30 @@
 export function Footer() {
   return (
-    <footer className="bg-secondary dark:bg-neutral-950 text-foreground py-12 mt-20 border-t border-border">
+    <footer className="bg-zinc-900 dark:bg-neutral-950 text-white py-12 mt-20 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="text-2xl font-heading font-bold mb-4 text-foreground">Pan-African Hub</h3>
-          <p className="text-muted-foreground">
+          <h3 className="text-2xl font-heading font-bold mb-4 text-white">Pan-African Hub</h3>
+          <p className="text-zinc-400">
             Educating the next generation about our shared history and future.
           </p>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-foreground">Quick Links</h4>
-          <ul className="space-y-2 text-muted-foreground">
-            <li><a href="/" className="hover:text-foreground transition-colors">Home</a></li>
-            <li><a href="/blog" className="hover:text-foreground transition-colors">Blog</a></li>
-            <li><a href="/aes" className="hover:text-foreground transition-colors">AES</a></li>
-            <li><a href="/russia-about" className="hover:text-foreground transition-colors">Russia About</a></li>
+          <h4 className="font-bold mb-4 text-white">Quick Links</h4>
+          <ul className="space-y-2 text-zinc-400">
+            <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/aes" className="hover:text-white transition-colors">AES</a></li>
+            <li><a href="/russia-about" className="hover:text-white transition-colors">Russia About</a></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-foreground">Connect</h4>
+          <h4 className="font-bold mb-4 text-white">Connect</h4>
           <div className="flex gap-4">
             {/* Social placeholders */}
-            <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-pan-red hover:text-white transition-colors text-foreground">
+            <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-colors text-white">
               X
             </div>
-            <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-pan-green hover:text-white transition-colors text-foreground">
+            <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors text-white">
               In
             </div>
           </div>
