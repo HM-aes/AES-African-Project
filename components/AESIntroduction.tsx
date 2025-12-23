@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Shield } from "lucide-react";
 import Image from "next/image";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
 
 const countries = [
   {
@@ -102,6 +103,23 @@ export function AESIntroduction() {
               <p className="text-xs text-neutral-500 dark:text-[#8a8a94]">Liptako-Gourma Charter</p>
             </div>
           </div>
+        </motion.div>
+
+        {/* Video Section - Faso7 Explanation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-16"
+        >
+          <VideoPlayer
+            videoId="YOUR_YOUTUBE_VIDEO_ID_HERE"
+            title="Understanding the Alliance of Sahel States"
+            description="An in-depth explanation of how the AES was created and what it means for the future of the Sahel region."
+            source="Faso7"
+            sourceIcon="/news-sources/faso7-logo.png"
+          />
         </motion.div>
 
         {/* Three Nations */}
