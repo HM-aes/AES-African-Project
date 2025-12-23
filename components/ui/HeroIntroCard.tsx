@@ -105,15 +105,14 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-neutral-300/10 dark:bg-neutral-700/5 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-        {/* Logo - Top Left */}
-        <div className="absolute top-0 left-6 md:left-12 hero-text-item">
-          <AESLogo size="lg" showText={true} />
-        </div>
-
         {/* Main Content Grid - Split Layout */}
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center mt-24 lg:mt-0">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Left Column - Text Content (3 columns) */}
           <div ref={textRef} className="lg:col-span-3 space-y-8">
+            {/* Logo integrated into content flow */}
+            <div className="hero-text-item mb-6">
+              <AESLogo size="md" showText={true} />
+            </div>
             {/* Main Header */}
             <motion.div className="space-y-4 hero-text-item">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-neutral-900 dark:text-[#e8e8ec]">
