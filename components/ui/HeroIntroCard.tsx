@@ -97,7 +97,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
   return (
     <div
       ref={heroRef}
-      className={`relative min-h-screen flex items-center justify-center pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden ${className}`}
+      className={`relative min-h-screen flex items-center justify-center pt-8 pb-12 md:pt-12 md:pb-16 overflow-hidden ${className}`}
     >
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-[#0a0a0c] dark:via-[#0f0f11] dark:to-[#0a0a0c]" />
@@ -105,11 +105,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-neutral-300/10 dark:bg-neutral-700/5 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-        {/* Stunning Logo - Top Center */}
-        <div className="flex justify-center mb-12 hero-text-item">
-          <AESLogo size="xl" showText={true} variant="hero" />
-        </div>
-
         {/* Main Content Grid - Split Layout */}
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Left Column - Text Content (3 columns) */}
