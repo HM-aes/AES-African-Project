@@ -13,7 +13,7 @@ const partnerships = [
 
 export function JointForcesSection() {
   return (
-    <section className="relative py-20 px-6 overflow-hidden">
+    <section className="relative py-24 px-6 overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-100/50 to-transparent dark:via-neutral-900/30" />
       
@@ -87,7 +87,7 @@ export function JointForcesSection() {
             </motion.div>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
             <span className="text-sm font-bold text-white uppercase tracking-wider">
               Unified Defense Partnership
             </span>

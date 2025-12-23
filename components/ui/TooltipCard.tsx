@@ -116,9 +116,9 @@ export function TooltipCard({ className }: TooltipCardProps) {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[0.1em] text-neutral-900 dark:text-white mb-3">
               {t("hero.visionaryLeaders")}
             </h2>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700">
-              <Shield className="w-4 h-4 text-neutral-700 dark:text-neutral-300" />
-              <span className="text-xs md:text-sm font-semibold text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
+              <Shield className="w-4 h-4 text-zinc-300" />
+              <span className="text-xs md:text-sm font-semibold text-white uppercase tracking-wider">
                 Alliance of Sahel States
               </span>
             </div>

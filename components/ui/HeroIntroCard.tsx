@@ -119,19 +119,19 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
               </p>
             </motion.div>
 
-            {/* Badges */}
+            {/* Badges - shadcn style: dark in both modes */}
             <div className="flex flex-wrap gap-3 hero-text-item">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
                 <span className="text-sm font-bold text-white">
                   Est. September 2023
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
                 <span className="text-sm font-bold text-white">
                   Pan-African Alliance
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
                 <span className="text-sm font-bold text-white">
                   Sovereignty First
                 </span>
