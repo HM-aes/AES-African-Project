@@ -33,21 +33,21 @@ const newsSources = [
 
 export function NewsSourceBanner() {
   return (
-    <div className="relative w-full bg-gradient-to-r from-slate-100 via-blue-50 to-slate-100 dark:from-slate-900 dark:via-blue-950/30 dark:to-slate-900 border-b border-slate-300 dark:border-slate-700 py-3 md:py-4 overflow-hidden">
+    <div className="relative w-full bg-zinc-950 border-b border-zinc-900 py-3 md:py-4 overflow-hidden">
       {/* Subtle shimmer effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
           {/* Label */}
           <div className="flex-shrink-0">
-            <p className="text-xs md:text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+            <p className="text-xs md:text-sm font-bold uppercase tracking-wider text-white">
               Our News Sources
             </p>
           </div>
 
           {/* Divider - hidden on mobile */}
-          <div className="hidden md:block h-6 w-px bg-slate-400 dark:bg-slate-600" />
+          <div className="hidden md:block h-6 w-px bg-zinc-800" />
 
           {/* News Sources - Infinite Scroll Container */}
           <div className="flex-1 w-full overflow-hidden relative">
