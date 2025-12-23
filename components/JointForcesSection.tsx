@@ -87,8 +87,8 @@ export function JointForcesSection() {
             </motion.div>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700">
-            <span className="text-sm font-bold text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800">
+            <span className="text-sm font-bold text-white uppercase tracking-wider">
               Unified Defense Partnership
             </span>
           </div>

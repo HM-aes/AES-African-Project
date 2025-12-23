@@ -2,150 +2,161 @@
 
 import { motion } from "framer-motion";
 import { Landmark, ArrowRight, Building2, Coins, TrendingUp, Factory } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const features = [
-  { icon: Coins, text: "Independent development funding" },
-  { icon: Building2, text: "Infrastructure project financing" },
-  { icon: Factory, text: "Industrial & agricultural investment" },
-  { icon: TrendingUp, text: "Trade integration catalyst" },
+  { icon: Coins, title: "Independent Development Funding", description: "Self-financed projects without external dependency" },
+  { icon: Building2, title: "Infrastructure Project Financing", description: "Roads, rails, and energy across the Sahel" },
+  { icon: Factory, title: "Industrial & Agricultural Investment", description: "Manufacturing and food sovereignty initiatives" },
+  { icon: TrendingUp, title: "Trade Integration Catalyst", description: "Facilitating intra-AES commerce and growth" },
 ];
 
 export function InvestmentBankSection() {
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden">
-      {/* Background effects - removed colored glows for cleaner look */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent dark:from-neutral-700/10 blur-3xl" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Header - Standardized */}
+    <section className="relative py-20 px-6 overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-50 to-transparent dark:via-neutral-900/20" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          {/* Header FIRST */}
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold font-heading text-neutral-900 dark:text-[#e8e8ec] mb-4 leading-tight">
             AES Investment Bank
           </h2>
-
-          {/* Tag/Badge AFTER header */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 mb-6"
-          >
+          
+          {/* Shadcn-style black tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 dark:bg-zinc-950 border border-zinc-800 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-600 dark:bg-neutral-400" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
             </span>
-            <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8] uppercase tracking-wider">
+            <span className="text-sm font-bold text-white uppercase tracking-wider">
               Financial Sovereignty
             </span>
-          </motion.div>
-
-          <p className="text-lg md:text-xl text-neutral-600 dark:text-[#8a8a94] max-w-2xl mx-auto">
+          </div>
+          
+          <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
             Building economic independence through our own financial institution
           </p>
         </motion.div>
 
-        {/* Main Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative group"
-        >
-          {/* Glow effect - neutral */}
-          <div className="absolute inset-0 bg-gradient-radial from-neutral-300/30 to-transparent dark:from-neutral-700/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Content */}
+        <div className="space-y-12">
+          {/* Main Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-3xl font-bold font-heading text-neutral-900 dark:text-[#e8e8ec] mb-4">
+              Financing Our Own Future
+            </h3>
+            <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              <p className="text-lg">
+                The <strong className="text-neutral-900 dark:text-neutral-100">Confederation Investment and Development Bank (BCID-AES)</strong> marks a historic step toward complete financial independence. With <strong className="text-neutral-900 dark:text-neutral-100">$895 million</strong> in initial capital, we're funding infrastructure, energy, and agriculture without external conditions or interference.
+              </p>
+              <p>
+                This institution represents more than banking—it's a declaration of economic sovereignty, enabling the AES to chart its own development path free from IMF conditionalities and Western financial control.
+              </p>
+            </div>
+          </motion.div>
 
-          {/* Pan-African Gradient Border Wrapper */}
-          <div className="relative rounded-3xl p-1 bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_35px_rgba(245,158,11,0.3),0_0_35px_rgba(34,197,94,0.3),0_0_35px_rgba(239,68,68,0.3)]">
-            <div className="relative bg-white dark:bg-neutral-900/60 backdrop-blur-sm rounded-3xl overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Content Side - Left on desktop */}
-              <div className="p-8 lg:p-10 order-2 lg:order-1">
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-sm font-semibold text-neutral-500 dark:text-[#8a8a94] uppercase tracking-wider mb-2">
-                      Economic Development
-                    </p>
-                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
-                      Financing Our Own Future
-                    </h3>
-                    <p className="text-neutral-700 dark:text-[#c0c0c8] leading-relaxed">
-                      The Confederation Investment and Development Bank (BCID-AES) marks a historic
-                      step toward financial independence. With $895 million in initial capital, 
-                      we&apos;re funding infrastructure, energy, and agriculture without external strings.
-                    </p>
-                  </div>
-
-                  {/* Features Grid - Now with black/neutral styling */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {features.map((feature, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
-                        className="flex items-center gap-3 p-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700"
-                      >
-                        <feature.icon className="w-5 h-5 text-neutral-700 dark:text-[#c0c0c8] flex-shrink-0" />
-                        <span className="text-sm text-neutral-700 dark:text-[#c0c0c8]">{feature.text}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* CTA - Now with black styling */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Link
-                      href="/blog#aes-investment-bank"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-white font-semibold rounded-xl transition-colors"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <Link
-                      href="/blog?tag=investment-bank"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-[#c0c0c8] hover:bg-neutral-100 dark:hover:bg-neutral-800 font-semibold rounded-xl transition-colors"
-                    >
-                      Latest Updates
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Image Side - Right on desktop */}
-              <div className="relative h-72 lg:h-auto lg:min-h-[500px] overflow-hidden order-1 lg:order-2">
-                <Image
-                  src="/images/aes-investment-bank.png"
-                  alt="AES Investment Bank"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/30 to-transparent lg:bg-gradient-to-t lg:from-black/70 lg:via-transparent lg:to-transparent" />
-
-                {/* Stats Badge - kept neutral/white for visibility on image */}
-                <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6">
-                  <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-black/40 border border-white/20 backdrop-blur-sm">
-                    <Landmark className="w-6 h-6 text-white" />
-                    <div>
-                      <span className="text-2xl font-bold text-white">$895M</span>
-                      <span className="text-sm text-white/80 ml-2">Initial Capital</span>
+          {/* Key Focus Areas */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-3xl font-bold font-heading text-neutral-900 dark:text-[#e8e8ec] mb-6">
+              Investment Priorities
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {features.map((feature, i) => {
+                const Icon = feature.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex gap-4 p-6 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-amber-500/20 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-green-700 dark:text-green-400" />
                     </div>
-                  </div>
-                </div>
+                    <div>
+                      {/* Shadcn-style black tag for feature title */}
+                      <div className="inline-flex items-center px-3 py-1.5 rounded-md bg-zinc-900 dark:bg-zinc-950 border border-zinc-800 mb-2">
+                        <span className="text-xs font-bold text-white uppercase tracking-wider">
+                          {feature.title}
+                        </span>
+                      </div>
+                      <p className="text-sm text-neutral-600 dark:text-neutral-400">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Stats Highlight */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/20 rounded-2xl p-8 border-2 border-green-200 dark:border-green-800"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                <Landmark className="w-6 h-6 text-green-700 dark:text-green-400" />
+              </div>
+              <div>
+                <span className="inline-block px-3 py-1 rounded-full bg-green-500/20 text-green-900 dark:text-green-300 text-xs font-bold uppercase tracking-wider mb-3">
+                  Initial Capitalization
+                </span>
+                <h4 className="text-4xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                  $895 Million
+                </h4>
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  Combined contributions from Mali, Burkina Faso, and Niger establish one of Africa's most capitalized regional development banks, positioning the AES as a model for financial independence.
+                </p>
               </div>
             </div>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
+          >
+            <Link
+              href="/blog#aes-investment-bank"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Learn More About the Bank
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/blog?tag=investment-bank"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-bold rounded-xl transition-all duration-300"
+            >
+              Latest Financial Updates
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
