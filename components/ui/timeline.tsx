@@ -37,22 +37,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-gradient-to-b from-neutral-50 via-white to-white dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec]">
-            The Path to Sovereignty: AES Journey
-          </h2>
-          <p className="text-base md:text-lg lg:text-xl text-neutral-600 dark:text-[#8a8a94] leading-relaxed">
-            From the formation of the Alliance of Sahel States to the
-            establishment of the Confederation, witness the historic journey of
-            Mali, Burkina Faso, and Niger as they forge a new path of unity,
-            independence, and self-determination in West Africa.
-          </p>
-          <div className="w-24 h-1 mx-auto bg-neutral-400 dark:bg-neutral-600 rounded-full" />
-        </div>
-      </div>
-
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto py-20 pb-20">
         {data.map((item, index) => (
           <div
             key={index}

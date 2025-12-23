@@ -90,12 +90,34 @@ export function AESSpotlight() {
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <StickyScroll
-          content={content}
-          headerTitle="The AES Journey"
-          headerSubtitle="From colonial exploitation to true independence"
-          headerBadge="Path to Sovereignty"
-        />
+        {/* Section Header - Outside Card for Consistency */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          {/* Header FIRST */}
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
+            The Path to Sovereignty
+          </h2>
+
+          {/* Tag/Badge AFTER header */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700"
+          >
+            <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8] uppercase tracking-wider">
+              AES Journey
+            </span>
+          </motion.div>
+        </motion.div>
+
+        <StickyScroll content={content} />
       </div>
     </div>
   );
