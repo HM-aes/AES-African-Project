@@ -88,7 +88,7 @@ const content = [
 
 export function AESSpotlight() {
   return (
-    <div className="py-8 md:py-12">
+    <div className="pt-20 pb-8 md:pb-12">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <StickyScroll
           content={content}

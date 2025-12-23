@@ -20,7 +20,7 @@ const latestNews = {
 
 export function JointForcesSection() {
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative pt-20 pb-16 md:pb-24 overflow-hidden">
       {/* Background effects - neutral glows */}
       <div className="absolute top-20 left-0 w-96 h-96 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent dark:from-neutral-700/10 blur-3xl" />
 
@@ -37,7 +37,7 @@ export function JointForcesSection() {
           <div className="absolute inset-0 bg-gradient-radial from-neutral-300/30 to-transparent dark:from-neutral-700/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Pan-African Gradient Border Wrapper */}
-          <div className="relative rounded-3xl p-[2px] bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_25px_rgba(245,158,11,0.2),0_0_25px_rgba(34,197,94,0.2),0_0_25px_rgba(239,68,68,0.2)]">
+          <div className="relative rounded-3xl p-1 bg-gradient-to-r from-amber-500 via-green-500 to-red-500 shadow-[0_0_35px_rgba(245,158,11,0.3),0_0_35px_rgba(34,197,94,0.3),0_0_35px_rgba(239,68,68,0.3)]">
             <div className="relative bg-white dark:bg-neutral-900/60 backdrop-blur-sm rounded-3xl overflow-hidden">
             {/* Header - Inside Card at Top */}
             <div className="bg-gradient-to-br from-neutral-50 via-white to-neutral-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900 px-6 md:px-8 py-6 md:py-8 border-b border-neutral-200 dark:border-neutral-700">
@@ -153,7 +153,7 @@ export function JointForcesSection() {
               </div>
 
               {/* Image Side - Right (2 columns width on desktop) - Increased height */}
-              <div className="lg:col-span-2 relative h-80 lg:h-auto lg:min-h-[700px] overflow-hidden order-1 lg:order-2">
+              <div className="lg:col-span-2 relative h-96 lg:h-auto lg:min-h-[750px] overflow-hidden order-1 lg:order-2">
                 <Image
                   src="/aes-russia-military-images/africa-corps.webp"
                   alt="Africa Corps - AES Joint Forces"

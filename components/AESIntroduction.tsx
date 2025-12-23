@@ -36,7 +36,7 @@ export function AESIntroduction() {
       <div className="absolute bottom-20 right-0 w-72 h-72 bg-gradient-radial from-neutral-300/20 via-transparent to-transparent dark:from-neutral-700/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Header */}
+        {/* Section Header - Standardized */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,6 +44,12 @@ export function AESIntroduction() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          {/* Header FIRST */}
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
+            What is the AES?
+          </h2>
+
+          {/* Tag/Badge AFTER header */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -56,10 +62,6 @@ export function AESIntroduction() {
               Alliance of Sahel States
             </span>
           </motion.div>
-
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-6">
-            What is the AES?
-          </h2>
 
           <p className="text-lg md:text-xl text-neutral-600 dark:text-[#8a8a94] max-w-3xl mx-auto leading-relaxed">
             The <span className="font-semibold text-neutral-900 dark:text-[#e8e8ec]">Alliance of Sahel States</span> (AES)
