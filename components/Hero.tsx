@@ -6,7 +6,7 @@ import { TooltipCard } from "@/components/ui/TooltipCard";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-white dark:bg-[#0a0a0a] pt-28 md:pt-32">
+    <section className="relative min-h-screen flex flex-col items-center overflow-hidden bg-white dark:bg-[#0a0a0a] pt-4 md:pt-6">
       {/* Dot Grid Pattern - subtle in light, visible in dark */}
       <div
         className="absolute inset-0 opacity-10 dark:opacity-30"
