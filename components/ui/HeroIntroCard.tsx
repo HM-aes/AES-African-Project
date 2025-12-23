@@ -97,7 +97,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
   return (
     <div
       ref={heroRef}
-      className={`relative min-h-screen flex items-center justify-center pt-4 pb-12 md:pt-6 md:pb-16 overflow-hidden ${className}`}
+      className={`relative min-h-screen flex items-center justify-center pt-2 pb-12 md:pt-4 md:pb-16 overflow-hidden ${className}`}
     >
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-[#0a0a0c] dark:via-[#0f0f11] dark:to-[#0a0a0c]" />
