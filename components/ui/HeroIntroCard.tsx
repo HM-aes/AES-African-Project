@@ -3,17 +3,10 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { AESLogo } from "./AESLogo";
 import {
   Zap, Shield, Globe, Wheat, GraduationCap, ArrowRight
 } from "lucide-react";
-
-// Register GSAP plugins
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 interface HeroIntroCardProps {
   className?: string;
@@ -60,35 +53,101 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
     if (typeof window === "undefined") return;
 
     const ctx = gsap.context(() => {
-      // Animate text content with stagger
-      gsap.from(".hero-text-item", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        delay: 0.2,
+      // Create a master timeline for smooth, sequenced animations
+      // Navbar finishes around 1.4s, so hero starts at 1.5s
+      const masterTimeline = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        }
       });
 
-      // Animate images
-      gsap.from(".hero-leader-image", {
+      // Phase 1: Main Title (starts after navbar settles)
+      masterTimeline.from(".hero-title", {
         opacity: 0,
+        y: 60,
+        duration: 1.2,
+        ease: "power4.out",
+      }, 1.5);
+
+      // Phase 2: Subtitle (follows title smoothly)
+      masterTimeline.from(".hero-subtitle", {
+        opacity: 0,
+        y: 40,
+        duration: 1.0,
+        ease: "power3.out",
+      }, 2.0);
+
+      // Phase 3: Badges (gentle fade in)
+      masterTimeline.from(".hero-badge", {
+        opacity: 0,
+        y: 20,
         scale: 0.95,
         duration: 0.8,
         stagger: 0.15,
-        ease: "power3.out",
-        delay: 0.5,
-      });
+        ease: "power2.out",
+      }, 2.4);
 
-      // Animate pillars
-      gsap.from(".hero-pillar", {
+      // Phase 4: Images (elegant scale and fade with longer duration)
+      masterTimeline.from(".hero-leader-image", {
         opacity: 0,
-        scale: 0.8,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: "back.out(1.7)",
-        delay: 1.0,
-      });
+        scale: 0.9,
+        y: 30,
+        duration: 1.4,
+        stagger: 0.25,
+        ease: "power3.out",
+      }, 2.6);
+
+      // Phase 5: Content section header (decorative line + label)
+      masterTimeline.from(".hero-content-header", {
+        opacity: 0,
+        x: -30,
+        duration: 0.8,
+        ease: "power2.out",
+      }, 3.2);
+
+      // Phase 6: Main description paragraphs
+      masterTimeline.from(".hero-description", {
+        opacity: 0,
+        y: 30,
+        duration: 1.0,
+        stagger: 0.2,
+        ease: "power2.out",
+      }, 3.4);
+
+      // Phase 7: Strategic pillars label
+      masterTimeline.from(".hero-pillars-label", {
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      }, 3.8);
+
+      // Phase 8: Pillars (elegant stagger with subtle bounce)
+      masterTimeline.from(".hero-pillar", {
+        opacity: 0,
+        scale: 0.85,
+        y: 20,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "back.out(1.4)",
+      }, 4.0);
+
+      // Phase 9: CTA Button (final reveal)
+      masterTimeline.from(".hero-cta", {
+        opacity: 0,
+        y: 25,
+        duration: 0.9,
+        ease: "power3.out",
+      }, 4.4);
+
+      // Phase 10: AES Badge (below images)
+      masterTimeline.from(".hero-aes-badge", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.8,
+        ease: "power2.out",
+      }, 4.2);
+
     }, heroRef);
 
     return () => ctx.revert();
@@ -110,28 +169,28 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           {/* Left Column - Text Content (3 columns) */}
           <div ref={textRef} className="lg:col-span-3 space-y-8">
             {/* Main Header */}
-            <motion.div className="space-y-4 hero-text-item">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-neutral-900 dark:text-[#e8e8ec]">
+            <div className="space-y-4">
+              <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-neutral-900 dark:text-[#e8e8ec]">
                 Alliance of Sahel States
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl font-medium text-neutral-700 dark:text-[#c0c0c8] leading-relaxed">
+              <p className="hero-subtitle text-xl md:text-2xl lg:text-3xl font-medium text-neutral-700 dark:text-[#c0c0c8] leading-relaxed">
                 Africa&apos;s Blueprint for Sovereignty, Unity & Progress
               </p>
-            </motion.div>
+            </div>
 
             {/* Badges - shadcn style: dark in both modes */}
-            <div className="flex flex-wrap gap-3 hero-text-item">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
+            <div className="flex flex-wrap gap-3">
+              <div className="hero-badge flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
                 <span className="text-sm font-bold text-white">
                   Est. September 2023
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
+              <div className="hero-badge flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
                 <span className="text-sm font-bold text-white">
                   Pan-African Alliance
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
+              <div className="hero-badge flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
                 <span className="text-sm font-bold text-white">
                   Sovereignty First
                 </span>
@@ -139,15 +198,15 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
 
             {/* Main Content */}
-            <div className="space-y-6 hero-text-item">
-              <div className="flex items-center gap-2">
+            <div className="space-y-6">
+              <div className="hero-content-header flex items-center gap-2">
                 <div className="h-[2px] w-12 bg-amber-500 dark:bg-amber-600 rounded-full" />
                 <span className="text-xs uppercase tracking-widest font-bold text-neutral-600 dark:text-[#c0c0c8]">
                   Who We Are
                 </span>
               </div>
-              
-              <p className="text-lg md:text-xl leading-relaxed text-neutral-700 dark:text-[#c0c0c8]">
+
+              <p className="hero-description text-lg md:text-xl leading-relaxed text-neutral-700 dark:text-[#c0c0c8]">
                 The <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">Alliance of Sahel States (AES)</span> is a
                 groundbreaking confederation uniting{" "}
                 <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">Mali</span>,{" "}
@@ -157,7 +216,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
                 African solutions over foreign intervention.
               </p>
 
-              <p className="text-base md:text-lg leading-relaxed text-neutral-600 dark:text-[#8a8a94]">
+              <p className="hero-description text-base md:text-lg leading-relaxed text-neutral-600 dark:text-[#8a8a94]">
                 Born from a shared vision to end decades of exploitation, our leaders—military officers
                 who rose from the people—are rewriting Africa&apos;s future. We have withdrawn from
                 ECOWAS, expelled foreign military bases, and are building an economy that serves
@@ -166,16 +225,16 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
 
             {/* Strategic Pillars */}
-            <div className="space-y-4 hero-text-item">
-              <p className="text-xs uppercase tracking-widest font-bold text-neutral-500 dark:text-[#8a8a94]">
+            <div className="space-y-4">
+              <p className="hero-pillars-label text-xs uppercase tracking-widest font-bold text-neutral-500 dark:text-[#8a8a94]">
                 Strategic Pillars
               </p>
               <div className="flex flex-wrap gap-3">
-                {pillars.map((pillar, index) => (
+                {pillars.map((pillar) => (
                   <motion.div
                     key={pillar.label}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     className="hero-pillar flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 cursor-default hover:border-amber-400 dark:hover:border-amber-600 hover:shadow-md transition-all duration-300"
                   >
                     <pillar.icon className="w-4 h-4 text-neutral-700 dark:text-[#c0c0c8]" />
@@ -188,11 +247,12 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
 
             {/* CTA Button */}
-            <div className="pt-4 hero-text-item">
+            <div className="hero-cta pt-4">
               <motion.a
                 href="/aes"
                 whileHover={{ scale: 1.02, x: 5 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-700 dark:border-neutral-600 text-white dark:text-[#e8e8ec] font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <span>Explore Our Journey</span>
@@ -268,7 +328,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
 
             {/* AES Confederation Badge */}
-            <div className="mt-8 flex justify-center hero-leader-image">
+            <div className="hero-aes-badge mt-8 flex justify-center">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/10 to-neutral-500/10 dark:from-amber-500/20 dark:to-neutral-700/20 border-2 border-amber-400/50 dark:border-amber-500/50 backdrop-blur-sm">
                 <Shield className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                 <span className="text-sm font-bold text-neutral-900 dark:text-[#e8e8ec] uppercase tracking-wider">
@@ -282,17 +342,26 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
 
       {/* Scroll indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 5.0, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            duration: 2.0,
+            repeat: Infinity,
+            ease: [0.45, 0, 0.55, 1],
+            repeatDelay: 0.5
+          }}
           className="w-6 h-10 rounded-full border-2 border-neutral-400 dark:border-neutral-600 flex items-start justify-center p-2"
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-neutral-600 dark:bg-neutral-400" />
+          <motion.div
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2.0, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1.5 h-1.5 rounded-full bg-neutral-600 dark:bg-neutral-400"
+          />
         </motion.div>
       </motion.div>
     </div>

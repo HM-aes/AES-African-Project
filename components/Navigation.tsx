@@ -46,9 +46,9 @@ export function Navigation() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
-        duration: 0.6,
-        delay: 0.1,
-        ease: [0.23, 1, 0.32, 1],
+        duration: 1.2,
+        delay: 0.2,
+        ease: [0.25, 0.1, 0.25, 1], // Smooth cubic-bezier for elegant entrance
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
@@ -73,9 +73,13 @@ export function Navigation() {
             <div className="flex items-center justify-between h-16 px-6">
             {/* Logo */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{
+                duration: 1.0,
+                delay: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
             >
               <Link href="/" className="group flex items-center gap-3">
                 {/* Logo Icon */}
@@ -113,9 +117,13 @@ export function Navigation() {
                 {navLinkKeys.map((link, index) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, y: -15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 1.0 + index * 0.08,
+                      ease: [0.25, 0.1, 0.25, 1]
+                    }}
                   >
                     <Link
                       href={link.href}
@@ -151,9 +159,13 @@ export function Navigation() {
 
             {/* Right Side - CTA & Theme Toggle */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{
+                duration: 1.0,
+                delay: 1.6,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
               className="flex items-center gap-3"
             >
               {/* CTA Button - Desktop */}

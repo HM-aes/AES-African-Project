@@ -39,62 +39,77 @@ export function Hero() {
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-center py-6 md:py-8">
         {/* Centered Text Content */}
-        <motion.div
-          className="w-full max-w-7xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="w-full max-w-7xl">
           <HeroText />
-        </motion.div>
+        </div>
       </div>
 
       {/* Animated Section Divider - neutral in light mode */}
       <motion.div
-        initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: 1, scaleX: 1 }}
-        transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 5.5, ease: [0.25, 0.1, 0.25, 1] }}
         className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 my-8 md:my-12"
       >
         <div className="relative flex items-center justify-center">
           {/* Left gradient line */}
-          <motion.div 
+          <motion.div
             className="flex-1 h-[2px] bg-gradient-to-r from-transparent via-neutral-400 to-neutral-500 dark:via-neutral-600 dark:to-neutral-500"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ opacity: 0, scaleX: 0, originX: 1 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 1.2, delay: 5.6, ease: [0.25, 0.1, 0.25, 1] }}
           />
-          
+
           {/* Center decorative element */}
-          <motion.div 
+          <motion.div
             className="mx-4 md:mx-6 flex items-center gap-2"
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 1.0 }}
+            transition={{ duration: 0.8, delay: 6.0, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <div className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500" />
-            <div className="w-3 h-3 rounded-full bg-neutral-600 dark:bg-neutral-400 shadow-lg" />
-            <div className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500" />
+            <motion.div
+              className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.4, delay: 6.2 }}
+            />
+            <motion.div
+              className="w-3 h-3 rounded-full bg-neutral-600 dark:bg-neutral-400 shadow-lg"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: 6.1 }}
+            />
+            <motion.div
+              className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.4, delay: 6.3 }}
+            />
           </motion.div>
-          
+
           {/* Right gradient line */}
-          <motion.div 
+          <motion.div
             className="flex-1 h-[2px] bg-gradient-to-l from-transparent via-neutral-400 to-neutral-500 dark:via-neutral-600 dark:to-neutral-500"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ opacity: 0, scaleX: 0, originX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 1.2, delay: 5.6, ease: [0.25, 0.1, 0.25, 1] }}
           />
         </div>
-        
+
         {/* Subtle glow effect under the line */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-8 bg-gradient-to-r from-transparent via-neutral-300/30 dark:via-neutral-600/20 to-transparent blur-xl pointer-events-none" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.0, delay: 6.5 }}
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-8 bg-gradient-to-r from-transparent via-neutral-300/30 dark:via-neutral-600/20 to-transparent blur-xl pointer-events-none"
+        />
       </motion.div>
 
       {/* Leaders Section - Full Width Card */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.4, delay: 6.8, ease: [0.25, 0.1, 0.25, 1] }}
         className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mb-12 md:mb-20"
       >
         {/* TooltipCard - Replaces StickyScrollReveal for better scrolling */}
