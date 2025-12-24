@@ -46,11 +46,11 @@ export function Navigation() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
-        duration: 1.2,
-        delay: 0.2,
-        ease: [0.25, 0.1, 0.25, 1], // Smooth cubic-bezier for elegant entrance
+        duration: 1.8,
+        delay: 0.3,
+        ease: [0.25, 0.46, 0.45, 0.94], // Elegant smooth easing
       }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
           ? "pt-0 pb-2"
           : "pt-0 pb-4"
@@ -73,12 +73,12 @@ export function Navigation() {
             <div className="flex items-center justify-between h-16 px-6">
             {/* Logo */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                duration: 1.0,
-                delay: 0.8,
-                ease: [0.25, 0.1, 0.25, 1]
+                duration: 1.4,
+                delay: 1.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
               }}
             >
               <Link href="/" className="group flex items-center gap-3">
@@ -117,12 +117,12 @@ export function Navigation() {
                 {navLinkKeys.map((link, index) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, y: -15 }}
+                    initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.8,
-                      delay: 1.0 + index * 0.08,
-                      ease: [0.25, 0.1, 0.25, 1]
+                      duration: 1.2,
+                      delay: 1.6 + index * 0.12,
+                      ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                   >
                     <Link
@@ -159,12 +159,12 @@ export function Navigation() {
 
             {/* Right Side - CTA & Theme Toggle */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                duration: 1.0,
-                delay: 1.6,
-                ease: [0.25, 0.1, 0.25, 1]
+                duration: 1.4,
+                delay: 2.6,
+                ease: [0.25, 0.46, 0.45, 0.94]
               }}
               className="flex items-center gap-3"
             >

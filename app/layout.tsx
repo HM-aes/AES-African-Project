@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { HydrationFix } from "@/components/HydrationFix";
 import { LanguageProvider } from "@/lib/i18n";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -42,18 +43,20 @@ export default function RootLayout({
           storageKey="pan-african-theme"
         >
           <LanguageProvider>
-            <HydrationFix />
-            <ScrollToTop />
-            <Navigation />
-            {/* News Source Banner - positioned between navbar and content */}
-            <div className="pt-20">
-              <NewsSourceBanner />
-            </div>
-            {/* Main content */}
-            <main className="flex-grow">
-              {children}
-            </main>
-            <ConditionalFooter />
+            <SmoothScroll>
+              <HydrationFix />
+              <ScrollToTop />
+              <Navigation />
+              {/* News Source Banner - positioned between navbar and content */}
+              <div className="pt-20">
+                <NewsSourceBanner />
+              </div>
+              {/* Main content */}
+              <main className="flex-grow">
+                {children}
+              </main>
+              <ConditionalFooter />
+            </SmoothScroll>
           </LanguageProvider>
         </ThemeProvider>
       </body>
