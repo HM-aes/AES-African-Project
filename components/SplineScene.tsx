@@ -10,8 +10,11 @@ interface SplineSceneProps {
 
 /**
  * SplineScene Component
- * Displays 3D robot - uses Three.js by default (always reliable)
- * Can optionally load Spline if available
+ * Displays beautiful AES 3D robot with Three.js (Pan-African themed)
+ * - Black body with gold and green accents
+ * - Animated rotation, bobbing, and waving arms
+ * - Glowing green eyes and accent stripes
+ * - Reliable and performant Three.js implementation
  */
 export function SplineScene({
   scene = "https://prod.spline.design/nrcOGe-kUiwBz9A9/scene.splinecode",
@@ -27,7 +30,9 @@ export function SplineScene({
     return null;
   }
 
-  // Always use Three.js robot - most reliable and performant
-  // Spline can be added back later if needed, but Three.js is the stable fallback
+  // Render the custom AES 3D robot with Three.js
+  // - Pan-African themed design (gold, green, black)
+  // - Smooth animations
+  // - Always available, no external dependencies
   return <AES3DRobot className={className} />;
 }
