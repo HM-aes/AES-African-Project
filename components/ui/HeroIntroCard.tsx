@@ -18,30 +18,6 @@ interface HeroIntroCardProps {
   className?: string;
 }
 
-const leaders = [
-  {
-    name: "Col. Assimi Goïta",
-    country: "Mali",
-    flag: "🇲🇱",
-    image: "/aes/Images-AES-Leaders/Mali/assimi-Goita-Mali-president.jpg",
-    role: "President of Transition",
-  },
-  {
-    name: "Capt. Ibrahim Traoré",
-    country: "Burkina Faso",
-    flag: "🇧🇫",
-    image: "/aes/AES/ibrahim-traore.jpg",
-    role: "President of Transition",
-  },
-  {
-    name: "Gen. Abdourahamane Tiani",
-    country: "Niger",
-    flag: "🇳🇪",
-    image: "/aes/Images-AES-Leaders/Niger/Abdourahamane_Tchiani_in_2025_(cropped).jpg",
-    role: "President of CNSP",
-  },
-];
-
 const pillars = [
   { label: "Technology & AI", icon: Zap },
   { label: "Military Defense", icon: Shield },
@@ -69,7 +45,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         ".hero-pillars-label",
         ".hero-pillar",
         ".hero-cta",
-        ".hero-leader-image",
         ".hero-aes-badge",
         ".hero-scroll-indicator"
       ], {
@@ -77,20 +52,13 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         y: 80,
       });
 
-      // Elegant easing for all animations
       const smoothEase = "power2.out";
       const elegantEase = "power3.out";
 
-      // ==========================================
-      // PHASE 1: Initial Hero Entrance (on load)
-      // Very slow, elegant reveal
-      // ==========================================
-
       const initialTimeline = gsap.timeline({
-        delay: 0.5, // Wait for page to settle
+        delay: 0.5,
       });
 
-      // Title - dramatic slow rise
       initialTimeline.to(".hero-title", {
         opacity: 1,
         y: 0,
@@ -98,7 +66,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         ease: elegantEase,
       });
 
-      // Subtitle - follows with overlap
       initialTimeline.to(".hero-subtitle", {
         opacity: 1,
         y: 0,
@@ -106,7 +73,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         ease: elegantEase,
       }, "-=1.2");
 
-      // Badges - gentle stagger
       initialTimeline.to(".hero-badge", {
         opacity: 1,
         y: 0,
@@ -115,39 +81,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         ease: smoothEase,
       }, "-=1.0");
 
-      // ==========================================
-      // PHASE 2: Scroll-Triggered Animations
-      // Elements reveal as you scroll down
-      // ==========================================
-
-      // Leader Images - Parallax + Reveal on scroll
-      gsap.to(".hero-leader-image", {
-        opacity: 1,
-        y: 0,
-        duration: 1.8,
-        stagger: 0.3,
-        ease: elegantEase,
-        scrollTrigger: {
-          trigger: ".hero-leader-image",
-          start: "top 85%",
-          end: "top 40%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      // Parallax effect on images while scrolling
-      gsap.to(".hero-leader-image img", {
-        yPercent: -15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5, // Smooth parallax
-        },
-      });
-
-      // Content header with decorative line
       gsap.to(".hero-content-header", {
         opacity: 1,
         y: 0,
@@ -160,7 +93,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         },
       });
 
-      // Description paragraphs - slow stagger
       gsap.to(".hero-description", {
         opacity: 1,
         y: 0,
@@ -174,7 +106,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         },
       });
 
-      // Strategic Pillars label
       gsap.to(".hero-pillars-label", {
         opacity: 1,
         y: 0,
@@ -187,7 +118,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         },
       });
 
-      // Pillars - elegant staggered reveal
       gsap.to(".hero-pillar", {
         opacity: 1,
         y: 0,
@@ -201,7 +131,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         },
       });
 
-      // CTA Button - final reveal
       gsap.to(".hero-cta", {
         opacity: 1,
         y: 0,
@@ -214,20 +143,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         },
       });
 
-      // AES Badge
-      gsap.to(".hero-aes-badge", {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        ease: smoothEase,
-        scrollTrigger: {
-          trigger: ".hero-aes-badge",
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      // Scroll indicator - appears after initial content
       gsap.to(".hero-scroll-indicator", {
         opacity: 1,
         y: 0,
@@ -235,11 +150,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         delay: 4.0,
         ease: elegantEase,
       });
-
-      // ==========================================
-      // PHASE 3: Background Parallax
-      // Subtle movement for depth
-      // ==========================================
 
       gsap.to(".hero-bg-glow", {
         y: -100,
@@ -262,65 +172,61 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       ref={heroRef}
       className={`relative min-h-screen flex items-center justify-center pt-2 pb-12 md:pt-4 md:pb-16 overflow-hidden ${className}`}
     >
-      {/* Background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-[#0a0a0c] dark:via-[#0f0f11] dark:to-[#0a0a0c]" />
-      <div className="hero-bg-glow absolute top-1/4 left-0 w-96 h-96 bg-amber-200/10 dark:bg-amber-500/5 blur-3xl rounded-full" />
-      <div className="hero-bg-glow absolute bottom-1/4 right-0 w-96 h-96 bg-neutral-300/10 dark:bg-neutral-700/5 blur-3xl rounded-full" />
+      {/* Background - clean dark */}
+      <div className="absolute inset-0 bg-white dark:bg-black" />
+      <div className="hero-bg-glow absolute top-1/4 left-0 w-96 h-96 bg-neutral-200/50 dark:bg-neutral-800/30 blur-3xl rounded-full" />
+      <div className="hero-bg-glow absolute bottom-1/4 right-0 w-96 h-96 bg-neutral-200/50 dark:bg-neutral-800/30 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-        {/* Main Content - Header Row with Robot */}
+        {/* Main Content - Header Row with Logo */}
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-          {/* Left Column - Header Section Only (3 columns) */}
+          {/* Left Column - Header Section (3 columns) */}
           <div ref={textRef} className="lg:col-span-3 space-y-4">
-            {/* AES Intelligence Hub Badge */}
-            <div className="hero-title inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500/20 to-neutral-500/10 dark:from-amber-500/30 dark:to-neutral-700/20 border-2 border-amber-400/60 dark:border-amber-500/60 backdrop-blur-sm">
-              <span className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider">
-                🤖 AES Intelligence Hub
+            {/* AES Intelligence Hub Badge - shadcn style */}
+            <div className="hero-title inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800 dark:border-neutral-800">
+              <span className="text-sm font-medium text-white tracking-wide">
+                AES Intelligence Hub
               </span>
             </div>
-            
+
             {/* AI Tagline */}
-            <p className="hero-subtitle text-base md:text-lg font-semibold text-neutral-600 dark:text-[#a0a0a8] leading-relaxed max-w-3xl">
+            <p className="hero-subtitle text-base md:text-lg font-medium text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl">
               First AI Agent & LLM Powered News & Education Platform from an African for Africans
             </p>
-            
+
             {/* Main Headline */}
-            <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-neutral-900 dark:text-[#e8e8ec]">
+            <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-neutral-900 dark:text-white">
               Alliance of Sahel States
             </h1>
-            <p className="hero-subtitle text-xl md:text-2xl lg:text-3xl font-medium text-neutral-700 dark:text-[#c0c0c8] leading-relaxed">
+            <p className="hero-subtitle text-xl md:text-2xl lg:text-3xl font-medium text-neutral-600 dark:text-neutral-300 leading-relaxed">
               Africa&apos;s Blueprint for Sovereignty, Unity & Progress
             </p>
           </div>
 
-          {/* Right Column - 3D AI Robot (2 columns) */}
+          {/* Right Column - AES Logo Display (2 columns) */}
           <div ref={imagesRef} className="lg:col-span-2">
-            {/* 3D Robot Container - always visible, no GSAP animation */}
-            <div className="relative w-full h-[280px] md:h-[320px] lg:h-[350px] overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-700">
-              <SplineScene
-                scene="https://prod.spline.design/nrcOGe-kUiwBz9A9/scene.splinecode"
-                className="w-full h-full"
-              />
+            <div className="relative w-full h-[280px] md:h-[320px] lg:h-[350px] overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
+              <SplineScene className="w-full h-full" />
             </div>
           </div>
         </div>
 
         {/* Full Width Content Below */}
         <div className="space-y-8 mt-8 lg:mt-12">
-          {/* Badges */}
-          <div className="flex flex-wrap gap-3">
-            <div className="hero-badge flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
-              <span className="text-sm font-bold text-white">
+          {/* Badges - shadcn dark style */}
+          <div className="flex flex-wrap gap-2">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800">
+              <span className="text-xs font-medium text-neutral-300">
                 Est. September 2023
               </span>
             </div>
-            <div className="hero-badge flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
-              <span className="text-sm font-bold text-white">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800">
+              <span className="text-xs font-medium text-neutral-300">
                 Pan-African Alliance
               </span>
             </div>
-            <div className="hero-badge flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm">
-              <span className="text-sm font-bold text-white">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800">
+              <span className="text-xs font-medium text-neutral-300">
                 Sovereignty First
               </span>
             </div>
@@ -328,24 +234,24 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
 
           {/* Main Content */}
           <div className="space-y-6 max-w-5xl">
-            <div className="hero-content-header flex items-center gap-2">
-              <div className="h-[2px] w-12 bg-amber-500 dark:bg-amber-600 rounded-full" />
-              <span className="text-xs uppercase tracking-widest font-bold text-neutral-600 dark:text-[#c0c0c8]">
+            <div className="hero-content-header flex items-center gap-3">
+              <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
+              <span className="text-xs uppercase tracking-widest font-medium text-neutral-500 dark:text-neutral-500">
                 Who We Are
               </span>
             </div>
 
-            <p className="hero-description text-lg md:text-xl leading-relaxed text-neutral-700 dark:text-[#c0c0c8]">
-              The <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">Alliance of Sahel States (AES)</span> is a
+            <p className="hero-description text-lg md:text-xl leading-relaxed text-neutral-700 dark:text-neutral-300">
+              The <span className="font-semibold text-neutral-900 dark:text-white">Alliance of Sahel States (AES)</span> is a
               groundbreaking confederation uniting{" "}
-              <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">Mali</span>,{" "}
-              <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">Burkina Faso</span>, and{" "}
-              <span className="font-bold text-neutral-900 dark:text-[#e8e8ec]">Niger</span>—three
+              <span className="font-semibold text-neutral-900 dark:text-white">Mali</span>,{" "}
+              <span className="font-semibold text-neutral-900 dark:text-white">Burkina Faso</span>, and{" "}
+              <span className="font-semibold text-neutral-900 dark:text-white">Niger</span>—three
               nations that chose sovereignty over dependency, unity over division, and
               African solutions over foreign intervention.
             </p>
 
-            <p className="hero-description text-base md:text-lg leading-relaxed text-neutral-600 dark:text-[#8a8a94]">
+            <p className="hero-description text-base md:text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
               Born from a shared vision to end decades of exploitation, our leaders—military officers
               who rose from the people—are rewriting Africa&apos;s future. We have withdrawn from
               ECOWAS, expelled foreign military bases, and are building an economy that serves
@@ -353,21 +259,21 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </p>
           </div>
 
-          {/* Strategic Pillars */}
+          {/* Strategic Pillars - shadcn style */}
           <div className="space-y-4">
-            <p className="hero-pillars-label text-xs uppercase tracking-widest font-bold text-neutral-500 dark:text-[#8a8a94]">
+            <p className="hero-pillars-label text-xs uppercase tracking-widest font-medium text-neutral-500 dark:text-neutral-500">
               Strategic Pillars
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
               {pillars.map((pillar) => (
                 <motion.div
                   key={pillar.label}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="hero-pillar flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 cursor-default hover:border-amber-400 dark:hover:border-amber-600 hover:shadow-md transition-all duration-500"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                  className="hero-pillar inline-flex items-center gap-2 px-3 py-2 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
                 >
-                  <pillar.icon className="w-4 h-4 text-neutral-700 dark:text-[#c0c0c8]" />
-                  <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8]">
+                  <pillar.icon className="w-4 h-4 text-neutral-600 dark:text-neutral-400" />
+                  <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     {pillar.label}
                   </span>
                 </motion.div>
@@ -375,17 +281,17 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - shadcn style */}
           <div className="hero-cta pt-4">
             <motion.a
               href="/aes"
-              whileHover={{ scale: 1.02, x: 5 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-700 dark:border-neutral-600 text-white dark:text-[#e8e8ec] font-bold text-lg transition-all duration-500 shadow-lg hover:shadow-xl"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+              transition={{ duration: 0.2 }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-white dark:bg-white text-black font-medium text-sm border border-neutral-200 hover:bg-neutral-100 transition-colors"
             >
               <span>Explore Our Journey</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4" />
             </motion.a>
           </div>
         </div>
@@ -394,19 +300,18 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
       {/* Scroll indicator */}
       <div className="hero-scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2">
         <motion.div
-          animate={{ y: [0, 12, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{
-            duration: 2.5,
+            duration: 2,
             repeat: Infinity,
-            ease: [0.45, 0, 0.55, 1],
-            repeatDelay: 0.8
+            ease: "easeInOut",
           }}
-          className="w-6 h-10 rounded-full border-2 border-neutral-400 dark:border-neutral-600 flex items-start justify-center p-2"
+          className="w-6 h-10 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-start justify-center p-2"
         >
           <motion.div
             animate={{ opacity: [0.3, 1, 0.3] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full bg-neutral-600 dark:bg-neutral-400"
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-1 rounded-full bg-neutral-400 dark:bg-neutral-500"
           />
         </motion.div>
       </div>
