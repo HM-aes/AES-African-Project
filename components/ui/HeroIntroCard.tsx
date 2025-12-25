@@ -296,8 +296,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           {/* Right Column - 3D AI Robot (2 columns) */}
           <div ref={imagesRef} className="lg:col-span-2">
             {/* 3D Robot Container - matches header height */}
-            <div className="hero-leader-image relative w-full h-[280px] md:h-[320px] lg:h-[350px]">
-              <SplineScene 
+            <div className="hero-leader-image relative w-full h-[280px] md:h-[320px] lg:h-[350px] overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-700">
+              <SplineScene
                 scene="https://prod.spline.design/nrcOGe-kUiwBz9A9/scene.splinecode"
                 className="w-full h-full"
               />
