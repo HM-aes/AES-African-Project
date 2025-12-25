@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplineScene } from "@/components/SplineScene";
+import Image from "next/image";
 import {
   Zap, Shield, Globe, Wheat, GraduationCap, ArrowRight
 } from "lucide-react";
@@ -30,6 +30,33 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const logoContainerRef = useRef<HTMLDivElement>(null);
+  
+  // Mouse position for 3D tilt effect
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  // Smooth spring animation for mouse following
+  const springConfig = { damping: 25, stiffness: 150 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), springConfig);
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const x = (e.clientX - centerX) / rect.width;
+    const y = (e.clientY - centerY) / rect.height;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+  
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -162,6 +189,33 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
         },
       });
 
+      // Logo scroll-following animation
+      if (logoContainerRef.current) {
+        gsap.to(logoContainerRef.current, {
+          y: 150, // Move down as user scrolls
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "40% top", // Stop before the section divider
+            scrub: 1.5, // Smooth following
+          },
+        });
+        
+        // Fade out and scale down slightly as it reaches the end
+        gsap.to(logoContainerRef.current, {
+          opacity: 0.3,
+          scale: 0.9,
+          ease: "power2.in",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "30% top",
+            end: "50% top",
+            scrub: 1,
+          },
+        });
+      }
+
     }, heroRef);
 
     return () => ctx.revert();
@@ -203,10 +257,91 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </p>
           </div>
 
-          {/* Right Column - AES Logo Display (2 columns) */}
-          <div ref={imagesRef} className="lg:col-span-2">
-            <div className="relative w-full h-[280px] md:h-[320px] lg:h-[350px] overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
-              <SplineScene className="w-full h-full" />
+          {/* Right Column - AES Logo Card (2 columns) */}
+          <div 
+            ref={imagesRef} 
+            className="lg:col-span-2 flex items-center justify-center" 
+            style={{ perspective: "1000px" }}
+          >
+            <div ref={logoContainerRef} className="will-change-transform">
+            <motion.div
+              ref={cardRef}
+              initial={{ opacity: 0, scale: 0.85, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ 
+                duration: 1.8,
+                ease: [0.34, 1.56, 0.64, 1],
+                delay: 0.6,
+              }}
+              style={{ 
+                transformStyle: "preserve-3d",
+                rotateX,
+                rotateY,
+              }}
+              whileHover={{ 
+                scale: 1.02,
+                y: -5,
+              }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className="relative group cursor-pointer"
+            >
+              {/* Dark shadow on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-black/40 blur-2xl translate-y-4 scale-95 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Outer glow on hover */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/25 via-green-500/20 to-amber-500/25 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              {/* Card container */}
+              <div className="relative p-4 md:p-5 rounded-2xl
+                bg-white dark:bg-black
+                border border-neutral-200 dark:border-neutral-800
+                shadow-[0_8px_32px_rgba(0,0,0,0.08)]
+                dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)]
+                transition-all duration-300 ease-out
+                group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.25)]
+                dark:group-hover:shadow-[0_25px_60px_rgba(0,0,0,0.8)]
+                group-hover:border-neutral-300 dark:group-hover:border-neutral-700"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Top accent line */}
+                <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+
+                {/* 3D floating effect for logo */}
+                <div
+                  className="relative z-10 w-40 h-40 md:w-48 md:h-48 rounded-xl bg-white dark:bg-black overflow-hidden transition-transform duration-300"
+                  style={{ transform: "translateZ(20px)" }}
+                >
+                  {/* Light mode logo (white background) */}
+                  <Image
+                    src="/images/aes-logo-white-bg.png"
+                    alt="Alliance of Sahel States"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-contain dark:hidden"
+                    priority
+                  />
+                  {/* Dark mode logo (dark background) */}
+                  <Image
+                    src="/images/aes-logo-dark-bg.png"
+                    alt="Alliance of Sahel States"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-contain hidden dark:block"
+                    priority
+                  />
+                </div>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent" />
+              </div>
+              
+              {/* Corner dots */}
+              <div className="absolute -top-1 -left-1 w-2 h-2 rounded-full bg-amber-500/60 transition-all duration-300 group-hover:scale-150 group-hover:bg-amber-500" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-green-500/60 transition-all duration-300 group-hover:scale-150 group-hover:bg-green-500" />
+              <div className="absolute -bottom-1 -left-1 w-2 h-2 rounded-full bg-green-500/60 transition-all duration-300 group-hover:scale-150 group-hover:bg-green-500" />
+              <div className="absolute -bottom-1 -right-1 w-2 h-2 rounded-full bg-amber-500/60 transition-all duration-300 group-hover:scale-150 group-hover:bg-amber-500" />
+            </motion.div>
             </div>
           </div>
         </div>
