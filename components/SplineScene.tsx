@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect, Suspense, lazy, useCallback, Component, ReactNode } from "react";
-import { AES3DRobot } from "./AES3DRobot";
+import { Suspense, lazy, Component, ReactNode } from "react";
 
-// Lazy load Spline for better performance and to avoid SSR issues
+// Lazy load Spline - use the /next export for Next.js compatibility
 const Spline = lazy(() => import("@splinetool/react-spline/next"));
 
 interface SplineSceneProps {
@@ -32,7 +31,7 @@ class SplineErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 
   componentDidCatch(error: Error) {
-    console.error("[SplineScene] Error caught by boundary:", error.message);
+    console.error("[SplineScene] Error:", error.message);
   }
 
   render() {
@@ -45,10 +44,24 @@ class SplineErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySta
 
 function SplineLoader() {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800">
       <div className="text-center">
-        <div className="w-10 h-10 border-3 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-        <p className="text-neutral-500 dark:text-neutral-400 text-xs">Loading 3D...</p>
+        <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm">Loading 3D Robot...</p>
+      </div>
+    </div>
+  );
+}
+
+function ErrorFallback() {
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl">
+      <div className="text-center p-6">
+        <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-500 to-green-500 flex items-center justify-center">
+          <span className="text-3xl">🤖</span>
+        </div>
+        <p className="text-amber-500 font-semibold">AES AI Robot</p>
+        <p className="text-neutral-400 text-sm mt-1">Pan-African Innovation</p>
       </div>
     </div>
   );
@@ -56,58 +69,21 @@ function SplineLoader() {
 
 /**
  * SplineScene Component
- * Displays the beautiful Spline 3D robot with automatic Three.js fallback
- * - Primary: Spline cloud-hosted 3D scene (beautiful, interactive)
- * - Fallback: Custom Three.js robot (Pan-African themed, always works)
- * - Automatic timeout detection (8 seconds)
- * - Error boundary for runtime error recovery
+ * Displays the beautiful Spline 3D robot
+ * Uses lazy loading with Suspense for optimal performance
  */
 export function SplineScene({
   scene = "https://prod.spline.design/nrcOGe-kUiwBz9A9/scene.splinecode",
   className = "",
 }: SplineSceneProps) {
-  const [isClient, setIsClient] = useState(false);
-  const [useSpline, setUseSpline] = useState(true);
-  const [splineLoaded, setSplineLoaded] = useState(false);
-
-  // Track if component is mounted
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Timeout fallback - if Spline doesn't load in 8 seconds, use Three.js
-  useEffect(() => {
-    if (!isClient || splineLoaded) return;
-
-    const timeout = setTimeout(() => {
-      if (!splineLoaded) {
-        console.log("[SplineScene] Timeout - switching to Three.js fallback");
-        setUseSpline(false);
-      }
-    }, 8000);
-
-    return () => clearTimeout(timeout);
-  }, [isClient, splineLoaded]);
-
-  const handleSplineLoad = useCallback(() => {
-    console.log("[SplineScene] Spline loaded successfully");
-    setSplineLoaded(true);
-  }, []);
-
-  if (!isClient) {
-    return null;
-  }
-
-  // Use Three.js fallback if Spline failed or timed out
-  if (!useSpline) {
-    return <AES3DRobot className={className} />;
-  }
-
   return (
-    <SplineErrorBoundary fallback={<AES3DRobot className={className} />}>
+    <SplineErrorBoundary fallback={<ErrorFallback />}>
       <div className={`w-full h-full ${className}`}>
         <Suspense fallback={<SplineLoader />}>
-          <Spline scene={scene} onLoad={handleSplineLoad} />
+          <Spline
+            scene={scene}
+            onLoad={() => console.log("[SplineScene] Loaded successfully!")}
+          />
         </Suspense>
       </div>
     </SplineErrorBoundary>
