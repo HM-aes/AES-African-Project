@@ -44,7 +44,7 @@ class SplineErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySta
 
 function SplineLoader() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800">
+    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800">
       <div className="text-center">
         <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-neutral-500 dark:text-neutral-400 text-sm">Loading 3D Robot...</p>
@@ -55,7 +55,7 @@ function SplineLoader() {
 
 function ErrorFallback() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl">
+    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl">
       <div className="text-center p-6">
         <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-500 to-green-500 flex items-center justify-center">
           <span className="text-3xl">🤖</span>
@@ -78,10 +78,14 @@ export function SplineScene({
 }: SplineSceneProps) {
   return (
     <SplineErrorBoundary fallback={<ErrorFallback />}>
-      <div className={`w-full h-full ${className}`}>
+      <div
+        className={`relative ${className}`}
+        style={{ width: '100%', height: '100%', minHeight: '280px' }}
+      >
         <Suspense fallback={<SplineLoader />}>
           <Spline
             scene={scene}
+            style={{ width: '100%', height: '100%' }}
             onLoad={() => console.log("[SplineScene] Loaded successfully!")}
           />
         </Suspense>
