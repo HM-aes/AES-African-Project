@@ -21,8 +21,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "AES Education Hub | Pan-African Educational Portal",
-  description: "Learn about Pan-Africanism, History, and the Alliance of Sahel States.",
+  title: "AES Intelligence Hub | AI-Powered News & Education Platform",
+  description: "First AI Agent & LLM powered platform for news and education about the Alliance of Sahel States, from an African for Africans.",
 };
 
 export default function RootLayout({

@@ -3,9 +3,12 @@ export function Footer() {
     <footer className="bg-zinc-900 dark:bg-neutral-950 text-white py-8 mt-12 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <h3 className="text-xl font-heading font-bold mb-3 text-white">Pan-African Hub</h3>
+          <h3 className="text-xl font-heading font-bold mb-3 text-white">AES Intelligence Hub</h3>
           <p className="text-zinc-400 text-sm">
-            Educating the next generation about our shared history and future.
+            First AI-powered platform delivering news and education from an African for Africans.
+          </p>
+          <p className="text-zinc-500 text-xs mt-2">
+            🤖 Powered by Advanced AI Agents & LLMs
           </p>
         </div>
         <div>
@@ -74,7 +77,7 @@ export function Footer() {
           </div>
         </div>
         <div className="text-center text-zinc-500 text-xs pt-3 border-t border-zinc-800">
-          © {new Date().getFullYear()} Pan-African Educational Hub. All rights reserved.
+          © {new Date().getFullYear()} AES Intelligence Hub. All rights reserved.
         </div>
       </div>
     </footer>

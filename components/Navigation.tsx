@@ -105,9 +105,9 @@ export function Navigation() {
                     className="text-lg font-bold text-zinc-900 dark:text-white"
                     whileHover={{ scale: 1.02 }}
                   >
-                    AES Hub
+                    AES Intelligence Hub
                   </motion.span>
-                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400 -mt-0.5">Pan-African Alliance</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400 -mt-0.5">AI-Powered Platform</p>
                 </div>
               </Link>
             </motion.div>
