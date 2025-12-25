@@ -62,7 +62,7 @@ export function AES3DRobot({ className = "" }: AES3DRobotProps) {
       width: number,
       height: number,
       depth: number,
-      color: string
+      color: number
     ) => {
       const geometry = new THREE.BoxGeometry(width, height, depth);
       const material = new THREE.MeshPhongMaterial({ color });
