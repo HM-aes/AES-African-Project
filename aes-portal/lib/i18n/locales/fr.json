@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "aes": "AES",
+    "agentAi": "Agent IA",
+    "russia": "Russie",
+    "tech": "Technologie",
+    "blog": "Blog",
+    "about": "À propos"
+  },
+  "hero": {
+    "visionaryLeaders": "Les Dirigeants Visionnaires",
+    "leaderGoita": "Col. Goïta",
+    "leaderTraore": "Capt. Traoré",
+    "leaderTiani": "Gén. Tiani",
+    "maliFlag": "Mali",
+    "nigerFlag": "Niger",
+    "burkinaFlag": "Burkina Faso"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "panAfrican": "Centre Éducatif Panafricain",
+    "learnMore": "En Savoir Plus",
+    "connect": "Nous Contacter",
+    "resources": "Ressources"
+  },
+  "common": {
+    "readMore": "Lire la Suite",
+    "exploreNow": "Explorer",
+    "learnMore": "En Savoir Plus",
+    "viewAll": "Voir Tout"
+  }
+}
