@@ -237,8 +237,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           {/* Left Column - Header Section (3 columns) */}
           <div ref={textRef} className="lg:col-span-3 space-y-4">
             {/* AES Intelligence Hub Badge - shadcn style */}
-            <div className="hero-title inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800 dark:border-neutral-800">
-              <span className="text-sm font-medium text-white tracking-wide">
+            <div className="hero-title inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <span className="text-sm font-medium text-black dark:text-white tracking-wide">
                 AES Intelligence Hub
               </span>
             </div>
