@@ -351,17 +351,17 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           {/* Badges - shadcn style */}
           <div className="flex flex-wrap gap-2">
             <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-xs font-medium text-black dark:text-neutral-300">
+              <span className="text-xs font-medium text-black dark:text-white">
                 Est. September 2023
               </span>
             </div>
             <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-xs font-medium text-black dark:text-neutral-300">
+              <span className="text-xs font-medium text-black dark:text-white">
                 Pan-African Alliance
               </span>
             </div>
             <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-xs font-medium text-black dark:text-neutral-300">
+              <span className="text-xs font-medium text-black dark:text-white">
                 Sovereignty First
               </span>
             </div>
