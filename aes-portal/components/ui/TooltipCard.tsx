@@ -187,12 +187,12 @@ export function TooltipCard({ className }: TooltipCardProps) {
                   </h3>
 
                   {/* Role */}
-                  <p className="text-xl md:text-2xl font-semibold text-neutral-700 dark:text-neutral-300">
+                  <p className="text-xl md:text-2xl font-semibold text-black dark:text-neutral-300">
                     {currentLeader.role}
                   </p>
 
                   {/* Description - More space */}
-                  <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  <p className="text-lg md:text-xl text-black dark:text-neutral-400 leading-relaxed">
                     {currentLeader.description}
                   </p>
 
@@ -284,7 +284,7 @@ export function TooltipCard({ className }: TooltipCardProps) {
           {/* Tagline - neutral style */}
           <div className="flex items-center justify-center gap-4">
             <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />
-            <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-neutral-700 dark:text-neutral-300">
+            <p className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black dark:text-neutral-300">
               From Africa, For Africans
             </p>
             <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent" />

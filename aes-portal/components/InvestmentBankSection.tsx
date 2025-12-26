@@ -42,7 +42,7 @@ export function InvestmentBankSection() {
             </span>
           </div>
           
-          <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          <p className="text-xl text-black dark:text-neutral-400 max-w-3xl mx-auto">
             Building economic independence through our own financial institution
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ export function InvestmentBankSection() {
               <h3 className="text-3xl font-bold font-heading text-neutral-900 dark:text-[#e8e8ec] mb-4">
                 Financing Our Own Future
               </h3>
-              <div className="space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              <div className="space-y-4 text-black dark:text-neutral-300 leading-relaxed">
                 <p className="text-lg">
                   The <strong className="text-neutral-900 dark:text-neutral-100">Confederation Investment and Development Bank (BCID-AES)</strong> marks a historic step toward complete financial independence. With <strong className="text-neutral-900 dark:text-neutral-100">$895 million</strong> in initial capital, we're funding infrastructure, energy, and agriculture without external conditions or interference.
                 </p>
@@ -81,7 +81,7 @@ export function InvestmentBankSection() {
                   <h4 className="text-4xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
                     $895 Million
                   </h4>
-                  <p className="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
+                  <p className="text-black dark:text-neutral-300 text-sm leading-relaxed">
                     Combined contributions from Mali, Burkina Faso, and Niger establish one of Africa's most capitalized regional development banks.
                   </p>
                 </div>
@@ -150,7 +150,7 @@ export function InvestmentBankSection() {
                         {feature.title}
                       </span>
                     </div>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">{feature.description}</p>
+                    <p className="text-sm text-black dark:text-neutral-400">{feature.description}</p>
                   </div>
                 </motion.div>
               );
@@ -175,7 +175,7 @@ export function InvestmentBankSection() {
           </Link>
           <Link
             href="/blog?tag=investment-bank"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-bold rounded-xl transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-neutral-300 dark:border-neutral-700 text-black dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-bold rounded-xl transition-all duration-300"
           >
             Latest Financial Updates
           </Link>

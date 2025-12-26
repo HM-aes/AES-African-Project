@@ -24,7 +24,7 @@ export function AESVision() {
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4 drop-shadow-sm">
             AES Strategic Vision for Africa
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-[#8a8a94] italic">
+          <p className="text-lg text-black dark:text-[#8a8a94] italic">
             Carrying Forward the Dreams of Pan-African Giants
           </p>
           <div className="w-20 h-1 mx-auto bg-neutral-400 dark:bg-neutral-600 rounded-full mt-4" />
@@ -62,7 +62,7 @@ export function AESVision() {
                   className="flex items-center gap-3 mb-3"
                 >
                   <div className="h-1 w-12 bg-neutral-600 dark:bg-neutral-500" />
-                  <span className="text-xs md:text-sm font-bold tracking-widest text-neutral-600 dark:text-[#8a8a94] uppercase">
+                  <span className="text-xs md:text-sm font-bold tracking-widest text-black dark:text-[#8a8a94] uppercase">
                     Special Report
                   </span>
                 </motion.div>
@@ -80,7 +80,7 @@ export function AESVision() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="text-sm text-neutral-600 dark:text-[#8a8a94] italic"
+                  className="text-sm text-black dark:text-[#8a8a94] italic"
                 >
                   How today's leaders honor the legacy of Sankara, Nkrumah, Lumumba, and Cheikh Anta Diop
                 </motion.p>
@@ -97,7 +97,7 @@ export function AESVision() {
                   className="space-y-6"
                 >
                   {/* Opening paragraph with drop cap */}
-                  <div className="text-base md:text-lg leading-relaxed text-neutral-700 dark:text-[#c0c0c8]">
+                  <div className="text-base md:text-lg leading-relaxed text-black dark:text-[#c0c0c8]">
                     <span className="float-left text-6xl md:text-7xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] leading-none mr-2 mt-2">
                       T
                     </span>
@@ -109,7 +109,7 @@ export function AESVision() {
                     </p>
                   </div>
 
-                  <p className="text-base md:text-lg leading-relaxed text-neutral-700 dark:text-[#c0c0c8]">
+                  <p className="text-base md:text-lg leading-relaxed text-black dark:text-[#c0c0c8]">
                     These revolutionary thinkers understood what today's leaders of Mali, Burkina Faso, and Niger 
                     are bringing to fruition: that{" "}
                     <span className="font-semibold text-neutral-900 dark:text-[#e8e8ec]">
@@ -122,10 +122,10 @@ export function AESVision() {
                     whileHover={{ scale: 1.02 }}
                     className="border-l-4 border-neutral-600 dark:border-neutral-500 pl-6 py-4 bg-neutral-100 dark:bg-neutral-800/50 rounded-r-lg"
                   >
-                    <p className="text-base md:text-lg italic text-neutral-700 dark:text-[#c0c0c8] mb-2">
+                    <p className="text-base md:text-lg italic text-black dark:text-[#c0c0c8] mb-2">
                       "We must dare to invent the future... Africa's liberation will come from Africans themselves."
                     </p>
-                    <footer className="text-sm font-semibold text-neutral-600 dark:text-[#8a8a94]">
+                    <footer className="text-sm font-semibold text-black dark:text-[#8a8a94]">
                       — Thomas Sankara
                     </footer>
                   </motion.blockquote>
@@ -154,7 +154,7 @@ export function AESVision() {
                         <h5 className="font-bold text-neutral-900 dark:text-[#e8e8ec] group-hover:text-neutral-600 dark:group-hover:text-white transition-colors">
                           Kwame Nkrumah
                         </h5>
-                        <p className="text-sm text-neutral-600 dark:text-[#8a8a94]">
+                        <p className="text-sm text-black dark:text-[#8a8a94]">
                           Championed continental unity and the United States of Africa
                         </p>
                       </div>
@@ -169,7 +169,7 @@ export function AESVision() {
                         <h5 className="font-bold text-neutral-900 dark:text-[#e8e8ec] group-hover:text-neutral-600 dark:group-hover:text-white transition-colors">
                           Thomas Sankara
                         </h5>
-                        <p className="text-sm text-neutral-600 dark:text-[#8a8a94]">
+                        <p className="text-sm text-black dark:text-[#8a8a94]">
                           Demonstrated radical self-reliance and dignity in governance
                         </p>
                       </div>
@@ -184,7 +184,7 @@ export function AESVision() {
                         <h5 className="font-bold text-neutral-900 dark:text-[#e8e8ec] group-hover:text-neutral-600 dark:group-hover:text-white transition-colors">
                           Patrice Lumumba
                         </h5>
-                        <p className="text-sm text-neutral-600 dark:text-[#8a8a94]">
+                        <p className="text-sm text-black dark:text-[#8a8a94]">
                           Fought for economic independence and resource sovereignty
                         </p>
                       </div>
@@ -199,7 +199,7 @@ export function AESVision() {
                         <h5 className="font-bold text-neutral-900 dark:text-[#e8e8ec] group-hover:text-neutral-600 dark:group-hover:text-white transition-colors">
                           Cheikh Anta Diop
                         </h5>
-                        <p className="text-sm text-neutral-600 dark:text-[#8a8a94]">
+                        <p className="text-sm text-black dark:text-[#8a8a94]">
                           Restored African history and proved our ancient civilizations
                         </p>
                       </div>
@@ -219,7 +219,7 @@ export function AESVision() {
                 <h4 className="text-xl md:text-2xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-6">
                   The New Generation of Visionary Leaders
                 </h4>
-                <p className="text-base md:text-lg leading-relaxed text-neutral-700 dark:text-[#c0c0c8] mb-6">
+                <p className="text-base md:text-lg leading-relaxed text-black dark:text-[#c0c0c8] mb-6">
                   By deeply understanding their history and honoring the sacrifices of those who came before, 
                   Colonel Assimi Goïta, Captain Ibrahim Traoré, and General Abdourahamane Tiani are not merely 
                   leading their nations—they are{" "}
@@ -228,7 +228,7 @@ export function AESVision() {
                   </span>{" "}
                   in real-time.
                 </p>
-                <p className="text-base md:text-lg leading-relaxed text-neutral-700 dark:text-[#c0c0c8]">
+                <p className="text-base md:text-lg leading-relaxed text-black dark:text-[#c0c0c8]">
                   Their strategic alliance proves that when African nations unite with shared purpose, reject 
                   external dependence, and chart their own destiny, the dreams of Sankara, Nkrumah, Lumumba, 
                   and Diop transform from aspiration into lived reality.

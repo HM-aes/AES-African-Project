@@ -232,20 +232,20 @@ export function JointForcesSection() {
         >
           <div className="text-center">
             <span className="text-5xl">🇷🇺</span>
-            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mt-2 uppercase tracking-wider">Russia</p>
+            <p className="text-xs font-semibold text-black dark:text-zinc-400 mt-2 uppercase tracking-wider">Russia</p>
           </div>
           <div className="text-zinc-300 dark:text-zinc-600 text-2xl">×</div>
           <div className="text-center">
             <span className="text-5xl">🇲🇱</span>
-            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mt-2 uppercase tracking-wider">Mali</p>
+            <p className="text-xs font-semibold text-black dark:text-zinc-400 mt-2 uppercase tracking-wider">Mali</p>
           </div>
           <div className="text-center">
             <span className="text-5xl">🇧🇫</span>
-            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mt-2 uppercase tracking-wider">Burkina Faso</p>
+            <p className="text-xs font-semibold text-black dark:text-zinc-400 mt-2 uppercase tracking-wider">Burkina Faso</p>
           </div>
           <div className="text-center">
             <span className="text-5xl">🇳🇪</span>
-            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mt-2 uppercase tracking-wider">Niger</p>
+            <p className="text-xs font-semibold text-black dark:text-zinc-400 mt-2 uppercase tracking-wider">Niger</p>
           </div>
         </motion.div>
 

@@ -70,7 +70,7 @@ export const StickyScroll = ({
                 <div className="space-y-3">
                   {headerBadge && (
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700">
-                      <span className="text-xs font-semibold text-neutral-700 dark:text-[#c0c0c8] uppercase tracking-wider">
+                      <span className="text-xs font-semibold text-black dark:text-[#c0c0c8] uppercase tracking-wider">
                         {headerBadge}
                       </span>
                     </div>
@@ -79,7 +79,7 @@ export const StickyScroll = ({
                     {headerTitle}
                   </h2>
                   {headerSubtitle && (
-                    <p className="text-sm md:text-base text-neutral-600 dark:text-[#8a8a94] max-w-xl">
+                    <p className="text-sm md:text-base text-black dark:text-[#8a8a94] max-w-xl">
                       {headerSubtitle}
                     </p>
                   )}
@@ -103,7 +103,7 @@ export const StickyScroll = ({
                   initial={{ opacity: 0.3 }}
                   animate={{ opacity: activeCard === index ? 1 : 0.3 }}
                   transition={{ duration: 0.3 }}
-                  className="text-base md:text-lg text-neutral-700 dark:text-[#c0c0c8] max-w-lg mt-4 leading-relaxed"
+                  className="text-base md:text-lg text-black dark:text-[#c0c0c8] max-w-lg mt-4 leading-relaxed"
                 >
                   {item.description}
                 </motion.p>

@@ -185,7 +185,7 @@ export function StickyScrollReveal({ className }: StickyScrollRevealProps) {
                     >
                       <span className={cn(
                         "text-sm md:text-base font-bold transition-colors",
-                        index === activeIndex ? leader.textColor : "text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
+                        index === activeIndex ? leader.textColor : "text-black dark:text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
                       )}>
                         {leader.shortName}
                       </span>
@@ -259,13 +259,13 @@ export function StickyScrollReveal({ className }: StickyScrollRevealProps) {
                       </p>
 
                       {/* Description */}
-                      <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                      <p className="text-base md:text-lg text-black dark:text-neutral-400 leading-relaxed">
                         {currentLeader.description}
                       </p>
 
                       {/* Quote */}
                       <div className={`p-4 md:p-5 rounded-xl ${currentLeader.bgColor} border-l-4 ${currentLeader.borderColor}`}>
-                        <p className="text-base md:text-lg italic text-neutral-700 dark:text-neutral-300">
+                        <p className="text-base md:text-lg italic text-black dark:text-neutral-300">
                           &ldquo;{currentLeader.quote}&rdquo;
                         </p>
                       </div>
@@ -278,8 +278,8 @@ export function StickyScrollReveal({ className }: StickyScrollRevealProps) {
                       onClick={goPrev}
                       className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 transition-all group shadow-sm"
                     >
-                      <ChevronLeft className="w-5 h-5 text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300" />
-                      <span className="text-sm font-semibold text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300">Previous</span>
+                      <ChevronLeft className="w-5 h-5 text-black group-hover:text-neutral-900 dark:group-hover:text-neutral-300" />
+                      <span className="text-sm font-semibold text-black group-hover:text-neutral-900 dark:group-hover:text-neutral-300">Previous</span>
                     </button>
 
                     {/* Progress indicators */}
@@ -307,8 +307,8 @@ export function StickyScrollReveal({ className }: StickyScrollRevealProps) {
                       onClick={goNext}
                       className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 transition-all group shadow-sm"
                     >
-                      <span className="text-sm font-semibold text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300">Next</span>
-                      <ChevronRight className="w-5 h-5 text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300" />
+                      <span className="text-sm font-semibold text-black group-hover:text-neutral-900 dark:group-hover:text-neutral-300">Next</span>
+                      <ChevronRight className="w-5 h-5 text-black group-hover:text-neutral-900 dark:group-hover:text-neutral-300" />
                     </button>
                   </div>
                 </div>

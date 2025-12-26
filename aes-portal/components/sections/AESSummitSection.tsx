@@ -76,7 +76,7 @@ export function AESSummitSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-zinc-900 dark:text-white mb-4">
             The AES Summit Journey
           </h2>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-zinc-400 max-w-2xl mx-auto">
             From revolutionary vision to continental transformation
           </p>
         </motion.div>
@@ -99,7 +99,7 @@ export function AESSummitSection() {
               </div>
             </div>
 
-            <div className="ml-[4.75rem] space-y-4 text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <div className="ml-[4.75rem] space-y-4 text-black dark:text-zinc-400 leading-relaxed">
               <p className="text-lg">
                 In a historic moment that would reshape West Africa's geopolitical landscape, the leaders of <strong className="text-zinc-900 dark:text-white">Mali, Burkina Faso, and Niger</strong> convened in Niamey to establish the <strong className="text-zinc-900 dark:text-white">Alliance of Sahel States (AES)</strong>.
               </p>
@@ -125,7 +125,7 @@ export function AESSummitSection() {
               </div>
             </div>
 
-            <div className="ml-[4.75rem] space-y-6 text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <div className="ml-[4.75rem] space-y-6 text-black dark:text-zinc-400 leading-relaxed">
               <p className="text-lg">
                 Eighteen months after its founding, the AES gathers in <strong className="text-zinc-900 dark:text-white">Bamako</strong> to celebrate remarkable achievements and chart the path forward.
               </p>
@@ -171,7 +171,7 @@ export function AESSummitSection() {
               </div>
             </div>
 
-            <div className="ml-[4.75rem] space-y-6 text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <div className="ml-[4.75rem] space-y-6 text-black dark:text-zinc-400 leading-relaxed">
               <p className="text-lg">
                 As the AES enters its second year, leaders have outlined an ambitious agenda to deepen integration.
               </p>
@@ -197,7 +197,7 @@ export function AESSummitSection() {
               </div>
 
               {/* Quote */}
-              <blockquote className="border-l-4 border-amber-500 pl-4 py-2 italic text-zinc-500 dark:text-zinc-400">
+              <blockquote className="border-l-4 border-amber-500 pl-4 py-2 italic text-black dark:text-zinc-400">
                 "The AES is Africa's blueprint for self-determined development."
               </blockquote>
             </div>

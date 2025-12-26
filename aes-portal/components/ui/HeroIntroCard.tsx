@@ -244,7 +244,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
 
             {/* AI Tagline */}
-            <p className="hero-subtitle text-base md:text-lg font-medium text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl">
+            <p className="hero-subtitle text-base md:text-lg font-medium text-black dark:text-neutral-400 leading-relaxed max-w-3xl">
               First AI Agent & LLM Powered News & Education Platform from an African for Africans
             </p>
 
@@ -252,7 +252,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight text-neutral-900 dark:text-white">
               Alliance of Sahel States
             </h1>
-            <p className="hero-subtitle text-xl md:text-2xl lg:text-3xl font-medium text-neutral-600 dark:text-neutral-300 leading-relaxed">
+            <p className="hero-subtitle text-xl md:text-2xl lg:text-3xl font-medium text-black dark:text-white leading-relaxed">
               Africa&apos;s Blueprint for Sovereignty, Unity & Progress
             </p>
           </div>
@@ -348,20 +348,20 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
 
         {/* Full Width Content Below */}
         <div className="space-y-8 mt-8 lg:mt-12">
-          {/* Badges - shadcn dark style */}
+          {/* Badges - shadcn style */}
           <div className="flex flex-wrap gap-2">
-            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800">
-              <span className="text-xs font-medium text-neutral-300">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <span className="text-xs font-medium text-black dark:text-neutral-300">
                 Est. September 2023
               </span>
             </div>
-            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800">
-              <span className="text-xs font-medium text-neutral-300">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <span className="text-xs font-medium text-black dark:text-neutral-300">
                 Pan-African Alliance
               </span>
             </div>
-            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-900 dark:bg-neutral-900 border border-neutral-800">
-              <span className="text-xs font-medium text-neutral-300">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <span className="text-xs font-medium text-black dark:text-neutral-300">
                 Sovereignty First
               </span>
             </div>
@@ -371,12 +371,12 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           <div className="space-y-6 max-w-5xl">
             <div className="hero-content-header flex items-center gap-3">
               <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
-              <span className="text-xs uppercase tracking-widest font-medium text-neutral-500 dark:text-neutral-500">
+              <span className="text-xs uppercase tracking-widest font-medium text-black dark:text-neutral-500">
                 Who We Are
               </span>
             </div>
 
-            <p className="hero-description text-lg md:text-xl leading-relaxed text-neutral-700 dark:text-neutral-300">
+            <p className="hero-description text-lg md:text-xl leading-relaxed text-black dark:text-neutral-300">
               The <span className="font-semibold text-neutral-900 dark:text-white">Alliance of Sahel States (AES)</span> is a
               groundbreaking confederation uniting{" "}
               <span className="font-semibold text-neutral-900 dark:text-white">Mali</span>,{" "}
@@ -386,7 +386,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
               African solutions over foreign intervention.
             </p>
 
-            <p className="hero-description text-base md:text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+            <p className="hero-description text-base md:text-lg leading-relaxed text-black dark:text-neutral-400">
               Born from a shared vision to end decades of exploitation, our leaders—military officers
               who rose from the people—are rewriting Africa&apos;s future. We have withdrawn from
               ECOWAS, expelled foreign military bases, and are building an economy that serves
@@ -396,7 +396,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
 
           {/* Strategic Pillars - shadcn style */}
           <div className="space-y-4">
-            <p className="hero-pillars-label text-xs uppercase tracking-widest font-medium text-neutral-500 dark:text-neutral-500">
+            <p className="hero-pillars-label text-xs uppercase tracking-widest font-medium text-black dark:text-neutral-500">
               Strategic Pillars
             </p>
             <div className="flex flex-wrap gap-2">
@@ -407,8 +407,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
                   transition={{ duration: 0.2 }}
                   className="hero-pillar inline-flex items-center gap-2 px-3 py-2 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
                 >
-                  <pillar.icon className="w-4 h-4 text-neutral-600 dark:text-neutral-400" />
-                  <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                  <pillar.icon className="w-4 h-4 text-black dark:text-neutral-400" />
+                  <span className="text-sm font-medium text-black dark:text-neutral-300">
                     {pillar.label}
                   </span>
                 </motion.div>

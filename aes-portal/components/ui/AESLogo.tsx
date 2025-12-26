@@ -129,7 +129,7 @@ export function AESLogo({
           <span className={`font-bold font-heading text-neutral-900 dark:text-[#e8e8ec] ${text}`}>
             AES
           </span>
-          <span className="text-xs text-neutral-600 dark:text-[#8a8a94] -mt-1">
+          <span className="text-xs text-black dark:text-[#8a8a94] -mt-1">
             Alliance of Sahel States
           </span>
         </motion.div>

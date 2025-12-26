@@ -70,13 +70,13 @@ export function NewsHeadlines() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-600 dark:bg-neutral-400"></span>
             </span>
-            <span className="text-sm font-semibold text-neutral-700 dark:text-[#c0c0c8] uppercase tracking-wider">Live Updates</span>
+            <span className="text-sm font-semibold text-black dark:text-[#c0c0c8] uppercase tracking-wider">Live Updates</span>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-neutral-900 dark:text-[#e8e8ec] mb-4">
             Latest from the Sahel
           </h2>
-          <p className="text-neutral-600 dark:text-[#8a8a94] max-w-2xl mx-auto">
+          <p className="text-black dark:text-[#8a8a94] max-w-2xl mx-auto">
             Breaking news and developments from Mali, Burkina Faso, and Niger
           </p>
           <div className="w-24 h-1 mx-auto bg-neutral-400 dark:bg-neutral-600 rounded-full mt-6" />
@@ -107,22 +107,22 @@ export function NewsHeadlines() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-2xl">{headlines[0].flag}</span>
-                      <span className="text-sm font-bold uppercase tracking-wider text-neutral-700 dark:text-[#c0c0c8]">
+                      <span className="text-sm font-bold uppercase tracking-wider text-black dark:text-[#c0c0c8]">
                         {headlines[0].country}
                       </span>
                       <span className="text-neutral-400 dark:text-neutral-500">•</span>
-                      <span className="text-sm text-neutral-500 dark:text-[#8a8a94]">{headlines[0].time}</span>
+                      <span className="text-sm text-black dark:text-[#8a8a94]">{headlines[0].time}</span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-neutral-900 dark:text-[#e8e8ec] mb-2 group-hover:text-neutral-600 dark:group-hover:text-white transition-colors">
                       {headlines[0].title}
                     </h3>
-                    <p className="text-neutral-600 dark:text-[#8a8a94]">
+                    <p className="text-black dark:text-[#8a8a94]">
                       {headlines[0].summary}
                     </p>
                   </div>
 
                   {/* Read more */}
-                  <div className="flex items-center gap-2 text-neutral-700 dark:text-[#c0c0c8] font-semibold group-hover:translate-x-2 transition-transform">
+                  <div className="flex items-center gap-2 text-black dark:text-[#c0c0c8] font-semibold group-hover:translate-x-2 transition-transform">
                     <span>Read Full Story</span>
                     <ArrowRight className="w-5 h-5" />
                   </div>
@@ -155,14 +155,14 @@ export function NewsHeadlines() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">{headline.flag}</span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-[#c0c0c8]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-black dark:text-[#c0c0c8]">
                       {headline.country}
                     </span>
                   </div>
                   {headline.trending && (
                     <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700">
-                      <TrendingUp className="w-3 h-3 text-neutral-600 dark:text-[#8a8a94]" />
-                      <span className="text-[10px] font-semibold text-neutral-600 dark:text-[#8a8a94] uppercase">Trending</span>
+                      <TrendingUp className="w-3 h-3 text-black dark:text-[#8a8a94]" />
+                      <span className="text-[10px] font-semibold text-black dark:text-[#8a8a94] uppercase">Trending</span>
                     </div>
                   )}
                 </div>
@@ -173,17 +173,17 @@ export function NewsHeadlines() {
                 </h3>
 
                 {/* Summary */}
-                <p className="text-sm text-neutral-600 dark:text-[#8a8a94] mb-4 line-clamp-3">
+                <p className="text-sm text-black dark:text-[#8a8a94] mb-4 line-clamp-3">
                   {headline.summary}
                 </p>
 
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-neutral-200 dark:border-neutral-800">
-                  <div className="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-[#8a8a94]">
+                  <div className="flex items-center gap-1.5 text-xs text-black dark:text-[#8a8a94]">
                     <Clock className="w-3.5 h-3.5" />
                     <span>{headline.time}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-medium text-neutral-700 dark:text-[#c0c0c8] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center gap-1 text-xs font-medium text-black dark:text-[#c0c0c8] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span>Read more</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>

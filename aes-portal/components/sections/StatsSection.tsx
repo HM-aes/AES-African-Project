@@ -102,7 +102,7 @@ export function StatsSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-neutral-900 dark:text-white mb-4">
             AES Quick Facts
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-neutral-400 max-w-2xl mx-auto">
             United in sovereignty, strength, and vision for a prosperous Africa
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ export function StatsSection() {
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
                     <div className="w-14 h-14 rounded-xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
-                      <Icon className="w-7 h-7 text-neutral-700 dark:text-neutral-300" />
+                      <Icon className="w-7 h-7 text-black dark:text-neutral-300" />
                     </div>
                   </div>
 
@@ -142,7 +142,7 @@ export function StatsSection() {
                         0
                       </span>
                       {stat.suffix && (
-                        <span className="text-3xl font-bold text-neutral-600 dark:text-neutral-400">
+                        <span className="text-3xl font-bold text-black dark:text-neutral-400">
                           {stat.suffix}
                         </span>
                       )}
@@ -150,7 +150,7 @@ export function StatsSection() {
                   </div>
 
                   {/* Label */}
-                  <p className="text-center text-base font-medium text-neutral-600 dark:text-neutral-400 leading-tight">
+                  <p className="text-center text-base font-medium text-black dark:text-neutral-400 leading-tight">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -167,7 +167,7 @@ export function StatsSection() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="text-center mt-12"
         >
-          <p className="text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-600 font-medium">
+          <p className="text-xs uppercase tracking-widest text-black dark:text-neutral-600 font-medium">
             Building a Sovereign Future Together
           </p>
         </motion.div>
