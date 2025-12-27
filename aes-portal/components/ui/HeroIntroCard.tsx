@@ -237,8 +237,8 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
           {/* Left Column - Header Section (3 columns) */}
           <div ref={textRef} className="lg:col-span-3 space-y-4">
             {/* AES Intelligence Hub Badge - shadcn style */}
-            <div className="hero-title inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-sm font-medium text-black dark:text-white tracking-wide">
+            <div className="hero-title inline-flex items-center gap-2 px-4 py-2 rounded-md bg-black border border-neutral-800">
+              <span className="text-sm font-medium text-white tracking-wide">
                 AES Intelligence Hub
               </span>
             </div>
@@ -348,20 +348,20 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
 
         {/* Full Width Content Below */}
         <div className="space-y-8 mt-8 lg:mt-12">
-          {/* Badges - shadcn style */}
+          {/* Badges - always black background with white text */}
           <div className="flex flex-wrap gap-2">
-            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-xs font-medium text-black dark:text-white">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-black border border-neutral-800">
+              <span className="text-xs font-medium text-white">
                 Est. September 2023
               </span>
             </div>
-            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-xs font-medium text-black dark:text-white">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-black border border-neutral-800">
+              <span className="text-xs font-medium text-white">
                 Pan-African Alliance
               </span>
             </div>
-            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-              <span className="text-xs font-medium text-black dark:text-white">
+            <div className="hero-badge inline-flex items-center px-3 py-1.5 rounded-md bg-black border border-neutral-800">
+              <span className="text-xs font-medium text-white">
                 Sovereignty First
               </span>
             </div>
