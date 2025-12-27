@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import {
-  Zap, Shield, Globe, Wheat, GraduationCap, ArrowRight, ChevronLeft, ChevronRight
+  Zap, Shield, Globe, Wheat, GraduationCap, ArrowRight
 } from "lucide-react";
 
 // Register GSAP plugins
@@ -26,51 +26,12 @@ const pillars = [
   { label: "Education", icon: GraduationCap },
 ];
 
-const carouselSlides = [
-  {
-    id: "what-is-aes",
-    title: "What is AES?",
-    subtitle: "Alliance of Sahel States",
-    description: "A groundbreaking confederation uniting Mali, Burkina Faso, and Niger—three nations that chose sovereignty over dependency, unity over division, and African solutions over foreign intervention.",
-    image: "/AES-logos/aes-main-logo.png",
-    type: "logo" as const,
-  },
-  {
-    id: "mali",
-    title: "Mali",
-    subtitle: "Colonel Assimi Goïta",
-    description: "Leading Mali's transformation with unwavering commitment to sovereignty and Pan-African unity. Under his leadership, Mali has reclaimed control over its resources and expelled foreign military bases.",
-    image: "/aes/AES/assimi-goita.jpg",
-    flag: "🇲🇱",
-    type: "country" as const,
-  },
-  {
-    id: "burkina-faso",
-    title: "Burkina Faso",
-    subtitle: "Captain Ibrahim Traoré",
-    description: "At 36, one of Africa's youngest leaders, driving radical transformation through self-reliance and African solutions. His visionary leadership inspires a new generation across the continent.",
-    image: "/aes/AES/ibrahim-traore.jpg",
-    flag: "🇧🇫",
-    type: "country" as const,
-  },
-  {
-    id: "niger",
-    title: "Niger",
-    subtitle: "General Abdourahamane Tiani",
-    description: "Leading Niger's path to true independence, prioritizing national sovereignty and African-centered development. Under his guidance, Niger is building strategic partnerships that serve African interests.",
-    image: "/aes/AES/abdourahamane-tiani.jpg",
-    flag: "🇳🇪",
-    type: "country" as const,
-  },
-];
-
 export function HeroIntroCard({ className }: HeroIntroCardProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const logoContainerRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Mouse position for 3D tilt effect
   const mouseX = useMotionValue(0);
@@ -80,14 +41,6 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
   const springConfig = { damping: 25, stiffness: 150 };
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig);
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), springConfig);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
-  };
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -414,159 +367,31 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
           </div>
 
-          {/* Who We Are - Glassmorphic TV Screen Carousel */}
-          <div className="space-y-8 max-w-7xl mx-auto">
-            {/* Beautiful Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center space-y-4"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-neutral-900 dark:text-white">
+          {/* Main Content */}
+          <div className="space-y-6 max-w-5xl">
+            <div className="hero-content-header flex items-center gap-3">
+              <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
+              <span className="text-xs uppercase tracking-widest font-medium text-black dark:text-neutral-500">
                 Who We Are
-              </h2>
-              <div className="h-1 w-24 mx-auto bg-gradient-to-r from-pan-red via-pan-gold to-pan-green rounded-full" />
-            </motion.div>
+              </span>
+            </div>
 
-            {/* Glassmorphic TV Screen Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative group"
-            >
-              {/* Ambient glow effect */}
-              <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <p className="hero-description text-lg md:text-xl leading-relaxed text-black dark:text-neutral-300">
+              The <span className="font-semibold text-neutral-900 dark:text-white">Alliance of Sahel States (AES)</span> is a
+              groundbreaking confederation uniting{" "}
+              <span className="font-semibold text-neutral-900 dark:text-white">Mali</span>,{" "}
+              <span className="font-semibold text-neutral-900 dark:text-white">Burkina Faso</span>, and{" "}
+              <span className="font-semibold text-neutral-900 dark:text-white">Niger</span>—three
+              nations that chose sovereignty over dependency, unity over division, and
+              African solutions over foreign intervention.
+            </p>
 
-              {/* Glass TV Screen Container */}
-              <div className="relative bg-gradient-to-br from-white/90 via-white/70 to-white/90 dark:from-neutral-900/90 dark:via-neutral-900/70 dark:to-neutral-900/90 backdrop-blur-2xl rounded-3xl border border-white/20 dark:border-neutral-700/50 shadow-[0_8px_32px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] overflow-hidden">
-
-                {/* Screen bezel effect */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-black/20 pointer-events-none" />
-
-                {/* Navigation Buttons */}
-                <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between items-center z-20 pointer-events-none">
-                  <motion.button
-                    onClick={prevSlide}
-                    whileHover={{ scale: 1.1, x: -5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-all shadow-xl"
-                  >
-                    <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
-                  </motion.button>
-
-                  <motion.button
-                    onClick={nextSlide}
-                    whileHover={{ scale: 1.1, x: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-all shadow-xl"
-                  >
-                    <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
-                  </motion.button>
-                </div>
-
-                {/* Content Area */}
-                <div className="relative p-8 md:p-12 lg:p-16">
-                  <motion.div
-                    key={currentSlide}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[400px] md:min-h-[500px]"
-                  >
-                    {/* Left: Image/Logo */}
-                    <div className="flex items-center justify-center">
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative"
-                      >
-                        {carouselSlides[currentSlide].type === "logo" ? (
-                          <div className="relative w-64 h-64 md:w-80 md:h-80">
-                            <Image
-                              src={carouselSlides[currentSlide].image}
-                              alt={carouselSlides[currentSlide].title}
-                              fill
-                              className="object-contain drop-shadow-2xl"
-                              priority
-                            />
-                          </div>
-                        ) : (
-                          <div className="space-y-6">
-                            {/* Flag */}
-                            <div className="text-8xl md:text-9xl text-center drop-shadow-2xl">
-                              {carouselSlides[currentSlide].flag}
-                            </div>
-                            {/* Leader Image */}
-                            <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-2xl overflow-hidden border-4 border-white/20 dark:border-neutral-700/50 shadow-2xl">
-                              <Image
-                                src={carouselSlides[currentSlide].image}
-                                alt={carouselSlides[currentSlide].subtitle}
-                                fill
-                                className="object-cover"
-                                priority
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                            </div>
-                          </div>
-                        )}
-                      </motion.div>
-                    </div>
-
-                    {/* Right: Content */}
-                    <div className="space-y-6">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                      >
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-neutral-900 dark:text-white mb-3">
-                          {carouselSlides[currentSlide].title}
-                        </h3>
-                        <p className="text-xl md:text-2xl font-medium text-neutral-700 dark:text-neutral-300 mb-6">
-                          {carouselSlides[currentSlide].subtitle}
-                        </p>
-                      </motion.div>
-
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-base md:text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
-                      >
-                        {carouselSlides[currentSlide].description}
-                      </motion.p>
-
-                      {/* Progress Indicators */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="flex gap-2 pt-4"
-                      >
-                        {carouselSlides.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentSlide(index)}
-                            className={`h-2 rounded-full transition-all duration-300 ${
-                              index === currentSlide
-                                ? "w-12 bg-neutral-900 dark:bg-white"
-                                : "w-2 bg-neutral-300 dark:bg-neutral-600 hover:bg-neutral-400 dark:hover:bg-neutral-500"
-                            }`}
-                            aria-label={`Go to slide ${index + 1}`}
-                          />
-                        ))}
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
+            <p className="hero-description text-base md:text-lg leading-relaxed text-black dark:text-neutral-400">
+              Born from a shared vision to end decades of exploitation, our leaders—military officers
+              who rose from the people—are rewriting Africa&apos;s future. We have withdrawn from
+              ECOWAS, expelled foreign military bases, and are building an economy that serves
+              Africans first.
+            </p>
           </div>
 
           {/* Strategic Pillars - shadcn style */}
