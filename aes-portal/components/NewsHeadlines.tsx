@@ -160,9 +160,9 @@ export function NewsHeadlines() {
                     </span>
                   </div>
                   {headline.trending && (
-                    <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700">
-                      <TrendingUp className="w-3 h-3 text-black dark:text-[#8a8a94]" />
-                      <span className="text-[10px] font-semibold text-black dark:text-[#8a8a94] uppercase">Trending</span>
+                    <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-black border border-neutral-800">
+                      <TrendingUp className="w-3 h-3 text-white" />
+                      <span className="text-[10px] font-semibold text-white uppercase">Trending</span>
                     </div>
                   )}
                 </div>

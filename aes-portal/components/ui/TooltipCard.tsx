@@ -263,8 +263,8 @@ export function TooltipCard({ className }: TooltipCardProps) {
                       <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 pointer-events-none">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-3xl md:text-4xl">{currentLeader.emoji}</span>
-                          <div className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-400 dark:border-neutral-600">
-                            <span className="text-sm font-bold text-neutral-900 dark:text-neutral-200 uppercase tracking-wider">
+                          <div className="px-3 py-1 rounded-full bg-black border border-neutral-800">
+                            <span className="text-sm font-bold text-white uppercase tracking-wider">
                               {currentLeader.country}
                             </span>
                           </div>
