@@ -394,7 +394,7 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </p>
           </div>
 
-          {/* Strategic Pillars - shadcn style */}
+          {/* Strategic Pillars - all black background with white text */}
           <div className="space-y-4">
             <p className="hero-pillars-label text-xs uppercase tracking-widest font-medium text-black dark:text-neutral-500">
               Strategic Pillars
@@ -405,10 +405,10 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
                   key={pillar.label}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
-                  className="hero-pillar inline-flex items-center gap-2 px-3 py-2 rounded-md bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
+                  className="hero-pillar inline-flex items-center gap-2 px-3 py-2 rounded-md bg-black border border-neutral-800 hover:border-neutral-600 transition-colors"
                 >
-                  <pillar.icon className="w-4 h-4 text-black dark:text-neutral-400" />
-                  <span className="text-sm font-medium text-black dark:text-neutral-300">
+                  <pillar.icon className="w-4 h-4 text-white" />
+                  <span className="text-sm font-medium text-white">
                     {pillar.label}
                   </span>
                 </motion.div>
@@ -416,14 +416,14 @@ export function HeroIntroCard({ className }: HeroIntroCardProps) {
             </div>
           </div>
 
-          {/* CTA Button - shadcn style */}
+          {/* CTA Button - black background with white text */}
           <div className="hero-cta pt-4">
             <motion.a
               href="/aes"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.2 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-white dark:bg-white text-black font-medium text-sm border border-neutral-200 hover:bg-neutral-100 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-black text-white font-medium text-sm border border-neutral-800 hover:bg-neutral-900 transition-colors"
             >
               <span>Explore Our Journey</span>
               <ArrowRight className="w-4 h-4" />
