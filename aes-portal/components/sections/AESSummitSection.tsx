@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Calendar, TrendingUp, Flag } from "lucide-react";
+import { Calendar, TrendingUp, Flag, ArrowRight } from "lucide-react";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -42,8 +42,48 @@ export function AESSummitSection() {
       ref={sectionRef}
       className="relative py-24 px-6 overflow-hidden"
     >
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Section Header */}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Hero Image with Leaders */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative mb-12 rounded-2xl overflow-hidden"
+        >
+          {/* Image Container with light/dark mode adaptation */}
+          <div className="relative aspect-[21/9] w-full">
+            <Image
+              src="/images/aes-summit-leaders.png"
+              alt="The Three Leaders of the Alliance of Sahel States - Mali, Niger, Burkina Faso"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+            {/* Dark mode overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-black opacity-60" />
+            {/* Subtle vignette for dark mode */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent dark:from-black/60 dark:to-black/20" />
+          </div>
+          
+          {/* Overlay text on image */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-black border border-neutral-800 shadow-sm mb-4">
+              <div className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </div>
+              <span className="text-sm font-bold text-white uppercase tracking-wider">
+                Historic Milestone
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white drop-shadow-lg">
+              The AES Summit Journey
+            </h2>
+          </div>
+        </motion.div>
+
+        {/* Section Intro */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,33 +91,10 @@ export function AESSummitSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          {/* AES Logo */}
-          <div className="flex justify-center mb-6">
-            <Image
-              src="/AES-logos/aes-main-logo.png"
-              alt="AES Logo"
-              width={80}
-              height={80}
-              className="rounded-xl"
-            />
-          </div>
-
-          {/* Badge - shadcn style: dark in both modes */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm mb-6">
-            <div className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </div>
-            <span className="text-sm font-bold text-white uppercase tracking-wider">
-              Historic Milestone
-            </span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-zinc-900 dark:text-white mb-4">
-            The AES Summit Journey
-          </h2>
-          <p className="text-lg text-black dark:text-zinc-400 max-w-2xl mx-auto">
-            From revolutionary vision to continental transformation
+          <p className="text-lg md:text-xl text-black dark:text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+            The Alliance of Sahel States represents one of the most significant political developments in modern African history. 
+            Born from a shared vision of sovereignty and self-determination, three nations came together to forge a new path 
+            for the Sahel region—free from colonial interference and focused on African solutions for African challenges.
           </p>
         </motion.div>
 
@@ -86,119 +103,138 @@ export function AESSummitSection() {
           {/* First Summit */}
           <div className="summit-block">
             <div className="flex items-start gap-5 mb-6">
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-zinc-900 flex items-center justify-center shadow-lg border border-zinc-700">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-black flex items-center justify-center shadow-lg border border-neutral-800">
                 <Flag className="w-6 h-6 text-green-400" />
               </div>
               <div className="flex-1 pt-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-xs font-bold text-zinc-300 uppercase tracking-wider mb-3">
-                  July 2023 • Niamey, Niger
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-black border border-neutral-800 text-xs font-bold text-white uppercase tracking-wider mb-3">
+                  September 16, 2023 • Bamako, Mali
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white">
-                  First Summit: The Revolution Begins
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white">
+                  The Liptako-Gourma Charter: A New Era Begins
                 </h3>
               </div>
             </div>
 
-            <div className="ml-[4.75rem] space-y-4 text-black dark:text-zinc-400 leading-relaxed">
+            <div className="ml-[4.75rem] space-y-4 text-black dark:text-neutral-400 leading-relaxed">
               <p className="text-lg">
-                In a historic moment that would reshape West Africa's geopolitical landscape, the leaders of <strong className="text-zinc-900 dark:text-white">Mali, Burkina Faso, and Niger</strong> convened in Niamey to establish the <strong className="text-zinc-900 dark:text-white">Alliance of Sahel States (AES)</strong>.
+                On September 16, 2023, history was made when the transitional leaders of <strong className="text-black dark:text-white">Mali, Burkina Faso, and Niger</strong> signed 
+                the <strong className="text-black dark:text-white">Liptako-Gourma Charter</strong>, officially establishing the Alliance of Sahel States.
               </p>
               <p>
-                This watershed summit marked the beginning of a new era of sovereignty and self-determination. The three nations pledged mutual defense, economic cooperation, and a unified vision for African development.
+                The charter created a collective defense framework where an attack on one member state would be considered an attack on all—a 
+                direct response to ECOWAS threats of military intervention following Niger's political transition. The three leaders declared 
+                their intention to break free from decades of French military presence and neocolonial economic arrangements.
+              </p>
+              <p>
+                <strong className="text-black dark:text-white">Captain Ibrahim Traoré</strong> of Burkina Faso, <strong className="text-black dark:text-white">Colonel Assimi Goïta</strong> of Mali, 
+                and <strong className="text-black dark:text-white">General Abdourahmane Tchiani</strong> of Niger stood united, declaring: 
+                <em className="italic">"The time has come for Africa to take its destiny into its own hands."</em>
               </p>
             </div>
           </div>
 
-          {/* Second Summit */}
+          {/* ECOWAS Withdrawal */}
           <div className="summit-block">
             <div className="flex items-start gap-5 mb-6">
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-zinc-900 flex items-center justify-center shadow-lg border border-zinc-700">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-black flex items-center justify-center shadow-lg border border-neutral-800">
                 <Calendar className="w-6 h-6 text-amber-400" />
               </div>
               <div className="flex-1 pt-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-xs font-bold text-zinc-300 uppercase tracking-wider mb-3">
-                  December 2024 • Bamako, Mali
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-black border border-neutral-800 text-xs font-bold text-white uppercase tracking-wider mb-3">
+                  January 28, 2024 • Joint Declaration
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white">
-                  Second Summit: Consolidating Progress
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white">
+                  Breaking with ECOWAS: Sovereignty Over Submission
                 </h3>
               </div>
             </div>
 
-            <div className="ml-[4.75rem] space-y-6 text-black dark:text-zinc-400 leading-relaxed">
+            <div className="ml-[4.75rem] space-y-6 text-black dark:text-neutral-400 leading-relaxed">
               <p className="text-lg">
-                Eighteen months after its founding, the AES gathers in <strong className="text-zinc-900 dark:text-white">Bamako</strong> to celebrate remarkable achievements and chart the path forward.
+                In a bold declaration that shocked the international community, the three AES nations announced their 
+                <strong className="text-black dark:text-white"> immediate withdrawal from ECOWAS</strong>—the Economic Community of West African States 
+                that had threatened military intervention and imposed harsh sanctions.
               </p>
 
-              {/* Achievements Card - shadcn style */}
-              <div className="rounded-xl p-6 bg-zinc-900 border border-zinc-700 shadow-lg">
-                <h4 className="text-lg font-bold text-white mb-4">Key Achievements</h4>
-                <ul className="space-y-3 text-zinc-300">
+              {/* Key Points Card */}
+              <div className="rounded-xl p-6 bg-black border border-neutral-800 shadow-lg">
+                <h4 className="text-lg font-bold text-white mb-4">Reasons for Withdrawal</h4>
+                <ul className="space-y-3 text-neutral-300">
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">✓</span>
-                    <span><strong className="text-white">Joint Military Command</strong> — Unified defense across 1.5M km²</span>
+                    <span><strong className="text-white">Foreign Influence</strong> — ECOWAS had become an instrument of Western powers</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">✓</span>
-                    <span><strong className="text-white">Economic Integration</strong> — $2.3B in cross-border projects</span>
+                    <span><strong className="text-white">Unjust Sanctions</strong> — Economic warfare against sovereign nations</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">✓</span>
-                    <span><strong className="text-white">Resource Sovereignty</strong> — 67% more mining revenue</span>
+                    <span><strong className="text-white">Military Threats</strong> — Threats of armed intervention against member states</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-400 font-bold">✓</span>
-                    <span><strong className="text-white">Diplomatic Unity</strong> — Unified AU, UN representation</span>
+                    <span><strong className="text-white">Failed Leadership</strong> — Decades of corruption and stagnation under ECOWAS</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Future Vision */}
+          {/* Confederation Summit */}
           <div className="summit-block">
             <div className="flex items-start gap-5 mb-6">
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-zinc-900 flex items-center justify-center shadow-lg border border-zinc-700">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-black flex items-center justify-center shadow-lg border border-neutral-800">
                 <TrendingUp className="w-6 h-6 text-red-400" />
               </div>
               <div className="flex-1 pt-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-xs font-bold text-zinc-300 uppercase tracking-wider mb-3">
-                  Strategic Priorities
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-black border border-neutral-800 text-xs font-bold text-white uppercase tracking-wider mb-3">
+                  July 6, 2024 • Niamey, Niger
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white">
-                  The Road Ahead: 2025 & Beyond
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white">
+                  The Confederation of Sahel States is Born
                 </h3>
               </div>
             </div>
 
-            <div className="ml-[4.75rem] space-y-6 text-black dark:text-zinc-400 leading-relaxed">
+            <div className="ml-[4.75rem] space-y-6 text-black dark:text-neutral-400 leading-relaxed">
               <p className="text-lg">
-                As the AES enters its second year, leaders have outlined an ambitious agenda to deepen integration.
+                The first official summit of the AES heads of state was held in Niamey, Niger, marking a historic moment when the alliance 
+                evolved into a full <strong className="text-black dark:text-white">Confederation of Sahel States</strong>.
               </p>
 
-              {/* Priority Cards Grid - shadcn style */}
+              <p>
+                The summit produced the <strong className="text-black dark:text-white">Treaty Establishing the Confederation of Sahel States</strong>, 
+                which went far beyond military cooperation to create a framework for complete political and economic integration. 
+                The three nations committed to eventual federation, with shared institutions, a common currency, and unified foreign policy.
+              </p>
+
+              {/* Summit Outcomes Grid */}
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="rounded-xl p-5 bg-zinc-900 border border-zinc-700">
-                  <h5 className="font-bold text-white mb-2">🏭 Industrial Development</h5>
-                  <p className="text-sm text-zinc-400">Launch AES Industrial Zone with textile, technology, and agricultural facilities</p>
+                <div className="rounded-xl p-5 bg-black border border-neutral-800">
+                  <h5 className="font-bold text-white mb-2">🏛️ Political Integration</h5>
+                  <p className="text-sm text-neutral-400">Creation of a confederation parliament and unified executive council</p>
                 </div>
-                <div className="rounded-xl p-5 bg-zinc-900 border border-zinc-700">
-                  <h5 className="font-bold text-white mb-2">💰 AES Development Bank</h5>
-                  <p className="text-sm text-zinc-400">Regional financial institution with $5B initial capital</p>
+                <div className="rounded-xl p-5 bg-black border border-neutral-800">
+                  <h5 className="font-bold text-white mb-2">💰 Economic Union</h5>
+                  <p className="text-sm text-neutral-400">Plans for a common currency and integrated financial system</p>
                 </div>
-                <div className="rounded-xl p-5 bg-zinc-900 border border-zinc-700">
-                  <h5 className="font-bold text-white mb-2">🎓 Education Partnership</h5>
-                  <p className="text-sm text-zinc-400">AES University Network with technology transfer hubs</p>
+                <div className="rounded-xl p-5 bg-black border border-neutral-800">
+                  <h5 className="font-bold text-white mb-2">🛡️ Defense Pact</h5>
+                  <p className="text-sm text-neutral-400">Unified military command with shared resources and training</p>
                 </div>
-                <div className="rounded-xl p-5 bg-zinc-900 border border-zinc-700">
-                  <h5 className="font-bold text-white mb-2">🤝 Regional Expansion</h5>
-                  <p className="text-sm text-zinc-400">Open membership to neighboring sovereignty-focused states</p>
+                <div className="rounded-xl p-5 bg-black border border-neutral-800">
+                  <h5 className="font-bold text-white mb-2">🌍 Diplomatic Unity</h5>
+                  <p className="text-sm text-neutral-400">Joint representation in international organizations</p>
                 </div>
               </div>
 
               {/* Quote */}
-              <blockquote className="border-l-4 border-amber-500 pl-4 py-2 italic text-black dark:text-zinc-400">
-                "The AES is Africa's blueprint for self-determined development."
+              <blockquote className="border-l-4 border-amber-500 pl-4 py-2 italic text-black dark:text-neutral-300">
+                "This confederation is Africa's answer to those who said we could not stand on our own. 
+                Today, we prove that unity, sovereignty, and dignity are not just dreams—they are our reality."
+                <footer className="text-sm text-neutral-500 mt-2">— Joint Declaration, Niamey Summit 2024</footer>
               </blockquote>
             </div>
           </div>
@@ -215,15 +251,10 @@ export function AESSummitSection() {
             href="/blog"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-black hover:bg-neutral-900 border border-neutral-800 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
           >
             <span>Follow Our Journey</span>
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              →
-            </motion.span>
+            <ArrowRight className="w-5 h-5" />
           </motion.a>
         </motion.div>
       </div>

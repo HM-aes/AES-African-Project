@@ -88,7 +88,7 @@ export function JointForcesSection() {
           </div>
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-700 shadow-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black border border-neutral-800 shadow-sm mb-6">
             <Shield className="w-4 h-4 text-amber-400" />
             <span className="text-sm font-bold text-white uppercase tracking-wider">
               Defense Partnership
@@ -123,8 +123,8 @@ export function JointForcesSection() {
                     onClick={() => setActiveTab(index)}
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                       isActive
-                        ? "bg-zinc-900 text-white border border-amber-500/50 shadow-lg"
-                        : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                        ? "bg-black text-white border border-amber-500/50 shadow-lg"
+                        : "bg-black text-white border border-neutral-800 hover:border-neutral-600"
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${isActive ? "text-amber-400" : ""}`} />
@@ -144,9 +144,18 @@ export function JointForcesSection() {
                 transition={{ duration: 0.4 }}
                 className="space-y-6"
               >
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                  {currentTab.badge}
+                {/* Badge with Flags */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-black border border-neutral-800 text-xs font-bold text-white uppercase tracking-wider">
+                    {currentTab.badge}
+                  </div>
+                  {/* Country Flags - inline after badge */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl" title="Russia">🇷🇺</span>
+                    <span className="text-xl" title="Mali">🇲🇱</span>
+                    <span className="text-xl" title="Burkina Faso">🇧🇫</span>
+                    <span className="text-xl" title="Niger">🇳🇪</span>
+                  </div>
                 </div>
 
                 {/* Heading */}
