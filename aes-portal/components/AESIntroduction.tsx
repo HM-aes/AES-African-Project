@@ -56,10 +56,10 @@ export function AESIntroduction() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black border border-neutral-800"
           >
-            <Shield className="w-4 h-4 text-black dark:text-[#c0c0c8]" />
-            <span className="text-sm font-semibold text-black dark:text-[#c0c0c8] uppercase tracking-wider">
+            <Shield className="w-4 h-4 text-white" />
+            <span className="text-sm font-semibold text-white uppercase tracking-wider">
               Alliance of Sahel States
             </span>
           </motion.div>
